@@ -1,0 +1,622 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F1FBFC002AD98FC900332F41 /* GuessTheCountryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FBFBFF2AD98FC900332F41 /* GuessTheCountryApp.swift */; };
+		F1FBFC022AD98FC900332F41 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FBFC012AD98FC900332F41 /* ContentView.swift */; };
+		F1FBFC042AD98FCB00332F41 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1FBFC032AD98FCB00332F41 /* Assets.xcassets */; };
+		F1FBFC082AD98FCB00332F41 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1FBFC072AD98FCB00332F41 /* Preview Assets.xcassets */; };
+		F1FBFC122AD98FCB00332F41 /* GuessTheCountryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FBFC112AD98FCB00332F41 /* GuessTheCountryTests.swift */; };
+		F1FBFC1C2AD98FCB00332F41 /* GuessTheCountryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FBFC1B2AD98FCB00332F41 /* GuessTheCountryUITests.swift */; };
+		F1FBFC1E2AD98FCB00332F41 /* GuessTheCountryUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FBFC1D2AD98FCB00332F41 /* GuessTheCountryUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F1FBFC0E2AD98FCB00332F41 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F1FBFBF42AD98FC900332F41 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F1FBFBFB2AD98FC900332F41;
+			remoteInfo = GuessTheCountry;
+		};
+		F1FBFC182AD98FCB00332F41 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F1FBFBF42AD98FC900332F41 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F1FBFBFB2AD98FC900332F41;
+			remoteInfo = GuessTheCountry;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F1FBFBFC2AD98FC900332F41 /* GuessTheCountry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GuessTheCountry.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F1FBFBFF2AD98FC900332F41 /* GuessTheCountryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessTheCountryApp.swift; sourceTree = "<group>"; };
+		F1FBFC012AD98FC900332F41 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		F1FBFC032AD98FCB00332F41 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F1FBFC052AD98FCB00332F41 /* GuessTheCountry.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GuessTheCountry.entitlements; sourceTree = "<group>"; };
+		F1FBFC072AD98FCB00332F41 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F1FBFC0D2AD98FCB00332F41 /* GuessTheCountryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GuessTheCountryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F1FBFC112AD98FCB00332F41 /* GuessTheCountryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessTheCountryTests.swift; sourceTree = "<group>"; };
+		F1FBFC172AD98FCB00332F41 /* GuessTheCountryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GuessTheCountryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F1FBFC1B2AD98FCB00332F41 /* GuessTheCountryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessTheCountryUITests.swift; sourceTree = "<group>"; };
+		F1FBFC1D2AD98FCB00332F41 /* GuessTheCountryUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessTheCountryUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F1FBFBF92AD98FC900332F41 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F1FBFC0A2AD98FCB00332F41 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F1FBFC142AD98FCB00332F41 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F1FBFBF32AD98FC900332F41 = {
+			isa = PBXGroup;
+			children = (
+				F1FBFBFE2AD98FC900332F41 /* GuessTheCountry */,
+				F1FBFC102AD98FCB00332F41 /* GuessTheCountryTests */,
+				F1FBFC1A2AD98FCB00332F41 /* GuessTheCountryUITests */,
+				F1FBFBFD2AD98FC900332F41 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F1FBFBFD2AD98FC900332F41 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F1FBFBFC2AD98FC900332F41 /* GuessTheCountry.app */,
+				F1FBFC0D2AD98FCB00332F41 /* GuessTheCountryTests.xctest */,
+				F1FBFC172AD98FCB00332F41 /* GuessTheCountryUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F1FBFBFE2AD98FC900332F41 /* GuessTheCountry */ = {
+			isa = PBXGroup;
+			children = (
+				F1FBFBFF2AD98FC900332F41 /* GuessTheCountryApp.swift */,
+				F1FBFC012AD98FC900332F41 /* ContentView.swift */,
+				F1FBFC032AD98FCB00332F41 /* Assets.xcassets */,
+				F1FBFC052AD98FCB00332F41 /* GuessTheCountry.entitlements */,
+				F1FBFC062AD98FCB00332F41 /* Preview Content */,
+			);
+			path = GuessTheCountry;
+			sourceTree = "<group>";
+		};
+		F1FBFC062AD98FCB00332F41 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				F1FBFC072AD98FCB00332F41 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		F1FBFC102AD98FCB00332F41 /* GuessTheCountryTests */ = {
+			isa = PBXGroup;
+			children = (
+				F1FBFC112AD98FCB00332F41 /* GuessTheCountryTests.swift */,
+			);
+			path = GuessTheCountryTests;
+			sourceTree = "<group>";
+		};
+		F1FBFC1A2AD98FCB00332F41 /* GuessTheCountryUITests */ = {
+			isa = PBXGroup;
+			children = (
+				F1FBFC1B2AD98FCB00332F41 /* GuessTheCountryUITests.swift */,
+				F1FBFC1D2AD98FCB00332F41 /* GuessTheCountryUITestsLaunchTests.swift */,
+			);
+			path = GuessTheCountryUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F1FBFBFB2AD98FC900332F41 /* GuessTheCountry */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F1FBFC212AD98FCB00332F41 /* Build configuration list for PBXNativeTarget "GuessTheCountry" */;
+			buildPhases = (
+				F1FBFBF82AD98FC900332F41 /* Sources */,
+				F1FBFBF92AD98FC900332F41 /* Frameworks */,
+				F1FBFBFA2AD98FC900332F41 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GuessTheCountry;
+			productName = GuessTheCountry;
+			productReference = F1FBFBFC2AD98FC900332F41 /* GuessTheCountry.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F1FBFC0C2AD98FCB00332F41 /* GuessTheCountryTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F1FBFC242AD98FCB00332F41 /* Build configuration list for PBXNativeTarget "GuessTheCountryTests" */;
+			buildPhases = (
+				F1FBFC092AD98FCB00332F41 /* Sources */,
+				F1FBFC0A2AD98FCB00332F41 /* Frameworks */,
+				F1FBFC0B2AD98FCB00332F41 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F1FBFC0F2AD98FCB00332F41 /* PBXTargetDependency */,
+			);
+			name = GuessTheCountryTests;
+			productName = GuessTheCountryTests;
+			productReference = F1FBFC0D2AD98FCB00332F41 /* GuessTheCountryTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		F1FBFC162AD98FCB00332F41 /* GuessTheCountryUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F1FBFC272AD98FCB00332F41 /* Build configuration list for PBXNativeTarget "GuessTheCountryUITests" */;
+			buildPhases = (
+				F1FBFC132AD98FCB00332F41 /* Sources */,
+				F1FBFC142AD98FCB00332F41 /* Frameworks */,
+				F1FBFC152AD98FCB00332F41 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F1FBFC192AD98FCB00332F41 /* PBXTargetDependency */,
+			);
+			name = GuessTheCountryUITests;
+			productName = GuessTheCountryUITests;
+			productReference = F1FBFC172AD98FCB00332F41 /* GuessTheCountryUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F1FBFBF42AD98FC900332F41 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					F1FBFBFB2AD98FC900332F41 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+					F1FBFC0C2AD98FCB00332F41 = {
+						CreatedOnToolsVersion = 15.0;
+						TestTargetID = F1FBFBFB2AD98FC900332F41;
+					};
+					F1FBFC162AD98FCB00332F41 = {
+						CreatedOnToolsVersion = 15.0;
+						TestTargetID = F1FBFBFB2AD98FC900332F41;
+					};
+				};
+			};
+			buildConfigurationList = F1FBFBF72AD98FC900332F41 /* Build configuration list for PBXProject "GuessTheCountry" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F1FBFBF32AD98FC900332F41;
+			productRefGroup = F1FBFBFD2AD98FC900332F41 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F1FBFBFB2AD98FC900332F41 /* GuessTheCountry */,
+				F1FBFC0C2AD98FCB00332F41 /* GuessTheCountryTests */,
+				F1FBFC162AD98FCB00332F41 /* GuessTheCountryUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F1FBFBFA2AD98FC900332F41 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F1FBFC082AD98FCB00332F41 /* Preview Assets.xcassets in Resources */,
+				F1FBFC042AD98FCB00332F41 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F1FBFC0B2AD98FCB00332F41 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F1FBFC152AD98FCB00332F41 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F1FBFBF82AD98FC900332F41 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F1FBFC022AD98FC900332F41 /* ContentView.swift in Sources */,
+				F1FBFC002AD98FC900332F41 /* GuessTheCountryApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F1FBFC092AD98FCB00332F41 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F1FBFC122AD98FCB00332F41 /* GuessTheCountryTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F1FBFC132AD98FCB00332F41 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F1FBFC1C2AD98FCB00332F41 /* GuessTheCountryUITests.swift in Sources */,
+				F1FBFC1E2AD98FCB00332F41 /* GuessTheCountryUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F1FBFC0F2AD98FCB00332F41 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F1FBFBFB2AD98FC900332F41 /* GuessTheCountry */;
+			targetProxy = F1FBFC0E2AD98FCB00332F41 /* PBXContainerItemProxy */;
+		};
+		F1FBFC192AD98FCB00332F41 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F1FBFBFB2AD98FC900332F41 /* GuessTheCountry */;
+			targetProxy = F1FBFC182AD98FCB00332F41 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		F1FBFC1F2AD98FCB00332F41 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F1FBFC202AD98FCB00332F41 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		F1FBFC222AD98FCB00332F41 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = GuessTheCountry/GuessTheCountry.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"GuessTheCountry/Preview Content\"";
+				DEVELOPMENT_TEAM = 2UQH8275LS;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = fr.ippon.GuessTheCountry;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F1FBFC232AD98FCB00332F41 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = GuessTheCountry/GuessTheCountry.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"GuessTheCountry/Preview Content\"";
+				DEVELOPMENT_TEAM = 2UQH8275LS;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = fr.ippon.GuessTheCountry;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		F1FBFC252AD98FCB00332F41 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2UQH8275LS;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = fr.ippon.GuessTheCountryTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GuessTheCountry.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/GuessTheCountry";
+			};
+			name = Debug;
+		};
+		F1FBFC262AD98FCB00332F41 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2UQH8275LS;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = fr.ippon.GuessTheCountryTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GuessTheCountry.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/GuessTheCountry";
+			};
+			name = Release;
+		};
+		F1FBFC282AD98FCB00332F41 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2UQH8275LS;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = fr.ippon.GuessTheCountryUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = GuessTheCountry;
+			};
+			name = Debug;
+		};
+		F1FBFC292AD98FCB00332F41 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2UQH8275LS;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = fr.ippon.GuessTheCountryUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = GuessTheCountry;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F1FBFBF72AD98FC900332F41 /* Build configuration list for PBXProject "GuessTheCountry" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F1FBFC1F2AD98FCB00332F41 /* Debug */,
+				F1FBFC202AD98FCB00332F41 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F1FBFC212AD98FCB00332F41 /* Build configuration list for PBXNativeTarget "GuessTheCountry" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F1FBFC222AD98FCB00332F41 /* Debug */,
+				F1FBFC232AD98FCB00332F41 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F1FBFC242AD98FCB00332F41 /* Build configuration list for PBXNativeTarget "GuessTheCountryTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F1FBFC252AD98FCB00332F41 /* Debug */,
+				F1FBFC262AD98FCB00332F41 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F1FBFC272AD98FCB00332F41 /* Build configuration list for PBXNativeTarget "GuessTheCountryUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F1FBFC282AD98FCB00332F41 /* Debug */,
+				F1FBFC292AD98FCB00332F41 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F1FBFBF42AD98FC900332F41 /* Project object */;
+}
