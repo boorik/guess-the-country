@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B6D321CB2AF53EA100C93349 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D321CA2AF53EA100C93349 /* HomeView.swift */; };
+		B6D321CE2AF543C700C93349 /* Font+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D321CD2AF543C700C93349 /* Font+Theme.swift */; };
+		B6D321D12AF545DA00C93349 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D321D02AF545DA00C93349 /* GameView.swift */; };
 		F1E031BD2AEBF61800F344F1 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E031BC2AEBF61800F344F1 /* Country.swift */; };
 		F1E031C02AEBF77900F344F1 /* CountryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E031BF2AEBF77900F344F1 /* CountryService.swift */; };
 		F1E031C22AEBF89A00F344F1 /* CountryServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E031C12AEBF89A00F344F1 /* CountryServiceTests.swift */; };
@@ -38,6 +41,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B6D321CA2AF53EA100C93349 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		B6D321CD2AF543C700C93349 /* Font+Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Theme.swift"; sourceTree = "<group>"; };
+		B6D321D02AF545DA00C93349 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		F1E031BA2AEBF4FC00F344F1 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		F1E031BC2AEBF61800F344F1 /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		F1E031BF2AEBF77900F344F1 /* CountryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryService.swift; sourceTree = "<group>"; };
@@ -81,6 +87,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B6D321C82AF53E3300C93349 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				B6D321CF2AF545CB00C93349 /* Game */,
+				B6D321C92AF53E4C00C93349 /* Home */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		B6D321C92AF53E4C00C93349 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				B6D321CA2AF53EA100C93349 /* HomeView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		B6D321CC2AF5439400C93349 /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				B6D321CD2AF543C700C93349 /* Font+Theme.swift */,
+			);
+			path = Theme;
+			sourceTree = "<group>";
+		};
+		B6D321CF2AF545CB00C93349 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				B6D321D02AF545DA00C93349 /* GameView.swift */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
 		F1E031BB2AEBF5DB00F344F1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -129,6 +168,8 @@
 		F1FBFBFE2AD98FC900332F41 /* GuessTheCountry */ = {
 			isa = PBXGroup;
 			children = (
+				B6D321CC2AF5439400C93349 /* Theme */,
+				B6D321C82AF53E3300C93349 /* Features */,
 				F1E031C32AEBFE6C00F344F1 /* Constants */,
 				F1E031BE2AEBF75300F344F1 /* Service */,
 				F1E031BB2AEBF5DB00F344F1 /* Model */,
@@ -299,9 +340,12 @@
 			files = (
 				F1E031C52AEBFE8200F344F1 /* Constants.swift in Sources */,
 				F1E031C02AEBF77900F344F1 /* CountryService.swift in Sources */,
+				B6D321CB2AF53EA100C93349 /* HomeView.swift in Sources */,
 				F1FBFC022AD98FC900332F41 /* ContentView.swift in Sources */,
 				F1E031BD2AEBF61800F344F1 /* Country.swift in Sources */,
 				F1FBFC002AD98FC900332F41 /* GuessTheCountryApp.swift in Sources */,
+				B6D321D12AF545DA00C93349 /* GameView.swift in Sources */,
+				B6D321CE2AF543C700C93349 /* Font+Theme.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
