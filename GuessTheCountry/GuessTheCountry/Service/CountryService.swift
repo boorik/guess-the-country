@@ -11,7 +11,11 @@ enum ServiceError: Error {
     case invalidUrl
 }
 
-struct CountryService {
+protocol CountryService {
+    func getCountries() async throws -> [Country]
+}
+
+struct RemoteCountryService: CountryService {
     
     let session: URLSession
     

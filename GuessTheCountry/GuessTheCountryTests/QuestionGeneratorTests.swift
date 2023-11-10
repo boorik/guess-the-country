@@ -1,14 +1,14 @@
 //
-//  CountryServiceTests.swift
+//  QuestionGeneratorTests.swift
 //  GuessTheCountryTests
 //
-//  Created by Yannick JACQUELINE on 27/10/2023.
+//  Created by ippon on 10/11/2023.
 //
 
 import XCTest
 @testable import GuessTheCountry
 
-final class CountryServiceTests: XCTestCase {
+final class QuestionGeneratorTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -18,10 +18,13 @@ final class CountryServiceTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() async throws {
-        let sut = RemoteCountryService(session: .shared)
-        let result = try await sut.getCountries()
-        XCTAssertEqual(result.count, 250)
+    func testExample() throws {
+        let sut = QuestionGenerator(countryService: CountryServiceMock())
     }
 
+    struct CountryServiceMock: CountryService {
+        func getCountries() async throws -> [GuessTheCountry.Country] {
+            []
+        }
+    }
 }

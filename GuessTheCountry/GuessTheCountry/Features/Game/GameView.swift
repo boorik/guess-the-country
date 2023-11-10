@@ -35,7 +35,7 @@ struct GameView: View {
                 HStack { // MCQ Choice buttons
                     ForEach(responses, id: \.self) { country in
                         Button {
-                            
+                            //TODO
                         } label: {
                             Text(country)
                         }
