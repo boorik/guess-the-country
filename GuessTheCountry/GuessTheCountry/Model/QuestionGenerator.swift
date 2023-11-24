@@ -19,14 +19,22 @@ class QuestionGenerator {
         //TODO récupérer 5 bonnes réponses
         // pour chaque question, ajouter 1 bonne réponse + 3 mauvaises
         
-//        let countries = try await countryService.getCountries()
-//        countries.map{ country in
-//            Question(
-//                hints: [],
-//                correctAnswer: 0,
-//                possibleAnswers: countries.get(count: 4))
-//        }
-        return []
+        let countries = try await countryService.getCountries().get(count: count)
+        
+        return countries.map{ country in
+            var correctAnswer = country.name.common
+            var possibleAnswers = countries.get(count: 4).map { $0.name.common }
+            
+            possibleAnswers.append(correctAnswer)
+            return Question(
+                hints: [
+                    Hint(label: "flag", value: country.flag),
+                    Hint(label:  "capital", value: country.capital?.first ?? "Unknown")
+                ],
+                correctAnswer: correctAnswer,
+                possibleAnswers: possibleAnswers // $0 prend le 1er paramètre retourné pour chaque itération
+            )
+        }
     }
     
 }

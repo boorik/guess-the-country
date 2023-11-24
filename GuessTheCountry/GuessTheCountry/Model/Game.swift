@@ -22,21 +22,26 @@ class Game {
         //TODO
     }
     
-    func onSelectAnswer(answerId: Int) {
+    func onSelectAnswer(answer: String) {
         let currentQuestion = questions[currentQuestionId]
         
-        if currentQuestion.isAnswerCorrect(answerId: answerId) {
+        if currentQuestion.isAnswerCorrect(answer: answer) {
             score += 1
         }
     }
 }
 
+struct Hint {
+    let label: String
+    let value: String
+}
+
 struct Question {
-    var hints: [String]
-    var correctAnswer: Int
-    var possibleAnswers: [String]
+    let hints: [Hint]
+    let correctAnswer: String
+    let possibleAnswers: [String]
     
-    func isAnswerCorrect(answerId: Int) -> Bool {
-        correctAnswer == answerId
+    func isAnswerCorrect(answer: String) -> Bool {
+        correctAnswer == answer
     }
 }

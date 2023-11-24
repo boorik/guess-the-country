@@ -7,6 +7,25 @@
 
 import SwiftUI
 
+class GameViewModel: ObservableObject {
+    internal init(currentQuestion: Question, questionGenerator: QuestionGenerator) async throws {
+        self.currentQuestion = nil
+        self.questionGenerator = questionGenerator
+        
+        let questions: [Question] = try await questionGenerator.generateQuestions(count: 10)
+        game = Game(questions: questions, currentQuestionId: 0)
+        game.start(questionCount: 10)
+    }
+    
+    @Published var currentQuestion: Question?
+    let questionGenerator: QuestionGenerator
+    let game: Game
+
+    func start() {
+        //TODO: game.start()
+    }
+}
+
 struct GameView: View {
     let responses = ["France", "USA"]
     var body: some View {
@@ -42,6 +61,16 @@ struct GameView: View {
                     }
                 }.padding()
             }
+        }
+    }
+}
+
+struct QuestionView: View {
+    let question: Question
+    var body: some View {
+        VStack {
+            Text("QUESTION")
+            
         }
     }
 }

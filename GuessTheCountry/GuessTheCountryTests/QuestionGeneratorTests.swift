@@ -22,11 +22,18 @@ final class QuestionGeneratorTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testGenerateQuestions() async throws {
+    func testGenerate10Questions() async throws {
         let sut = QuestionGenerator(countryService: CountryServiceMock())
         
         let questions = try await sut.generateQuestions(count: 10)
         XCTAssertEqual(questions.count, 10)
+    }
+
+    func testGenerate20Questions() async throws {
+        let sut = QuestionGenerator(countryService: CountryServiceMock())
+        
+        let questions = try await sut.generateQuestions(count: 20)
+        XCTAssertEqual(questions.count, 20)
     }
     
     func testCountriesArray () async throws {
