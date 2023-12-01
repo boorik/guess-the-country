@@ -8,43 +8,49 @@
 import SwiftUI
 
 class GameViewModel: ObservableObject {
-    internal init(currentQuestion: Question, questionGenerator: QuestionGenerator) async throws {
+    internal init(questions: [Question]) {
         self.currentQuestion = nil
-        self.questionGenerator = questionGenerator
-        
-        let questions: [Question] = try await questionGenerator.generateQuestions(count: 10)
-        game = Game(questions: questions, currentQuestionId: 0)
-        game.start(questionCount: 10)
+        do {
+            self.game = try Game(questions: questions)
+        } catch {
+            // TODO display error message
+        }
     }
     
     @Published var currentQuestion: Question?
-    let questionGenerator: QuestionGenerator
-    let game: Game
-
-    func start() {
-        //TODO: game.start()
+    var game: Game?
+    var score: String {
+        guard let scoreValue = game?.score else {
+            return "0"
+        }
+        return "\(scoreValue)"
+    }
+    var possibleAnswers: [String] {
+        guard let answers = game?.currentQuestion.possibleAnswers else {
+            return []
+        }
+        return answers
+    }
+    
+    func check(answer: String) {
+        game?.onSelectAnswer(answer: answer)
     }
 }
 
 struct GameView: View {
-    let responses = ["France", "USA"]
+    let gameViewModel = GameViewModel(questions: []) // TODO do question mock
     var body: some View {
         VStack {
             ZStack{
                 Text("Quel pays ?")
                 HStack {
                     Spacer()
-                    Text("Score: 5")
+                    Text("Score: \(gameViewModel.score)")
                 }
             }.padding(.horizontal, 20)
             Spacer()
             VStack{
-                Text("indice 1: Population 3 millions d'hab")
-                    .italic()
-                Text("indice 2: Continent Asie")
-                    .italic()
-                Text("indice 3: Monnaie $")
-                    .italic()
+                Text("Hints")
                 Button(action: {}, label: {
                     Text("Indice suivant")
                 })
@@ -52,9 +58,9 @@ struct GameView: View {
             Spacer()
             ScrollView(.horizontal) {
                 HStack { // MCQ Choice buttons
-                    ForEach(responses, id: \.self) { country in
+                    ForEach(gameViewModel.possibleAnswers, id: \.self) { country in
                         Button {
-                            //TODO
+                            gameViewModel.check(answer: country)
                         } label: {
                             Text(country)
                         }

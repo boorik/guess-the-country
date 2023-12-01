@@ -8,35 +8,42 @@
 import Foundation
 
 class Game {
-    internal init(score: Int = 0, questions: [Question], currentQuestionId: Int) {
+    internal init(score: Int = 0, questions: [Question]) throws {
         self.score = score
         self.questions = questions
-        self.currentQuestionId = currentQuestionId
+        guard let firstQuestion = questions.first else {
+            throw GameError.noQuestionsProvided
+        }
+        self.currentQuestion = firstQuestion
+        self.currentQuestionId = 0;
     }
     
     var score: Int = 0
     var questions: [Question]
+    var currentQuestion: Question
     var currentQuestionId: Int
     
-    func start(questionCount: Int) {
-        //TODO
-    }
+    func finish() {}
     
     func onSelectAnswer(answer: String) {
-        let currentQuestion = questions[currentQuestionId]
-        
         if currentQuestion.isAnswerCorrect(answer: answer) {
             score += 1
         }
+        guard questions.last != currentQuestion else {
+            finish()
+            return
+        }
+        currentQuestionId += 1
+        currentQuestion = questions[currentQuestionId]
     }
 }
 
-struct Hint {
+struct Hint: Equatable {
     let label: String
     let value: String
 }
 
-struct Question {
+struct Question: Equatable {
     let hints: [Hint]
     let correctAnswer: String
     let possibleAnswers: [String]
@@ -44,4 +51,8 @@ struct Question {
     func isAnswerCorrect(answer: String) -> Bool {
         correctAnswer == answer
     }
+}
+
+enum GameError: Error {
+    case noQuestionsProvided
 }

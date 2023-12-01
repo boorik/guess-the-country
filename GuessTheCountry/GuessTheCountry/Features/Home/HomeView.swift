@@ -8,6 +8,11 @@
 import SwiftUI
 
 struct HomeView: View {
+    func start() {
+        // 1. Generate questions
+        // 2. Display loader
+        // 3. Go to GameView
+    }
     var body: some View {
         ZStack {
             Image("worldmap")
@@ -16,7 +21,7 @@ struct HomeView: View {
                 Text("Guess the country!")
                     .font(.mainTitle)
                 Button {
-                    // TODO
+                    start()
                 } label: {
                     Text("Start")
                         .foregroundStyle(Color.white)
