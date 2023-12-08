@@ -38,7 +38,10 @@ class GameViewModel: ObservableObject {
 }
 
 struct GameView: View {
-    let gameViewModel = GameViewModel(questions: []) // TODO do question mock
+    @StateObject var gameViewModel: GameViewModel
+    init(questions: [Question]) {
+        _gameViewModel = StateObject(wrappedValue: GameViewModel(questions: questions))
+    }
     var body: some View {
         VStack {
             ZStack{
@@ -82,5 +85,5 @@ struct QuestionView: View {
 }
 
 #Preview {
-    GameView()
+    GameView(questions: [])
 }

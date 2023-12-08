@@ -23,7 +23,9 @@ class Game {
     var currentQuestion: Question
     var currentQuestionId: Int
     
-    func finish() {}
+    func finish() {
+        // TODO
+    }
     
     func onSelectAnswer(answer: String) {
         if currentQuestion.isAnswerCorrect(answer: answer) {
