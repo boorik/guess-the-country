@@ -11,6 +11,7 @@
 		027CA5C22AFE7E5100B63123 /* QuestionGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027CA5C12AFE7E5100B63123 /* QuestionGenerator.swift */; };
 		027CA5C62AFE7FE400B63123 /* QuestionGeneratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027CA5C52AFE7FE400B63123 /* QuestionGeneratorTests.swift */; };
 		027CA5C92AFE825C00B63123 /* countries.json in Resources */ = {isa = PBXBuildFile; fileRef = 027CA5C82AFE825C00B63123 /* countries.json */; };
+		5F3D05F42B2368D600F6702E /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3D05F32B2368D600F6702E /* Question.swift */; };
 		B6D321CB2AF53EA100C93349 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D321CA2AF53EA100C93349 /* HomeView.swift */; };
 		B6D321CE2AF543C700C93349 /* Font+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D321CD2AF543C700C93349 /* Font+Theme.swift */; };
 		B6D321D12AF545DA00C93349 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D321D02AF545DA00C93349 /* GameView.swift */; };
@@ -49,6 +50,7 @@
 		027CA5C12AFE7E5100B63123 /* QuestionGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionGenerator.swift; sourceTree = "<group>"; };
 		027CA5C52AFE7FE400B63123 /* QuestionGeneratorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionGeneratorTests.swift; sourceTree = "<group>"; };
 		027CA5C82AFE825C00B63123 /* countries.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = countries.json; sourceTree = "<group>"; };
+		5F3D05F32B2368D600F6702E /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		B6D321CA2AF53EA100C93349 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		B6D321CD2AF543C700C93349 /* Font+Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Theme.swift"; sourceTree = "<group>"; };
 		B6D321D02AF545DA00C93349 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 				F1E031BC2AEBF61800F344F1 /* Country.swift */,
 				027CA5BF2AFE788900B63123 /* Game.swift */,
 				027CA5C12AFE7E5100B63123 /* QuestionGenerator.swift */,
+				5F3D05F32B2368D600F6702E /* Question.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -368,6 +371,7 @@
 				F1E031BD2AEBF61800F344F1 /* Country.swift in Sources */,
 				F1FBFC002AD98FC900332F41 /* GuessTheCountryApp.swift in Sources */,
 				B6D321D12AF545DA00C93349 /* GameView.swift in Sources */,
+				5F3D05F42B2368D600F6702E /* Question.swift in Sources */,
 				B6D321CE2AF543C700C93349 /* Font+Theme.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -34,11 +34,15 @@ class GameViewModel: ObservableObject {
     
     func check(answer: String) {
         game?.onSelectAnswer(answer: answer)
+        currentQuestion = game?.currentQuestion
     }
 }
 
 struct GameView: View {
-    let gameViewModel = GameViewModel(questions: []) // TODO do question mock
+    @StateObject var gameViewModel: GameViewModel
+    init(questions: [Question]) {
+        _gameViewModel = StateObject(wrappedValue: GameViewModel(questions: questions))
+    }
     var body: some View {
         VStack {
             ZStack{
@@ -49,23 +53,22 @@ struct GameView: View {
                 }
             }.padding(.horizontal, 20)
             Spacer()
+            
+            VStack(spacing: 20) { // MCQ Choice buttons
+                ForEach(gameViewModel.possibleAnswers, id: \.self) { country in
+                    Button {
+                        gameViewModel.check(answer: country)
+                    } label: {
+                        Text(country)
+                    }
+                }
+            }.padding()
+            Spacer()
             VStack{
                 Text("Hints")
                 Button(action: {}, label: {
                     Text("Indice suivant")
                 })
-            }
-            Spacer()
-            ScrollView(.horizontal) {
-                HStack { // MCQ Choice buttons
-                    ForEach(gameViewModel.possibleAnswers, id: \.self) { country in
-                        Button {
-                            gameViewModel.check(answer: country)
-                        } label: {
-                            Text(country)
-                        }
-                    }
-                }.padding()
             }
         }
     }
@@ -82,5 +85,5 @@ struct QuestionView: View {
 }
 
 #Preview {
-    GameView()
+    GameView(questions: Question.mockArray(size: 5))
 }

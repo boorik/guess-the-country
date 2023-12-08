@@ -8,20 +8,36 @@
 import SwiftUI
 
 struct HomeView: View {
-    func start() {
-        // 1. Generate questions
-        // 2. Display loader
-        // 3. Go to GameView
+    func start() async throws {
+        state = .isProcessing
+        let questionGenerator = QuestionGenerator(countryService: RemoteCountryService(session: .shared))
+        let questions = try await questionGenerator.generateQuestions(count: 10)
+        state = .ready(questions)
     }
+
+    enum HomeState {
+        case idle
+        case isProcessing
+        case ready([Question])
+    }
+
+    @State var state: HomeState = .idle
+
     var body: some View {
-        ZStack {
-            Image("worldmap")
-                .opacity(0.2)
+        switch state {
+        case .idle:
             VStack(spacing: 50) {
                 Text("Guess the country!")
                     .font(.mainTitle)
                 Button {
-                    start()
+                    Task {
+                        do {
+                            try await start()
+
+                        } catch {
+                            // TODO handle error
+                        }
+                    }
                 } label: {
                     Text("Start")
                         .foregroundStyle(Color.white)
@@ -30,8 +46,17 @@ struct HomeView: View {
                             Capsule()
                         }
                 }
+
             }
+        case .isProcessing:
+            ProgressView()
+        case .ready(let questions):
+            GameView(questions: questions)
         }
+        /*ZStack {
+            Image("worldmap")
+                .opacity(0.2)
+        }*/
     }
 }
 

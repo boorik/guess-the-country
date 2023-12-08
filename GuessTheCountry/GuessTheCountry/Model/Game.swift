@@ -7,6 +7,11 @@
 
 import Foundation
 
+enum GameState: Equatable {
+    case running
+    case finished(score: Int)
+}
+
 class Game {
     internal init(score: Int = 0, questions: [Question]) throws {
         self.score = score
@@ -18,14 +23,21 @@ class Game {
         self.currentQuestionId = 0;
     }
     
+    var state: GameState = .running
     var score: Int = 0
     var questions: [Question]
     var currentQuestion: Question
     var currentQuestionId: Int
     
-    func finish() {}
+    func finish() {
+        state = .finished(score: score)
+    }
     
     func onSelectAnswer(answer: String) {
+        guard state == .running else {
+            return
+        }
+        
         if currentQuestion.isAnswerCorrect(answer: answer) {
             score += 1
         }
@@ -41,16 +53,6 @@ class Game {
 struct Hint: Equatable {
     let label: String
     let value: String
-}
-
-struct Question: Equatable {
-    let hints: [Hint]
-    let correctAnswer: String
-    let possibleAnswers: [String]
-    
-    func isAnswerCorrect(answer: String) -> Bool {
-        correctAnswer == answer
-    }
 }
 
 enum GameError: Error {
