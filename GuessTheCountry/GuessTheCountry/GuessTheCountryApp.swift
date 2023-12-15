@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct GuessTheCountryApp: App {
+    @StateObject var router = Router()
     var body: some Scene {
         WindowGroup {
-            HomeView()
+            ContentView {
+                HomeView()
+            }
+                .environmentObject(router)
         }
     }
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Question: Equatable {
+struct Question: Equatable, Hashable {
     let hints: [Hint]
     let correctAnswer: String
     let possibleAnswers: [String]

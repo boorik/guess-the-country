@@ -50,7 +50,7 @@ class Game {
     }
 }
 
-struct Hint: Equatable {
+struct Hint: Equatable, Hashable {
     let label: String
     let value: String
 }

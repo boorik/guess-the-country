@@ -8,17 +8,19 @@
 import SwiftUI
 
 struct HomeView: View {
+    @EnvironmentObject var router: Router
     func start() async throws {
         state = .isProcessing
         let questionGenerator = QuestionGenerator(countryService: RemoteCountryService(session: .shared))
         let questions = try await questionGenerator.generateQuestions(count: 10)
-        state = .ready(questions)
+        state = .idle
+        router.navigate(to: .game(questions))
     }
 
     enum HomeState {
         case idle
         case isProcessing
-        case ready([Question])
+        case error(error: Error)
     }
 
     @State var state: HomeState = .idle
@@ -33,7 +35,7 @@ struct HomeView: View {
                     Task {
                         do {
                             try await start()
-
+                            
                         } catch {
                             // TODO handle error
                         }
@@ -46,13 +48,15 @@ struct HomeView: View {
                             Capsule()
                         }
                 }
-
+                
             }
         case .isProcessing:
             ProgressView()
-        case .ready(let questions):
-            GameView(questions: questions)
+        case .error(let error):
+            Text(error.localizedDescription)
+                .foregroundStyle(Color.red)
         }
+        
         /*ZStack {
             Image("worldmap")
                 .opacity(0.2)
@@ -62,4 +66,5 @@ struct HomeView: View {
 
 #Preview {
     HomeView()
+        .environmentObject(Router())
 }
