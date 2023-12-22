@@ -11,7 +11,8 @@ struct HomeView: View {
     @EnvironmentObject var router: Router
     func start() async throws {
         state = .isProcessing
-        let questionGenerator = QuestionGenerator(countryService: RemoteCountryService(session: .shared))
+        let questionGenerator = QuestionGenerator(countryService: RemoteCountryService(session: .shared),
+                                                  itemGenerator: RandomUniqueItemArrayGenerator())
         let questions = try await questionGenerator.generateQuestions(count: 10)
         state = .idle
         router.navigate(to: .game(questions))
