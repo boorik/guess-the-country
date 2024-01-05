@@ -7,46 +7,57 @@
 
 import Foundation
 
-enum GameState: Equatable {
-    case running
+enum GameState {
+    case running(Question)
     case finished(score: Int)
+    case error(Error)
 }
 
 class Game {
-    internal init(score: Int = 0, questions: [Question]) throws {
+    internal init(score: Int = 0, questions: [Question]) {
         self.score = score
         self.questions = questions
-        guard let firstQuestion = questions.first else {
-            throw GameError.noQuestionsProvided
+        if let firstQuestion = questions.first {
+            self.state = .running(firstQuestion)
+        } else {
+            self.state = .error(GameError.noQuestionsProvided)
         }
-        self.currentQuestion = firstQuestion
-        self.currentQuestionId = 0;
     }
     
-    var state: GameState = .running
     var score: Int = 0
     var questions: [Question]
-    var currentQuestion: Question
-    var currentQuestionId: Int
+    var currentQuestionId: Int = 0
+    var numberRevealedHints: Int = 0
+    var state: GameState
+
     
     func finish() {
         state = .finished(score: score)
     }
     
-    func onSelectAnswer(answer: String) {
-        guard state == .running else {
-            return
+    func onSelectAnswer(answer: String) -> GameState {
+        guard case .running(let currentQuestion) = state else {
+            return state
         }
+        
         
         if currentQuestion.isAnswerCorrect(answer: answer) {
             score += 1
         }
         guard questions.last != currentQuestion else {
             finish()
-            return
+            return .finished(score: score)
         }
         currentQuestionId += 1
-        currentQuestion = questions[currentQuestionId]
+        state = .running(questions[currentQuestionId])
+        return state
+    }
+    
+    func revealMoreHints() -> [Hint] {
+        guard case .running(let currentQuestion) = state else {
+            return []
+        }
+        return Array(currentQuestion.hints.prefix(numberRevealedHints))
     }
 }
 

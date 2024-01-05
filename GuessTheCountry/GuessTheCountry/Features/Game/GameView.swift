@@ -7,41 +7,22 @@
 
 import SwiftUI
 
-class GameViewModel: ObservableObject {
-    internal init(questions: [Question]) {
-        self.currentQuestion = nil
-        do {
-            self.game = try Game(questions: questions)
-        } catch {
-            // TODO display error message
-        }
-    }
-    
-    @Published var currentQuestion: Question?
-    var game: Game?
-    var score: String {
-        guard let scoreValue = game?.score else {
-            return "0"
-        }
-        return "\(scoreValue)"
-    }
-    var possibleAnswers: [String] {
-        guard let answers = game?.currentQuestion.possibleAnswers else {
-            return []
-        }
-        return answers
-    }
-    
-    func check(answer: String) {
-        game?.onSelectAnswer(answer: answer)
-        currentQuestion = game?.currentQuestion
-    }
-}
 
 struct GameView: View {
     @StateObject var gameViewModel: GameViewModel
-    init(questions: [Question]) {
-        _gameViewModel = StateObject(wrappedValue: GameViewModel(questions: questions))
+    init(game: Game) {
+        _gameViewModel = StateObject(wrappedValue: GameViewModel(game: game)
+        )
+    }
+    var hints: some View {
+        VStack{
+            Text("Hints")
+            Button(action: {
+                
+            }, label: {
+                Text("Indice suivant")
+            })
+        }
     }
     var body: some View {
         VStack {
@@ -52,6 +33,11 @@ struct GameView: View {
                     Text("Score: \(gameViewModel.score)")
                 }
             }.padding(.horizontal, 20)
+            
+            Spacer()
+            
+            hints
+            
             Spacer()
             
             VStack(spacing: 20) { // MCQ Choice buttons
@@ -63,13 +49,6 @@ struct GameView: View {
                     }
                 }
             }.padding()
-            Spacer()
-            VStack{
-                Text("Hints")
-                Button(action: {}, label: {
-                    Text("Indice suivant")
-                })
-            }
         }
     }
 }
@@ -85,5 +64,5 @@ struct QuestionView: View {
 }
 
 #Preview {
-    GameView(questions: Question.mockArray(size: 5))
+    GameView(game: Game(questions: Question.mockArray(size: 5)))
 }
