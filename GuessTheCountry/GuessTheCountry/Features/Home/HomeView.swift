@@ -49,7 +49,6 @@ struct HomeView: View {
                             Capsule()
                         }
                 }
-                
             }
         case .isProcessing:
             ProgressView()
@@ -57,11 +56,6 @@ struct HomeView: View {
             Text(error.localizedDescription)
                 .foregroundStyle(Color.red)
         }
-        
-        /*ZStack {
-            Image("worldmap")
-                .opacity(0.2)
-        }*/
     }
 }
 

@@ -42,7 +42,8 @@ class Game {
         
         
         if currentQuestion.isAnswerCorrect(answer: answer) {
-            score += 1
+            score += 1 // TODO impact numberRevealedHints on the score
+            // TODO reset gameViewModel.displayedHints to [] in a specific method
         }
         guard questions.last != currentQuestion else {
             finish()
@@ -57,6 +58,7 @@ class Game {
         guard case .running(let currentQuestion) = state else {
             return []
         }
+        numberRevealedHints += 1
         return Array(currentQuestion.hints.prefix(numberRevealedHints))
     }
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct DisplayedHint {
+struct DisplayedHint: Hashable {
     let value: String
     let label: String
 }
@@ -15,9 +15,8 @@ struct DisplayedHint {
 class GameViewModel: ObservableObject {
     internal init(game: Game) {
         self.game = game
+        currentQuestion = game.questions.first
     }
-    
-    
     
     @Published var currentQuestion: Question?
     @Published var displayedHints: [DisplayedHint] = []

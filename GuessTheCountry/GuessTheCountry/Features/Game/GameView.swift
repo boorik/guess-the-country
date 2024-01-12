@@ -17,8 +17,11 @@ struct GameView: View {
     var hints: some View {
         VStack{
             Text("Hints")
+            ForEach(gameViewModel.displayedHints, id: \.self) { hint in
+                Text("\(hint.label): \(hint.value)")
+            }
             Button(action: {
-                
+                gameViewModel.onNextHint()
             }, label: {
                 Text("Indice suivant")
             })
