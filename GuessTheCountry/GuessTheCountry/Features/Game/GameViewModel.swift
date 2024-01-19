@@ -16,15 +16,14 @@ class GameViewModel: ObservableObject {
     internal init(game: Game) {
         self.game = game
         currentQuestion = game.questions.first
+        score = "0"
     }
     
     @Published var currentQuestion: Question?
     @Published var displayedHints: [DisplayedHint] = []
     
     let game: Game
-    var score: String {
-        "\(game.score)"
-    }
+    private (set) var score: String
     
     var possibleAnswers: [String] {
         currentQuestion?.possibleAnswers ?? []
@@ -32,22 +31,28 @@ class GameViewModel: ObservableObject {
     
     func check(answer: String) {
         let gameState = game.onSelectAnswer(answer: answer)
+        check(gameState: gameState)
+    }
+    
+    func onNextHint() {
+        check(gameState: game.revealMoreHints())
+    }
+    
+    func check(gameState: GameState) {
         switch gameState {
-        case .running(let question):
+        case let .running(question, score, hints):
             currentQuestion = question
+            self.score = "\(score)"
+            displayedHints = hints.map({ hint in
+                    DisplayedHint(
+                        value: hint.value,
+                        label: hint.label
+                    )
+                })
         case .finished(let score):
             currentQuestion = nil
         case .error(let error):
             currentQuestion = nil
         }
-    }
-    
-    func onNextHint() {
-        displayedHints = game.revealMoreHints().map({ hint in
-            DisplayedHint(
-                value: hint.value,
-                label: hint.label
-            )
-        })
     }
 }
