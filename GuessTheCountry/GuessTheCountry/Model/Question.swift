@@ -20,7 +20,11 @@ struct Question: Equatable, Hashable {
 extension Question {
     
     static func mock(id: Int) -> Question {
-        return Question(hints: [], correctAnswer: "Good Answer \(id)", possibleAnswers: ["Answer 1", "Answer 2", "Good Answer \(id)"])
+        return Question(
+            hints: [Hint(label: "hint1", value: "hint1"), Hint(label: "hint2", value: "hint2")],
+            correctAnswer: "Good Answer \(id)",
+            possibleAnswers: ["Answer 1", "Answer 2", "Good Answer \(id)"]
+        )
     }
     
     static func mockArray(size : Int) -> [Question] {

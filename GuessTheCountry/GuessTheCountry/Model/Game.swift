@@ -8,6 +8,7 @@
 import Foundation
 
 enum GameState {
+    case idle
     case running(question: Question, score: Int, hints: [Hint])
     case finished(score: Int)
     case error(Error)
@@ -17,8 +18,10 @@ class Game {
     internal init(score: Int = 0, questions: [Question]) {
         self.score = score
         self.questions = questions
-        if let firstQuestion = questions.first {
-            self.state = .running(question: firstQuestion, score: self.score, hints: [])
+        self.state = .idle
+        if let firstQuestion = questions.first, let firstHint = firstQuestion.hints.first {
+            self.state = .running(question: firstQuestion, score: self.score, hints: [firstHint])
+            numberRevealedHints = 1
         } else {
             self.state = .error(GameError.noQuestionsProvided)
         }
@@ -35,7 +38,7 @@ class Game {
         state = .finished(score: score)
     }
     
-    func onSelectAnswer(answer: String) -> GameState {
+    func selectAnswer(answer: String) -> GameState {
         guard case .running(let currentQuestion, _, _) = state else {
             return state
         }
@@ -47,7 +50,7 @@ class Game {
         }
         guard questions.last != currentQuestion else {
             finish()
-            return .finished(score: score)
+            return state
         }
         currentQuestionId += 1
         numberRevealedHints = 0
@@ -67,7 +70,8 @@ class Game {
         guard case .running(let currentQuestion, _, _) = state else {
             return state
         }
-        return .running(question: currentQuestion, score: score, hints: revealHints())
+        state = .running(question: currentQuestion, score: score, hints: revealHints())
+        return state
     }
 }
 

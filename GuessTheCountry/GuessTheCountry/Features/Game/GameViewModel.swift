@@ -30,7 +30,7 @@ class GameViewModel: ObservableObject {
     }
     
     func check(answer: String) {
-        let gameState = game.onSelectAnswer(answer: answer)
+        let gameState = game.selectAnswer(answer: answer)
         check(gameState: gameState)
     }
     
@@ -49,9 +49,11 @@ class GameViewModel: ObservableObject {
                         label: hint.label
                     )
                 })
-        case .finished(let score):
+        case .idle:
             currentQuestion = nil
-        case .error(let error):
+        case .finished:
+            currentQuestion = nil
+        case .error:
             currentQuestion = nil
         }
     }

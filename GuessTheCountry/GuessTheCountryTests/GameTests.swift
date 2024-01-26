@@ -10,18 +10,10 @@ import XCTest
 @testable import GuessTheCountry
 final class GameTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
     func testGivenNewGameWhenInitiatedThenStateIsRunning() throws {
         let sut = Game(questions: Question.mockArray(size: 5))
         
-        guard case .running(let currentQuestion, _, _) = sut.state else {
+        guard case .running(_, _, _) = sut.state else {
             return XCTFail("Game is not running")
         }
         XCTAssert(true)
@@ -35,5 +27,94 @@ final class GameTests: XCTestCase {
         }
         XCTAssertEqual(currentQuestion.correctAnswer, "Good Answer 1")
     }
-
+    
+    func testGivenNewGameWhenInitiatedThenOneHintMustBeRevealed() throws {
+        let sut = Game(questions: Question.mockArray(size: 5))
+        
+        guard case .running(_, _, let hints) = sut.state else {
+            return XCTFail("Game is not running")
+        }
+        XCTAssertEqual(hints.count, 1)
+    }
+    
+    func testGivenRunningGameWhenRequestingMoreHintThenOneMoreHintMustBeRevealed() throws {
+        let sut = Game(questions: Question.mockArray(size: 5))
+        
+        let state = sut.revealMoreHints()
+        
+        guard case .running(_, _, let returnedHints) = state else {
+            return XCTFail("Game is not running")
+        }
+        
+        XCTAssertEqual(returnedHints.count, 2)
+        
+        guard case .running(_, _, let internalHints) = sut.state else {
+            return XCTFail("Game is not running")
+        }
+        
+        XCTAssertEqual(internalHints.count, 2)
+    }
+    
+    func testGivenAllHintAlreadyRevealedWhenRequestingMoreHintThenNoMoreHintShouldBeRevealed() throws {
+        let sut = Game(questions: Question.mockArray(size: 5))
+        
+        _ = sut.revealMoreHints()
+        let state = sut.revealMoreHints()
+        
+        guard case .running(_, _, let returnedHints) = state else {
+            return XCTFail("Game is not running")
+        }
+        
+        XCTAssertEqual(returnedHints.count, 2)
+        
+        guard case .running(_, _, let internalHints) = sut.state else {
+            return XCTFail("Game is not running")
+        }
+        
+        XCTAssertEqual(internalHints.count, 2)
+    }
+    
+    func testGivenNewGameWhenSelectingAWrongAnswerThenTheScoreIsNotUpdatedAndTheNextQuestionIsGiven() throws {
+        let sut = Game(questions: Question.mockArray(size: 5))
+        
+        _ = sut.selectAnswer(answer: "")
+        
+        guard case let .running(currentQuestion, score, hints) = sut.state else {
+            return XCTFail("Game is not running")
+        }
+        XCTAssertEqual(hints.count, 1)
+        XCTAssertEqual(score, 0)
+        XCTAssertEqual(currentQuestion.correctAnswer, "Good Answer 2")
+    }
+    
+    func testGivenNewGameWhenSelectingAGoodAnswerThenTheScoreIsUpdatedAndTheNextQuestionIsGiven() throws {
+        let sut = Game(questions: Question.mockArray(size: 5))
+        
+        _ = sut.selectAnswer(answer: "Good Answer 1")
+        
+        guard case let .running(currentQuestion, score, hints) = sut.state else {
+            return XCTFail("Game is not running")
+        }
+        XCTAssertEqual(hints.count, 1)
+        XCTAssertEqual(score, 1)
+        XCTAssertEqual(currentQuestion.correctAnswer, "Good Answer 2")
+    }
+    
+    func testGivenTheLastQuestionWhenSelectingAnAnswerThenTheScoreIsUpdatedAndTheGameIsFinished() throws {
+        let sut = Game(questions: Question.mockArray(size: 1))
+        
+        let state = sut.selectAnswer(answer: "Good Answer 1")
+        
+        guard case let .finished(score: score) = sut.state else {
+            return XCTFail("Game should be finished")
+        }
+        
+        XCTAssertEqual(score, 1)
+        
+        guard case let .finished(score: score) = state else {
+            return XCTFail("Game should be finished")
+        }
+        
+        XCTAssertEqual(score, 1)
+    }
 }
