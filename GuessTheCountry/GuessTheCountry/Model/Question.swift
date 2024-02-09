@@ -21,7 +21,7 @@ extension Question {
     
     static func mock(id: Int) -> Question {
         return Question(
-            hints: [Hint(label: "hint1", value: "hint1"), Hint(label: "hint2", value: "hint2")],
+            hints: [Hint(label: "\(id)hint1", value: "\(id)hint1"), Hint(label: "\(id)hint2", value: "\(id)hint2")],
             correctAnswer: "Good Answer \(id)",
             possibleAnswers: ["Answer 1", "Answer 2", "Good Answer \(id)"]
         )

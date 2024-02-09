@@ -14,6 +14,16 @@ enum GameState {
     case error(Error)
 }
 
+struct Hint: Equatable, Hashable {
+    let label: String
+    let value: String
+}
+
+enum GameError: Error {
+    case noQuestionsProvided
+    case hintsOutOfBounds
+}
+
 class Game {
     internal init(score: Int = 0, questions: [Question]) {
         self.score = score
@@ -27,11 +37,11 @@ class Game {
         }
     }
     
-    var score: Int = 0
-    var questions: [Question]
-    var currentQuestionId: Int = 0
-    var numberRevealedHints: Int = 0
-    var state: GameState
+    private var score: Int = 0
+    private var questions: [Question]
+    private var currentQuestionId: Int = 0
+    private var numberRevealedHints: Int = 0
+    private(set) var state: GameState
 
     
     func finish() {
@@ -43,7 +53,6 @@ class Game {
             return state
         }
         
-        
         if currentQuestion.isAnswerCorrect(answer: answer) {
             score += 1 // TODO impact numberRevealedHints on the score
             // TODO reset gameViewModel.displayedHints to [] in a specific method
@@ -54,32 +63,34 @@ class Game {
         }
         currentQuestionId += 1
         numberRevealedHints = 0
-        state = .running(question: questions[currentQuestionId], score: score, hints: revealHints())
+        do {
+            state = try .running(question: questions[currentQuestionId], score: score, hints: revealHints())
+        } catch {
+            return .error(error)
+        }
         return state
     }
     
-    private func revealHints() -> [Hint] {
-        guard case .running(let currentQuestion, _, _) = state else {
+    private func revealHints() throws -> [Hint] {
+        guard case .running(_, _, _) = state else {
             return []
         }
+        guard currentQuestionId < questions.count else {
+            throw GameError.hintsOutOfBounds
+        }
         numberRevealedHints += 1
-        return Array(currentQuestion.hints.prefix(numberRevealedHints))
+        return Array(questions[currentQuestionId].hints.prefix(numberRevealedHints))
     }
     
     func revealMoreHints() -> GameState {
         guard case .running(let currentQuestion, _, _) = state else {
             return state
         }
-        state = .running(question: currentQuestion, score: score, hints: revealHints())
+        do {
+            state = try .running(question: currentQuestion, score: score, hints: revealHints())
+        } catch {
+            return .error(error)
+        }
         return state
     }
-}
-
-struct Hint: Equatable, Hashable {
-    let label: String
-    let value: String
-}
-
-enum GameError: Error {
-    case noQuestionsProvided
 }

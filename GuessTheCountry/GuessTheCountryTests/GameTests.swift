@@ -117,4 +117,19 @@ final class GameTests: XCTestCase {
         
         XCTAssertEqual(score, 1)
     }
+    
+    func testGivenGameIsRunningWhenSelectingAnswerThenHintIsUpdated() throws {
+        let sut = Game(questions: Question.mockArray(size: 2))
+        
+        guard case let .running(_, _, hints) = sut.state else {
+            return XCTFail("Game is not running")
+        }
+        let oldFirstHint = hints.first
+        let newState = sut.selectAnswer(answer: "Wrong Answer 1")
+        guard case let .running(_, _, newHints) = newState else {
+            return XCTFail("Game is not running")
+        }
+        
+        XCTAssertNotEqual(oldFirstHint, newHints.first)
+    }
 }

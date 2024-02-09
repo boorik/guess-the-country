@@ -15,8 +15,8 @@ struct DisplayedHint: Hashable {
 class GameViewModel: ObservableObject {
     internal init(game: Game) {
         self.game = game
-        currentQuestion = game.questions.first
         score = "0"
+        self.check(gameState: game.state)
     }
     
     @Published var currentQuestion: Question?
@@ -35,6 +35,10 @@ class GameViewModel: ObservableObject {
     }
     
     func onNextHint() {
+        // TODO : Advertise user if no more hints
+        // TODO : Improve UI
+        // TODO : Define behavior if wrong answer
+        // TODO : Wrap game with several mods (Timed, less hint possible, ...)
         check(gameState: game.revealMoreHints())
     }
     

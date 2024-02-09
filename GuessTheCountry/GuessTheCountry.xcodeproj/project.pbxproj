@@ -28,6 +28,8 @@
 		F1FBFC122AD98FCB00332F41 /* GuessTheCountryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FBFC112AD98FCB00332F41 /* GuessTheCountryTests.swift */; };
 		F1FBFC1C2AD98FCB00332F41 /* GuessTheCountryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FBFC1B2AD98FCB00332F41 /* GuessTheCountryUITests.swift */; };
 		F1FBFC1E2AD98FCB00332F41 /* GuessTheCountryUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FBFC1D2AD98FCB00332F41 /* GuessTheCountryUITestsLaunchTests.swift */; };
+		FDCE9E152B7671B20031B318 /* GameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCE9E142B7671B20031B318 /* GameTests.swift */; };
+		FDCE9E172B7672570031B318 /* GameViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCE9E162B7672570031B318 /* GameViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +76,8 @@
 		F1FBFC172AD98FCB00332F41 /* GuessTheCountryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GuessTheCountryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1FBFC1B2AD98FCB00332F41 /* GuessTheCountryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessTheCountryUITests.swift; sourceTree = "<group>"; };
 		F1FBFC1D2AD98FCB00332F41 /* GuessTheCountryUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessTheCountryUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		FDCE9E142B7671B20031B318 /* GameTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameTests.swift; sourceTree = "<group>"; };
+		FDCE9E162B7672570031B318 /* GameViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -228,10 +232,12 @@
 		F1FBFC102AD98FCB00332F41 /* GuessTheCountryTests */ = {
 			isa = PBXGroup;
 			children = (
+				FDCE9E142B7671B20031B318 /* GameTests.swift */,
 				027CA5C72AFE823000B63123 /* Jsons */,
 				F1FBFC112AD98FCB00332F41 /* GuessTheCountryTests.swift */,
 				F1E031C12AEBF89A00F344F1 /* CountryServiceTests.swift */,
 				027CA5C52AFE7FE400B63123 /* QuestionGeneratorTests.swift */,
+				FDCE9E162B7672570031B318 /* GameViewModelTests.swift */,
 			);
 			path = GuessTheCountryTests;
 			sourceTree = "<group>";
@@ -396,9 +402,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDCE9E172B7672570031B318 /* GameViewModelTests.swift in Sources */,
 				027CA5C62AFE7FE400B63123 /* QuestionGeneratorTests.swift in Sources */,
 				F1E031C22AEBF89A00F344F1 /* CountryServiceTests.swift in Sources */,
 				F1FBFC122AD98FCB00332F41 /* GuessTheCountryTests.swift in Sources */,
+				FDCE9E152B7671B20031B318 /* GameTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
