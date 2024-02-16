@@ -29,6 +29,10 @@ class GameViewModel: ObservableObject {
         currentQuestion?.possibleAnswers ?? []
     }
     
+    var canDisplayNextHint: Bool {
+        displayedHints.count < (currentQuestion?.hints.count ?? 0)
+    }
+    
     func check(answer: String) {
         let gameState = game.selectAnswer(answer: answer)
         check(gameState: gameState)
@@ -61,4 +65,5 @@ class GameViewModel: ObservableObject {
             currentQuestion = nil
         }
     }
+
 }

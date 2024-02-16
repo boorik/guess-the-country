@@ -23,8 +23,9 @@ struct GameView: View {
             Button(action: {
                 gameViewModel.onNextHint()
             }, label: {
-                Text("Indice suivant")
+                Text(gameViewModel.canDisplayNextHint ? "Indice suivant": "Vous avez le nombre maximum d'indices disponibles")
             })
+            .disabled(!gameViewModel.canDisplayNextHint)
         }
     }
     var body: some View {
