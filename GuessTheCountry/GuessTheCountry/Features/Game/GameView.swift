@@ -32,27 +32,40 @@ struct GameView: View {
         VStack {
             ZStack{
                 Text("Quel pays ?")
+                    .font(.title2)
                 HStack {
                     Spacer()
                     Text("Score: \(gameViewModel.score)")
+                        .font(.title3)
                 }
-            }.padding(.horizontal, 20)
+            }
+            .border(.blue)
+            .padding(.horizontal, 20)
+            .border(.blue)
             
             Spacer()
             
             hints
+                .border(.red)
             
             Spacer()
             
-            VStack(spacing: 20) { // MCQ Choice buttons
+            LazyVGrid(columns: [GridItem(.adaptive(minimum: 150))]) {
                 ForEach(gameViewModel.possibleAnswers, id: \.self) { country in
                     Button {
                         gameViewModel.check(answer: country)
                     } label: {
                         Text(country)
+                            .frame(maxWidth:.infinity, minHeight: 90, maxHeight: .infinity)
                     }
+                    .border(.cyan)
                 }
-            }.padding()
+            }
+            .padding()
+            .border(.brown)
+            // TODO : create an end game screen
+            // TODO : param the number of answers for a question
+            // TODO : improve UI
         }
     }
 }
@@ -68,5 +81,5 @@ struct QuestionView: View {
 }
 
 #Preview {
-    GameView(game: Game(questions: Question.mockArray(size: 5)))
+    GameView(game: Game(questions: Question.mockArray(size: 4)))
 }
