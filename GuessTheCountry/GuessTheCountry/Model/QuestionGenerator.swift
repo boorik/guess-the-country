@@ -8,22 +8,25 @@
 import Foundation
 
 class QuestionGenerator {
-    internal init(countryService: CountryService) {
+    internal init(countryService: CountryService, itemGenerator: any UniqueItemArrayGenerator) {
         self.countryService = countryService
+        self.itemGenerator = itemGenerator
     }
     
     let countryService: CountryService
+    let itemGenerator: any UniqueItemArrayGenerator
     
     func generateQuestions(count: Int) async throws -> [Question] {
         
         //TODO récupérer 5 bonnes réponses
         // pour chaque question, ajouter 1 bonne réponse + 3 mauvaises
         
-        let countries = try await countryService.getCountries().get(count: count)
+        let allCountries = try await countryService.getCountries()
+        let countries = itemGenerator.getDistinct(items: allCountries, count: count)
         
         return countries.map{ country in
             var correctAnswer = country.name.common
-            var possibleAnswers = countries.get(count: 4).map { $0.name.common }
+            var possibleAnswers = itemGenerator.getDistinct(items: allCountries, count: 4).map { $0.name.common }
             
             possibleAnswers.append(correctAnswer)
             return Question(
@@ -39,12 +42,12 @@ class QuestionGenerator {
     
 }
 
-extension [Country] {
-    
-    func get(count: Int) -> [Country] {
-        Array<Int>(0..<count)
-            .compactMap { _ in
-                self.randomElement()
-            }
+protocol UniqueItemArrayGenerator {
+    func getDistinct<Element>(items: [Element], count: Int) -> [Element]
+}
+
+struct RandomUniqueItemArrayGenerator: UniqueItemArrayGenerator {
+    func getDistinct<Element>(items: [Element], count: Int) -> [Element] {
+        Array(items.shuffled().prefix(count))
     }
 }

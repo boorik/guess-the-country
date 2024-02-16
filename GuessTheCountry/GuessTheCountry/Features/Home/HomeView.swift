@@ -8,58 +8,58 @@
 import SwiftUI
 
 struct HomeView: View {
+    @EnvironmentObject var router: Router
     func start() async throws {
         state = .isProcessing
-        let questionGenerator = QuestionGenerator(countryService: RemoteCountryService(session: .shared))
+        let questionGenerator = QuestionGenerator(countryService: RemoteCountryService(session: .shared),
+                                                  itemGenerator: RandomUniqueItemArrayGenerator())
         let questions = try await questionGenerator.generateQuestions(count: 10)
-        state = .ready(questions)
+        state = .idle
+        router.navigate(to: .game(questions))
     }
 
     enum HomeState {
         case idle
         case isProcessing
-        case ready([Question])
+        case error(error: Error)
     }
 
     @State var state: HomeState = .idle
 
     var body: some View {
-        ZStack {
-            Image("worldmap")
-                .opacity(0.2)
-            switch state {
-            case .idle:
-                VStack(spacing: 50) {
-                    Text("Guess the country!")
-                        .font(.mainTitle)
-                    Button {
-                        Task {
-                            do {
-                                try await start()
-
-                            } catch {
-                                // TODO handle error
-                            }
+        switch state {
+        case .idle:
+            VStack(spacing: 50) {
+                Text("Guess the country!")
+                    .font(.mainTitle)
+                Button {
+                    Task {
+                        do {
+                            try await start()
+                            
+                        } catch {
+                            // TODO handle error
                         }
-                    } label: {
-                        Text("Start")
-                            .foregroundStyle(Color.white)
-                            .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
-                            .background {
-                                Capsule()
-                            }
                     }
-
+                } label: {
+                    Text("Start")
+                        .foregroundStyle(Color.white)
+                        .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
+                        .background {
+                            Capsule()
+                        }
                 }
-            case .isProcessing:
-                ProgressView()
-            case .ready(let questions):
-                GameView(questions: questions)
             }
+        case .isProcessing:
+            ProgressView()
+        case .error(let error):
+            Text(error.localizedDescription)
+                .foregroundStyle(Color.red)
         }
     }
 }
 
 #Preview {
     HomeView()
+        .environmentObject(Router())
 }

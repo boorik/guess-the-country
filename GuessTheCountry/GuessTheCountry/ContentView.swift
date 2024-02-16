@@ -7,15 +7,29 @@
 
 import SwiftUI
 
-struct ContentView: View {
-    @State private var router = NavigationPath()
+struct ContentView<Content: View>: View {
+    @EnvironmentObject private var router: Router
+    var content: Content
+    init(@ViewBuilder content: () -> Content) {
+        self.content = content()
+    }
     var body: some View {
-        NavigationStack(path: $router) {
-            HomeView()
+        NavigationStack(path: $router.path) {
+            content
+                .navigationDestination(for: Destination.self) { destination in
+                    switch destination {
+                    case .home:
+                        HomeView()
+                    case .game(let questions):
+                        GameView(game: Game(questions: questions))
+                    }
+                }
         }
     }
 }
 
 #Preview {
-    ContentView()
+    ContentView {
+        Text ("Hello world")
+    }.environmentObject(Router())
 }

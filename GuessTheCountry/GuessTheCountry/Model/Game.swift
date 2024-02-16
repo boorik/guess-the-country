@@ -7,54 +7,90 @@
 
 import Foundation
 
-class Game {
-    internal init(score: Int = 0, questions: [Question]) throws {
-        self.score = score
-        self.questions = questions
-        guard let firstQuestion = questions.first else {
-            throw GameError.noQuestionsProvided
-        }
-        self.currentQuestion = firstQuestion
-        self.currentQuestionId = 0;
-    }
-    
-    var score: Int = 0
-    var questions: [Question]
-    var currentQuestion: Question
-    var currentQuestionId: Int
-    
-    func finish() {
-        // TODO
-    }
-    
-    func onSelectAnswer(answer: String) {
-        if currentQuestion.isAnswerCorrect(answer: answer) {
-            score += 1
-        }
-        guard questions.last != currentQuestion else {
-            finish()
-            return
-        }
-        currentQuestionId += 1
-        currentQuestion = questions[currentQuestionId]
-    }
+enum GameState {
+    case idle
+    case running(question: Question, score: Int, hints: [Hint])
+    case finished(score: Int)
+    case error(Error)
 }
 
-struct Hint: Equatable {
+struct Hint: Equatable, Hashable {
     let label: String
     let value: String
 }
 
-struct Question: Equatable {
-    let hints: [Hint]
-    let correctAnswer: String
-    let possibleAnswers: [String]
-    
-    func isAnswerCorrect(answer: String) -> Bool {
-        correctAnswer == answer
-    }
-}
-
 enum GameError: Error {
     case noQuestionsProvided
+    case hintsOutOfBounds
+}
+
+class Game {
+    internal init(score: Int = 0, questions: [Question]) {
+        self.score = score
+        self.questions = questions
+        self.state = .idle
+        if let firstQuestion = questions.first, let firstHint = firstQuestion.hints.first {
+            self.state = .running(question: firstQuestion, score: self.score, hints: [firstHint])
+            numberRevealedHints = 1
+        } else {
+            self.state = .error(GameError.noQuestionsProvided)
+        }
+    }
+    
+    private var score: Int = 0
+    private var questions: [Question]
+    private var currentQuestionId: Int = 0
+    private var numberRevealedHints: Int = 0
+    private(set) var state: GameState
+
+    
+    func finish() {
+        state = .finished(score: score)
+    }
+    
+    func selectAnswer(answer: String) -> GameState {
+        guard case .running(let currentQuestion, _, _) = state else {
+            return state
+        }
+        
+        if currentQuestion.isAnswerCorrect(answer: answer) {
+            score += 1 // TODO impact numberRevealedHints on the score
+            // TODO reset gameViewModel.displayedHints to [] in a specific method
+        }
+        guard questions.last != currentQuestion else {
+            finish()
+            return state
+        }
+        currentQuestionId += 1
+        numberRevealedHints = 0
+        do {
+            state = try .running(question: questions[currentQuestionId], score: score, hints: revealHints())
+        } catch {
+            return .error(error)
+        }
+        return state
+    }
+    
+    private func revealHints() throws -> [Hint] {
+        guard case .running(_, _, _) = state else {
+            return []
+        }
+        guard currentQuestionId < questions.count else {
+            throw GameError.hintsOutOfBounds
+        }
+        numberRevealedHints += 1
+        return Array(questions[currentQuestionId].hints.prefix(numberRevealedHints))
+    }
+    
+    func revealMoreHints() -> GameState {
+        guard case .running(let currentQuestion, _, _) = state else {
+            return state
+        }
+        do {
+            state = try .running(question: currentQuestion, score: score, hints: revealHints())
+        } catch {
+            return .error(error)
+        }
+        return state
+    }
 }
