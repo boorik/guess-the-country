@@ -39,10 +39,6 @@ class GameViewModel: ObservableObject {
     }
     
     func onNextHint() {
-        // TODO : Advertise user if no more hints
-        // TODO : Improve UI
-        // TODO : Define behavior if wrong answer
-        // TODO : Wrap game with several mods (Timed, less hint possible, ...)
         check(gameState: game.revealMoreHints())
     }
     

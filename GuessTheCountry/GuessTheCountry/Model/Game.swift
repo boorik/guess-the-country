@@ -55,7 +55,6 @@ class Game {
         
         if currentQuestion.isAnswerCorrect(answer: answer) {
             score += 1 // TODO impact numberRevealedHints on the score
-            // TODO reset gameViewModel.displayedHints to [] in a specific method
         }
         guard questions.last != currentQuestion else {
             finish()

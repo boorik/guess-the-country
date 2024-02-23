@@ -9,6 +9,7 @@ import SwiftUI
 
 
 struct GameView: View {
+    let theme = Theme.olympicGames
     @StateObject var gameViewModel: GameViewModel
     init(game: Game) {
         _gameViewModel = StateObject(wrappedValue: GameViewModel(game: game)
@@ -56,16 +57,14 @@ struct GameView: View {
                         gameViewModel.check(answer: country)
                     } label: {
                         Text(country)
+                            .multilineTextAlignment(.center)
                             .frame(maxWidth:.infinity, minHeight: 90, maxHeight: .infinity)
                     }
-                    .border(.cyan)
+                    .buttonStyle(PrimaryButton(theme: theme))
                 }
             }
             .padding()
             .border(.brown)
-            // TODO : create an end game screen
-            // TODO : param the number of answers for a question
-            // TODO : improve UI
         }
     }
 }

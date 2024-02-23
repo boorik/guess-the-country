@@ -5,6 +5,8 @@
 https://restcountries.com/
 
 # TODO for the next sessions :
-#// TODO : create an end game screen
-#// TODO : param the number of answers for a question
-#// TODO : improve UI
+- create an end game screen
+- param the number of answers for a question
+- improve UI
+- Define behavior if wrong answer
+- Wrap game with several mods (Timed, less hint possible, ...)
