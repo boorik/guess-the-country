@@ -32,7 +32,9 @@ class QuestionGenerator {
             return Question(
                 hints: [
                     Hint(label: "flag", value: country.flag),
-                    Hint(label:  "capital", value: country.capital?.first ?? "Unknown")
+                    Hint(label: "capital", value: country.capital?.first ?? "Unknown"),
+                    Hint(label: "population", value: "\(country.population)"),
+                    Hint(label: "continents", value: "\(country.continents.map{ $0.rawValue }.joined(separator: ", "))")
                 ],
                 correctAnswer: correctAnswer,
                 possibleAnswers: possibleAnswers // $0 prend le 1er paramètre retourné pour chaque itération

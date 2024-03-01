@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+import UIKit
 
 struct GameView: View {
     let theme = Theme.olympicGames
@@ -36,6 +36,7 @@ struct GameView: View {
                             RoundedRectangle(cornerSize: CGSize(width: 20, height: 10))
                                 .fill(Color.red)
                         )
+                        .frame(maxWidth: UIScreen.main.bounds.width - 20)
                         
                     }
                 }
