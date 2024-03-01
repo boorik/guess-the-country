@@ -17,10 +17,31 @@ struct GameView: View {
     }
     var hints: some View {
         VStack{
-            Text("Hints")
-            ForEach(gameViewModel.displayedHints, id: \.self) { hint in
-                Text("\(hint.label): \(hint.value)")
+            Text("Indices")
+                .font(.title)
+            ScrollView(.horizontal) {
+                LazyHStack {
+                    ForEach(gameViewModel.displayedHints, id: \.self) { hint in
+                        HStack {
+                            Text("\(hint.label):")
+                                .border(Color.blue)
+                                .padding(10)
+                                .border(Color.red)
+                            Text(" \(hint.value)")
+                                .border(Color.blue)
+                                .padding(10)
+                                .border(Color.red)
+                        }
+                        .background(
+                            RoundedRectangle(cornerSize: CGSize(width: 20, height: 10))
+                                .fill(Color.red)
+                        )
+                        
+                    }
+                }
             }
+            .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/)
+            
             Button(action: {
                 gameViewModel.onNextHint()
             }, label: {
@@ -47,6 +68,7 @@ struct GameView: View {
             Spacer()
             
             hints
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .border(.red)
             
             Spacer()
@@ -64,7 +86,6 @@ struct GameView: View {
                 }
             }
             .padding()
-            .border(.brown)
         }
     }
 }
