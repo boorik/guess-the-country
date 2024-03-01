@@ -14,6 +14,8 @@
 		5F3D05F42B2368D600F6702E /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3D05F32B2368D600F6702E /* Question.swift */; };
 		850DF4D62B48513A0053EF3B /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850DF4D52B48513A0053EF3B /* GameViewModel.swift */; };
 		B61CE5242B2C9D87007AE91B /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61CE5232B2C9D87007AE91B /* Router.swift */; };
+		B64FCC3A2B88EC3C0021CC95 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64FCC392B88EC3C0021CC95 /* Theme.swift */; };
+		B64FCC3C2B88F20D0021CC95 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64FCC3B2B88F20D0021CC95 /* PrimaryButton.swift */; };
 		B6D321CB2AF53EA100C93349 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D321CA2AF53EA100C93349 /* HomeView.swift */; };
 		B6D321CE2AF543C700C93349 /* Font+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D321CD2AF543C700C93349 /* Font+Theme.swift */; };
 		B6D321D12AF545DA00C93349 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D321D02AF545DA00C93349 /* GameView.swift */; };
@@ -57,6 +59,8 @@
 		5F3D05F32B2368D600F6702E /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		850DF4D52B48513A0053EF3B /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 		B61CE5232B2C9D87007AE91B /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		B64FCC392B88EC3C0021CC95 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		B64FCC3B2B88F20D0021CC95 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 		B6D321CA2AF53EA100C93349 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		B6D321CD2AF543C700C93349 /* Font+Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Theme.swift"; sourceTree = "<group>"; };
 		B6D321D02AF545DA00C93349 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
@@ -142,6 +146,8 @@
 			isa = PBXGroup;
 			children = (
 				B6D321CD2AF543C700C93349 /* Font+Theme.swift */,
+				B64FCC392B88EC3C0021CC95 /* Theme.swift */,
+				B64FCC3B2B88F20D0021CC95 /* PrimaryButton.swift */,
 			);
 			path = Theme;
 			sourceTree = "<group>";
@@ -394,7 +400,9 @@
 				F1FBFC002AD98FC900332F41 /* GuessTheCountryApp.swift in Sources */,
 				B6D321D12AF545DA00C93349 /* GameView.swift in Sources */,
 				5F3D05F42B2368D600F6702E /* Question.swift in Sources */,
+				B64FCC3C2B88F20D0021CC95 /* PrimaryButton.swift in Sources */,
 				B6D321CE2AF543C700C93349 /* Font+Theme.swift in Sources */,
+				B64FCC3A2B88EC3C0021CC95 /* Theme.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -558,7 +566,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"GuessTheCountry/Preview Content\"";
-				DEVELOPMENT_TEAM = MG29534SN9;
+				DEVELOPMENT_TEAM = 254M6TE7EY;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -596,7 +604,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"GuessTheCountry/Preview Content\"";
-				DEVELOPMENT_TEAM = MG29534SN9;
+				DEVELOPMENT_TEAM = 254M6TE7EY;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
