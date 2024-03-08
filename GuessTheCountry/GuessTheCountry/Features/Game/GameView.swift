@@ -24,13 +24,9 @@ struct GameView: View {
                     ForEach(gameViewModel.displayedHints, id: \.self) { hint in
                         HStack {
                             Text("\(hint.label):")
-                                .border(Color.blue)
                                 .padding(10)
-                                .border(Color.red)
                             Text(" \(hint.value)")
-                                .border(Color.blue)
                                 .padding(10)
-                                .border(Color.red)
                         }
                         .background(
                             RoundedRectangle(cornerSize: CGSize(width: 20, height: 10))
@@ -41,7 +37,6 @@ struct GameView: View {
                     }
                 }
             }
-            .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/)
             
             Button(action: {
                 gameViewModel.onNextHint()
@@ -67,15 +62,12 @@ struct GameView: View {
                             .font(.title3)
                     }
                 }
-                .border(.blue)
                 .padding(.horizontal, 20)
-                .border(.blue)
                 
                 Spacer()
                 
                 hints
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    .border(.red)
                 
                 Spacer()
                 
@@ -88,7 +80,7 @@ struct GameView: View {
                                 .multilineTextAlignment(.center)
                                 .frame(maxWidth:.infinity, minHeight: 90, maxHeight: .infinity)
                         }
-                        .buttonStyle(PrimaryButton(theme: theme))
+                        .buttonStyle(AnswerButton(theme: theme))
                     }
                 }
                 .padding()

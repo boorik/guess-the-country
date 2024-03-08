@@ -11,8 +11,8 @@ struct PrimaryButton: ButtonStyle {
     let theme: Theme
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
-            .padding(12)
-            .foregroundStyle(theme.primaryForegroundButtonColor)
+            .padding(20)
+            .foregroundStyle(theme.primaryButtonForegroundColor)
             .background(
                 RoundedRectangle(cornerRadius: 25)
                     .fill(theme.primaryButtonColor)

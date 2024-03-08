@@ -11,8 +11,9 @@ import SwiftUI
 struct Theme {
     let backgroundColor: Color
     let answerButtonColor: Color
+    let answerButtonForegroundColor: Color
     let primaryButtonColor: Color
-    let primaryForegroundButtonColor: Color
+    let primaryButtonForegroundColor: Color
 }
 
 extension Theme {
@@ -20,8 +21,9 @@ extension Theme {
         Theme(
             backgroundColor: Color(.primaryBackground),
             answerButtonColor: Color(.answerButton),
-            primaryButtonColor: Color(.primaryButton),
-            primaryForegroundButtonColor: Color(.primaryForegroundButton)
+            answerButtonForegroundColor: .white,
+            primaryButtonColor: .black,
+            primaryButtonForegroundColor: .white
         )
     } ()
 }

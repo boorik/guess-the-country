@@ -12,7 +12,7 @@ struct AnswerButton: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .padding(12)
-            .foregroundStyle(Color.white)
+            .foregroundStyle(theme.answerButtonForegroundColor)
             .background(
                 RoundedRectangle(cornerRadius: 25)
                     .fill(theme.answerButtonColor)
