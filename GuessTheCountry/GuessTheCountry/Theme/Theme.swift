@@ -9,6 +9,8 @@ import Foundation
 import SwiftUI
 
 struct Theme {
+    let backgroundColor: Color
+    let answerButtonColor: Color
     let primaryButtonColor: Color
     let primaryForegroundButtonColor: Color
 }
@@ -16,14 +18,10 @@ struct Theme {
 extension Theme {
     static var `default` = {
         Theme(
+            backgroundColor: Color(.primaryBackground),
+            answerButtonColor: Color(.answerButton),
             primaryButtonColor: Color(.primaryButton),
             primaryForegroundButtonColor: Color(.primaryForegroundButton)
-        )
-    } ()
-    static var olympicGames = {
-        Theme(
-            primaryButtonColor: Color(.primaryButtonOG),
-            primaryForegroundButtonColor: Color(.primaryForegroundButtonOG)
         )
     } ()
 }

@@ -9,7 +9,7 @@ import SwiftUI
 import UIKit
 
 struct GameView: View {
-    let theme = Theme.olympicGames
+    let theme = Theme.default
     @StateObject var gameViewModel: GameViewModel
     init(game: Game) {
         _gameViewModel = StateObject(wrappedValue: GameViewModel(game: game)
@@ -48,45 +48,51 @@ struct GameView: View {
             }, label: {
                 Text(gameViewModel.canDisplayNextHint ? "Indice suivant": "Vous avez le nombre maximum d'indices disponibles")
             })
+            .buttonStyle(PrimaryButton(theme: theme))
             .disabled(!gameViewModel.canDisplayNextHint)
         }
     }
     var body: some View {
-        VStack {
-            ZStack{
-                Text("Quel pays ?")
-                    .font(.title2)
-                HStack {
-                    Spacer()
-                    Text("Score: \(gameViewModel.score)")
-                        .font(.title3)
-                }
-            }
-            .border(.blue)
-            .padding(.horizontal, 20)
-            .border(.blue)
+        ZStack {
+            LinearGradient(colors: [theme.backgroundColor, .white], startPoint: .center, endPoint: .bottom)
+                .ignoresSafeArea()
             
-            Spacer()
-            
-            hints
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .border(.red)
-            
-            Spacer()
-            
-            LazyVGrid(columns: [GridItem(.adaptive(minimum: 150))]) {
-                ForEach(gameViewModel.possibleAnswers, id: \.self) { country in
-                    Button {
-                        gameViewModel.check(answer: country)
-                    } label: {
-                        Text(country)
-                            .multilineTextAlignment(.center)
-                            .frame(maxWidth:.infinity, minHeight: 90, maxHeight: .infinity)
+            VStack {
+                ZStack{
+                    Text("Quel pays ?")
+                        .font(.title2)
+                    HStack {
+                        Spacer()
+                        Text("Score: \(gameViewModel.score)")
+                            .font(.title3)
                     }
-                    .buttonStyle(PrimaryButton(theme: theme))
                 }
+                .border(.blue)
+                .padding(.horizontal, 20)
+                .border(.blue)
+                
+                Spacer()
+                
+                hints
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .border(.red)
+                
+                Spacer()
+                
+                LazyVGrid(columns: [GridItem(.adaptive(minimum: 150))]) {
+                    ForEach(gameViewModel.possibleAnswers, id: \.self) { country in
+                        Button {
+                            gameViewModel.check(answer: country)
+                        } label: {
+                            Text(country)
+                                .multilineTextAlignment(.center)
+                                .frame(maxWidth:.infinity, minHeight: 90, maxHeight: .infinity)
+                        }
+                        .buttonStyle(PrimaryButton(theme: theme))
+                    }
+                }
+                .padding()
             }
-            .padding()
         }
     }
 }
