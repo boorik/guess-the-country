@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
+    let theme = Theme.default
     @EnvironmentObject var router: Router
     func start() async throws {
         state = .isProcessing
@@ -29,25 +30,26 @@ struct HomeView: View {
     var body: some View {
         switch state {
         case .idle:
-            VStack(spacing: 50) {
-                Text("Guess the country!")
-                    .font(.mainTitle)
-                Button {
-                    Task {
-                        do {
-                            try await start()
-                            
-                        } catch {
-                            // TODO handle error
+            ZStack {
+                LinearGradient(colors: [theme.backgroundColor, .white], startPoint: .center, endPoint: .bottom)
+                    .ignoresSafeArea()
+                VStack(spacing: 50) {
+                    Text("Guess the country!")
+                        .font(.mainTitle)
+                    Button {
+                        Task {
+                            do {
+                                try await start()
+                                
+                            } catch {
+                                // TODO handle error
+                            }
                         }
+                    } label: {
+                        Text("Start")
+                            .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
                     }
-                } label: {
-                    Text("Start")
-                        .foregroundStyle(Color.white)
-                        .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
-                        .background {
-                            Capsule()
-                        }
+                    .buttonStyle(PrimaryButton(theme: theme))
                 }
             }
         case .isProcessing:
