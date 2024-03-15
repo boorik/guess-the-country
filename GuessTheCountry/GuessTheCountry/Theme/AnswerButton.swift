@@ -11,6 +11,7 @@ struct AnswerButton: ButtonStyle {
     let theme: Theme
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
+            .font(.buttonText)
             .padding(12)
             .foregroundStyle(theme.answerButtonForegroundColor)
             .background(

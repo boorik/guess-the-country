@@ -18,7 +18,7 @@ struct GameView: View {
     var hints: some View {
         VStack{
             Text("Indices")
-                .font(.title)
+                .font(.appTitle)
             ScrollView(.horizontal) {
                 LazyHStack {
                     ForEach(gameViewModel.displayedHints, id: \.self) { hint in
@@ -28,6 +28,7 @@ struct GameView: View {
                             Text(" \(hint.value)")
                                 .padding(10)
                         }
+                        .font(.buttonText)
                         .background(
                             RoundedRectangle(cornerSize: CGSize(width: 20, height: 10))
                                 .fill(Color.red)
@@ -53,14 +54,15 @@ struct GameView: View {
                 .ignoresSafeArea()
             
             VStack {
-                ZStack{
-                    Text("Quel pays ?")
-                        .font(.title2)
+                VStack{
                     HStack {
                         Spacer()
                         Text("Score: \(gameViewModel.score)")
-                            .font(.title3)
+                            .font(.appTitle)
                     }
+                    Text("Quel pays ?")
+                        .font(.mainTitle)
+                    
                 }
                 .padding(.horizontal, 20)
                 

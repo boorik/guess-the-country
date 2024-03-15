@@ -20,6 +20,9 @@ import SwiftUI
 
 extension Font {
     static func oswaldRegular(size: CGFloat) -> Font { .custom("Oswald-Regular", size: size) }
+    static func oswaldLight(size: CGFloat) -> Font { .custom("Oswald-Regular_Light", size: size) }
     static func permanentMarker(size: CGFloat) -> Font { .custom("PermanentMarker-Regular", size: size) }
     static let mainTitle: Font = .permanentMarker(size: 36)
+    static let appTitle: Font = .oswaldRegular(size: 32)
+    static let buttonText: Font = .oswaldLight(size: 16)
 }
