@@ -16,6 +16,8 @@
 		B61CE5242B2C9D87007AE91B /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61CE5232B2C9D87007AE91B /* Router.swift */; };
 		B64FCC3A2B88EC3C0021CC95 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64FCC392B88EC3C0021CC95 /* Theme.swift */; };
 		B64FCC3C2B88F20D0021CC95 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64FCC3B2B88F20D0021CC95 /* PrimaryButton.swift */; };
+		B66B49882BA495E10077CC12 /* Oswald-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B66B49872BA495E10077CC12 /* Oswald-VariableFont_wght.ttf */; };
+		B66B498A2BA495F40077CC12 /* PermanentMarker-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B66B49892BA495F40077CC12 /* PermanentMarker-Regular.ttf */; };
 		B6D321CB2AF53EA100C93349 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D321CA2AF53EA100C93349 /* HomeView.swift */; };
 		B6D321CE2AF543C700C93349 /* Font+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D321CD2AF543C700C93349 /* Font+Theme.swift */; };
 		B6D321D12AF545DA00C93349 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D321D02AF545DA00C93349 /* GameView.swift */; };
@@ -62,6 +64,9 @@
 		B61CE5232B2C9D87007AE91B /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		B64FCC392B88EC3C0021CC95 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		B64FCC3B2B88F20D0021CC95 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
+		B66B49872BA495E10077CC12 /* Oswald-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-VariableFont_wght.ttf"; sourceTree = "<group>"; };
+		B66B49892BA495F40077CC12 /* PermanentMarker-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PermanentMarker-Regular.ttf"; sourceTree = "<group>"; };
+		B66B498D2BA497CF0077CC12 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		B6D321CA2AF53EA100C93349 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		B6D321CD2AF543C700C93349 /* Font+Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Theme.swift"; sourceTree = "<group>"; };
 		B6D321D02AF545DA00C93349 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
@@ -125,6 +130,24 @@
 				B61CE5232B2C9D87007AE91B /* Router.swift */,
 			);
 			path = Navigation;
+			sourceTree = "<group>";
+		};
+		B66B49852BA4959B0077CC12 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B66B49862BA495B00077CC12 /* Fonts */,
+				F1FBFC032AD98FCB00332F41 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		B66B49862BA495B00077CC12 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				B66B49892BA495F40077CC12 /* PermanentMarker-Regular.ttf */,
+				B66B49872BA495E10077CC12 /* Oswald-VariableFont_wght.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		B6D321C82AF53E3300C93349 /* Features */ = {
@@ -215,6 +238,8 @@
 		F1FBFBFE2AD98FC900332F41 /* GuessTheCountry */ = {
 			isa = PBXGroup;
 			children = (
+				B66B498D2BA497CF0077CC12 /* Info.plist */,
+				B66B49852BA4959B0077CC12 /* Resources */,
 				B61CE5222B2C9D5B007AE91B /* Navigation */,
 				B6D321CC2AF5439400C93349 /* Theme */,
 				B6D321C82AF53E3300C93349 /* Features */,
@@ -223,7 +248,6 @@
 				F1E031BB2AEBF5DB00F344F1 /* Model */,
 				F1FBFBFF2AD98FC900332F41 /* GuessTheCountryApp.swift */,
 				F1FBFC012AD98FC900332F41 /* ContentView.swift */,
-				F1FBFC032AD98FCB00332F41 /* Assets.xcassets */,
 				F1FBFC052AD98FCB00332F41 /* GuessTheCountry.entitlements */,
 				F1FBFC062AD98FCB00332F41 /* Preview Content */,
 			);
@@ -366,6 +390,8 @@
 			files = (
 				F1FBFC082AD98FCB00332F41 /* Preview Assets.xcassets in Resources */,
 				F1FBFC042AD98FCB00332F41 /* Assets.xcassets in Resources */,
+				B66B498A2BA495F40077CC12 /* PermanentMarker-Regular.ttf in Resources */,
+				B66B49882BA495E10077CC12 /* Oswald-VariableFont_wght.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -574,6 +600,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GuessTheCountry/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -612,6 +639,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GuessTheCountry/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
