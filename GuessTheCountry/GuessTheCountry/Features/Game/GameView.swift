@@ -19,24 +19,24 @@ struct GameView: View {
         VStack{
             Text("Indices")
                 .font(.appTitle)
-            ScrollView(.horizontal) {
-                LazyHStack {
-                    ForEach(gameViewModel.displayedHints, id: \.self) { hint in
-                        HStack {
-                            Text("\(hint.label):")
-                                .padding(10)
-                            Text(" \(hint.value)")
-                                .padding(10)
+            ScrollViewReader { proxy in
+                ScrollView(.horizontal) {
+                    LazyHStack {
+                        ForEach(gameViewModel.displayedHints, id: \.self) { hint in
+                            HintView(hint: hint)
+                            .id(hint.id)
                         }
-                        .font(.buttonText)
-                        .background(
-                            RoundedRectangle(cornerSize: CGSize(width: 20, height: 10))
-                                .fill(Color.red)
-                        )
-                        .frame(maxWidth: UIScreen.main.bounds.width - 20)
-                        
+                    }
+                    .padding(UIScreen.main.bounds.width * 0.1)
+                    .scrollTargetLayout()
+                }
+                .onChange(of: gameViewModel.displayedHints){
+                    withAnimation {
+                        proxy.scrollTo(gameViewModel.displayedHints.last?.id)
                     }
                 }
+                .scrollTargetBehavior(.viewAligned(limitBehavior:.automatic))
+                .scrollIndicators(.hidden)
             }
             
             Button(action: {
@@ -103,4 +103,25 @@ struct QuestionView: View {
 
 #Preview {
     GameView(game: Game(questions: Question.mockArray(size: 4)))
+}
+
+struct HintView: View {
+    let hint: DisplayedHint
+    
+    var body: some View {
+        HStack {
+            Text("\(hint.label):")
+                .padding(10)
+            Text(" \(hint.value)")
+                .padding(10)
+        }
+        .foregroundStyle(.white)
+        .font(.hintText)
+        .frame(width: UIScreen.main.bounds.width * 0.8)
+        //.frame(minHeight: 100)
+        .background(
+            RoundedRectangle(cornerSize: CGSize(width: 20, height: 10))
+                .fill(Color.blue)
+        )
+    }
 }

@@ -26,9 +26,10 @@ class QuestionGenerator {
         
         return countries.map{ country in
             var correctAnswer = country.name.common
-            var possibleAnswers = itemGenerator.getDistinct(items: allCountries, count: 4).map { $0.name.common }
-            
+            var possibleAnswers = itemGenerator.getDistinct(items: allCountries, count: 3).map { $0.name.common }
             possibleAnswers.append(correctAnswer)
+            possibleAnswers.shuffle()
+            
             return Question(
                 hints: [
                     Hint(label: "flag", value: country.flag),

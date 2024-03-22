@@ -7,7 +7,11 @@
 
 import Foundation
 
-struct DisplayedHint: Hashable {
+struct DisplayedHint: Hashable, Identifiable {
+    var id: String {
+        value + label
+    }
+    
     let value: String
     let label: String
 }

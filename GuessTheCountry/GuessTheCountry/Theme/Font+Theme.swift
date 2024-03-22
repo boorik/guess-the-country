@@ -25,4 +25,5 @@ extension Font {
     static let mainTitle: Font = .permanentMarker(size: 36)
     static let appTitle: Font = .oswaldRegular(size: 32)
     static let buttonText: Font = .oswaldLight(size: 16)
+    static let hintText: Font = .oswaldRegular(size: 24)
 }

@@ -19,15 +19,15 @@ struct Question: Equatable, Hashable {
 
 extension Question {
     
-    static func mock(id: Int) -> Question {
+    static func mock(id: Int, hintsNumber: Int = 4) -> Question {
         return Question(
-            hints: [Hint(label: "\(id)hint1", value: "\(id)hint1"), Hint(label: "\(id)hint2", value: "\(id)hint2")],
+            hints: Array<Int>(1...hintsNumber).map { Hint(label: "Indice \($0)", value: "\($0)") },
             correctAnswer: "Good Answer \(id)",
             possibleAnswers: ["Answer 1", "Answer 2", "Royaume Uni de Grande Bretagne et d'Irlande", "Good Answer \(id)"]
         )
     }
     
     static func mockArray(size : Int) -> [Question] {
-        Array<Int>(1...size).map{ mock(id: $0) }
+        Array<Int>(1...size).map{ mock(id: $0, hintsNumber: 4) }
     }
 }
