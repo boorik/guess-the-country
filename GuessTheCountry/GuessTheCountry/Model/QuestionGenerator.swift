@@ -25,7 +25,7 @@ class QuestionGenerator {
         let countries = itemGenerator.getDistinct(items: allCountries, count: count)
         
         return countries.map{ country in
-            var correctAnswer = country.name.common
+            let correctAnswer = country.name.common
             var possibleAnswers = itemGenerator.getDistinct(items: allCountries, count: 3).map { $0.name.common }
             possibleAnswers.append(correctAnswer)
             possibleAnswers.shuffle()

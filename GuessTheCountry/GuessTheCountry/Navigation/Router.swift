@@ -11,6 +11,7 @@ import SwiftUI
 enum Destination: Hashable {
     case home
     case game([Question])
+    case enGame(Int)
 }
 final class Router: ObservableObject {
     @Published var path = NavigationPath()

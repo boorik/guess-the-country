@@ -11,9 +11,8 @@ import UIKit
 struct GameView: View {
     let theme = Theme.default
     @StateObject var gameViewModel: GameViewModel
-    init(game: Game) {
-        _gameViewModel = StateObject(wrappedValue: GameViewModel(game: game)
-        )
+    init(game: Game, router: Router) {
+        _gameViewModel = StateObject(wrappedValue: GameViewModel(game: game, router: router))
     }
     var hints: some View {
         VStack{
@@ -49,10 +48,7 @@ struct GameView: View {
         }
     }
     var body: some View {
-        ZStack {
-            LinearGradient(colors: [theme.backgroundColor, .white], startPoint: .center, endPoint: .bottom)
-                .ignoresSafeArea()
-            
+        ScaffoldView {
             VStack {
                 VStack{
                     HStack {
@@ -102,7 +98,7 @@ struct QuestionView: View {
 }
 
 #Preview {
-    GameView(game: Game(questions: Question.mockArray(size: 4)))
+    GameView(game: Game(questions: Question.mockArray(size: 4)), router: .init())
 }
 
 struct HintView: View {

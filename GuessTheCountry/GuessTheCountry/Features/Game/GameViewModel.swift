@@ -17,8 +17,9 @@ struct DisplayedHint: Hashable, Identifiable {
 }
 
 class GameViewModel: ObservableObject {
-    internal init(game: Game) {
+    init(game: Game, router: Router) {
         self.game = game
+        self.router = router
         score = "0"
         self.check(gameState: game.state)
     }
@@ -27,6 +28,7 @@ class GameViewModel: ObservableObject {
     @Published var displayedHints: [DisplayedHint] = []
     
     let game: Game
+    let router: Router
     private (set) var score: String
     
     var possibleAnswers: [String] {
@@ -59,8 +61,9 @@ class GameViewModel: ObservableObject {
                 })
         case .idle:
             currentQuestion = nil
-        case .finished:
+        case .finished(let score):
             currentQuestion = nil
+            router.navigate(to: .enGame(score))
         case .error:
             currentQuestion = nil
         }

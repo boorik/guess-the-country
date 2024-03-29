@@ -21,7 +21,9 @@ struct ContentView<Content: View>: View {
                     case .home:
                         HomeView()
                     case .game(let questions):
-                        GameView(game: Game(questions: questions))
+                        GameView(game: Game(questions: questions), router: router)
+                    case .enGame(let score):
+                        EndGameView(score: score, router: router)
                     }
                 }
         }

@@ -28,11 +28,9 @@ struct HomeView: View {
     @State var state: HomeState = .idle
 
     var body: some View {
-        switch state {
-        case .idle:
-            ZStack {
-                LinearGradient(colors: [theme.backgroundColor, .white], startPoint: .center, endPoint: .bottom)
-                    .ignoresSafeArea()
+        ScaffoldView {
+            switch state {
+            case .idle:
                 VStack(spacing: 50) {
                     Text("Guess the country!")
                         .font(.mainTitle)
@@ -40,7 +38,7 @@ struct HomeView: View {
                         Task {
                             do {
                                 try await start()
-                                
+
                             } catch {
                                 // TODO handle error
                             }
@@ -51,12 +49,13 @@ struct HomeView: View {
                     }
                     .buttonStyle(PrimaryButton(theme: theme))
                 }
+
+            case .isProcessing:
+                ProgressView()
+            case .error(let error):
+                Text(error.localizedDescription)
+                    .foregroundStyle(Color.red)
             }
-        case .isProcessing:
-            ProgressView()
-        case .error(let error):
-            Text(error.localizedDescription)
-                .foregroundStyle(Color.red)
         }
     }
 }
