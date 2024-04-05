@@ -32,10 +32,10 @@ class QuestionGenerator {
             
             return Question(
                 hints: [
-                    Hint(label: "flag", value: country.flag),
-                    Hint(label: "capital", value: country.capital?.first ?? "Unknown"),
-                    Hint(label: "population", value: "\(country.population)"),
-                    Hint(label: "continents", value: "\(country.continents.map{ $0.rawValue }.joined(separator: ", "))")
+                    Hint(label: "flag", value: country.flags.png, type: .image),
+                    Hint(label: "capital", value: country.capital?.first ?? "Unknown", type: .text),
+                    Hint(label: "population", value: "\(country.population)", type: .number),
+                    Hint(label: "continents", value: "\(country.continents.map{ $0.rawValue }.joined(separator: ", "))", type: .text)
                 ],
                 correctAnswer: correctAnswer,
                 possibleAnswers: possibleAnswers // $0 prend le 1er paramètre retourné pour chaque itération

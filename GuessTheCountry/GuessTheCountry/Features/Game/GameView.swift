@@ -21,7 +21,7 @@ struct GameView: View {
             ScrollViewReader { proxy in
                 ScrollView(.horizontal) {
                     LazyHStack {
-                        ForEach(gameViewModel.displayedHints, id: \.self) { hint in
+                        ForEach(gameViewModel.displayedHints, id: \.id) { hint in
                             HintView(hint: hint)
                             .id(hint.id)
                         }
@@ -108,8 +108,18 @@ struct HintView: View {
         HStack {
             Text("\(hint.label):")
                 .padding(10)
-            Text(" \(hint.value)")
-                .padding(10)
+            switch hint.type {
+            case .image:
+                AsyncImage(url: URL(string: hint.value)) { image in
+                    image.resizable()
+                } placeholder: {
+                    ProgressView()
+                }
+            case .text:
+                Text(" \(hint.value)")
+                    .padding(10)
+                
+            }
         }
         .foregroundStyle(.white)
         .font(.hintText)

@@ -17,6 +17,13 @@ enum GameState {
 struct Hint: Equatable, Hashable {
     let label: String
     let value: String
+    let type: HintType
+}
+
+enum HintType {
+    case image
+    case text
+    case number
 }
 
 enum GameError: Error {

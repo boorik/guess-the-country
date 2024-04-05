@@ -21,7 +21,7 @@ extension Question {
     
     static func mock(id: Int, hintsNumber: Int = 4) -> Question {
         return Question(
-            hints: Array<Int>(1...hintsNumber).map { Hint(label: "Indice \($0)", value: "\($0)") },
+            hints: Array<Int>(1...hintsNumber).map { Hint(label: "Indice \($0)", value: "\($0)", type: .text) },
             correctAnswer: "Good Answer \(id)",
             possibleAnswers: ["Answer 1", "Answer 2", "Royaume Uni de Grande Bretagne et d'Irlande", "Good Answer \(id)"].shuffled()
         )

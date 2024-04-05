@@ -14,7 +14,14 @@ struct DisplayedHint: Hashable, Identifiable {
     
     let value: String
     let label: String
+    let type: DisplayedHintType
 }
+
+enum DisplayedHintType {
+    case image
+    case text
+}
+
 
 class GameViewModel: ObservableObject {
     init(game: Game, router: Router) {
@@ -54,11 +61,14 @@ class GameViewModel: ObservableObject {
             currentQuestion = question
             self.score = "\(score)"
             displayedHints = hints.map({ hint in
-                    DisplayedHint(
-                        value: hint.value,
-                        label: hint.label
-                    )
-                })
+                let displayedHintType = switch hint.type {
+                case .image:
+                    DisplayedHintType.image
+                case .text, .number:
+                    DisplayedHintType.text
+                }
+                return DisplayedHint(value: hint.value, label: hint.label, type: displayedHintType)
+            })
         case .idle:
             currentQuestion = nil
         case .finished(let score):
