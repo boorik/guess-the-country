@@ -105,29 +105,29 @@ struct HintView: View {
     let hint: DisplayedHint
     
     var body: some View {
-        HStack {
-            Text("\(hint.label):")
-                .padding(10)
-            switch hint.type {
-            case .image:
-                AsyncImage(url: URL(string: hint.value)) { image in
-                    image.resizable()
-                } placeholder: {
-                    ProgressView()
-                }
-            case .text:
-                Text(" \(hint.value)")
+        ZStack {
+            RoundedRectangle(cornerRadius: 25.0)
+                .fill(Color.blue)
+                switch hint.type {
+                case .image:
+                    AsyncImage(url: URL(string: hint.value)) { image in
+                        image.resizable()
+                        image.aspectRatio(contentMode: .fit)
+                    } placeholder: {
+                        ProgressView()
+                    }
+                    .padding(25)
+                case .text:
+                    HStack {
+                        Text("\(hint.label):")
+                        Text(" \(hint.value)")
+                            .padding(10)
+                    }
                     .padding(10)
-                
-            }
+                }
         }
         .foregroundStyle(.white)
         .font(.hintText)
         .frame(width: UIScreen.main.bounds.width * 0.8)
-        //.frame(minHeight: 100)
-        .background(
-            RoundedRectangle(cornerSize: CGSize(width: 20, height: 10))
-                .fill(Color.blue)
-        )
     }
 }

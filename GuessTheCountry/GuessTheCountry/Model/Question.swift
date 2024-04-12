@@ -21,13 +21,13 @@ extension Question {
     
     static func mock(id: Int, hintsNumber: Int = 4) -> Question {
         return Question(
-            hints: Array<Int>(1...hintsNumber).map { Hint(label: "Indice \($0)", value: "\($0)", type: .text) },
+            hints: Array<Int>(1...hintsNumber).map { Hint(label: "Indice \($0) de la question \(id)", value: "\($0)", type: .text) },
             correctAnswer: "Good Answer \(id)",
             possibleAnswers: ["Answer 1", "Answer 2", "Royaume Uni de Grande Bretagne et d'Irlande", "Good Answer \(id)"].shuffled()
         )
     }
     
-    static func mockArray(size : Int) -> [Question] {
-        Array<Int>(1...size).map{ mock(id: $0, hintsNumber: 4) }
+    static func mockArray(size : Int, hintsNumber: Int = 4) -> [Question] {
+        Array<Int>(1...size).map{ mock(id: $0, hintsNumber: hintsNumber) }
     }
 }

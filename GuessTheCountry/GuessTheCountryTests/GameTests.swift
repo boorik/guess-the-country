@@ -56,7 +56,11 @@ final class GameTests: XCTestCase {
     }
     
     func testGivenAllHintAlreadyRevealedWhenRequestingMoreHintThenNoMoreHintShouldBeRevealed() throws {
-        let sut = Game(questions: Question.mockArray(size: 5))
+        let hintNumber = 4
+        let questions = Question.mockArray(size: 5, hintsNumber: hintNumber)
+        XCTAssertEqual(questions.first?.hints.count, hintNumber)
+
+        let sut = Game(questions: questions)
         
         _ = sut.revealMoreHints()
         let state = sut.revealMoreHints()
@@ -65,13 +69,16 @@ final class GameTests: XCTestCase {
             return XCTFail("Game is not running")
         }
         
-        XCTAssertEqual(returnedHints.count, 2)
+        XCTAssertEqual(returnedHints.count, 3)
+        
+        _ = sut.revealMoreHints()
+        _ = sut.revealMoreHints()
         
         guard case .running(_, _, let internalHints) = sut.state else {
             return XCTFail("Game is not running")
         }
         
-        XCTAssertEqual(internalHints.count, 2)
+        XCTAssertEqual(internalHints.count, 4)
     }
     
     func testGivenNewGameWhenSelectingAWrongAnswerThenTheScoreIsNotUpdatedAndTheNextQuestionIsGiven() throws {
