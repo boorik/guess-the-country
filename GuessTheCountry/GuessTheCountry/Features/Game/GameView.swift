@@ -23,7 +23,7 @@ struct GameView: View {
                     LazyHStack {
                         ForEach(gameViewModel.displayedHints, id: \.id) { hint in
                             HintView(hint: hint)
-                            .id(hint.id)
+                                .id(hint.id)
                         }
                     }
                     .padding(UIScreen.main.bounds.width * 0.1)
@@ -37,7 +37,7 @@ struct GameView: View {
                 .scrollTargetBehavior(.viewAligned(limitBehavior:.automatic))
                 .scrollIndicators(.hidden)
             }
-            
+
             Button(action: {
                 gameViewModel.onNextHint()
             }, label: {
@@ -58,17 +58,17 @@ struct GameView: View {
                     }
                     Text("Quel pays ?")
                         .font(.mainTitle)
-                    
+
                 }
                 .padding(.horizontal, 20)
-                
+
                 Spacer()
-                
+
                 hints
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
-                
+
                 Spacer()
-                
+
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: 150))]) {
                     ForEach(gameViewModel.possibleAnswers, id: \.self) { country in
                         Button {
@@ -92,7 +92,7 @@ struct QuestionView: View {
     var body: some View {
         VStack {
             Text("QUESTION")
-            
+
         }
     }
 }
@@ -103,28 +103,30 @@ struct QuestionView: View {
 
 struct HintView: View {
     let hint: DisplayedHint
-    
+
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 25.0)
                 .fill(Color.blue)
-                switch hint.type {
-                case .image:
-                    AsyncImage(url: URL(string: hint.value)) { image in
-                        image.resizable()
-                        image.aspectRatio(contentMode: .fit)
-                    } placeholder: {
-                        ProgressView()
-                    }
-                    .padding(25)
-                case .text:
-                    HStack {
-                        Text("\(hint.label):")
-                        Text(" \(hint.value)")
-                            .padding(10)
-                    }
-                    .padding(10)
+            switch hint.type {
+            case .image:
+                AsyncImage(url: URL(string: hint.value)) { image in
+                    image
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+
+                } placeholder: {
+                    ProgressView()
                 }
+                .padding(20)
+            case .text:
+                HStack {
+                    Text("\(hint.label):")
+                    Text(" \(hint.value)")
+                        .padding(10)
+                }
+                .padding(10)
+            }
         }
         .foregroundStyle(.white)
         .font(.hintText)
