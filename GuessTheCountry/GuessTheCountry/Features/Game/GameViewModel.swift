@@ -55,9 +55,13 @@ class GameViewModel: ObservableObject {
         check(gameState: game.revealMoreHints())
     }
     
+    private func isAnswerCorrect(answer: String) {
+        //TODO: Créer la méthode qui va permettre à la vue d'afficher l'état de la réponse
+    }
+    
     func check(gameState: GameState) {
         switch gameState {
-        case let .running(question, score, hints):
+        case .running(let question, let score, let hints, let history):
             currentQuestion = question
             self.score = "\(score)"
             displayedHints = hints.map({ hint in

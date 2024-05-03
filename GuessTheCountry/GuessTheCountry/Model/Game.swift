@@ -9,7 +9,7 @@ import Foundation
 
 enum GameState {
     case idle
-    case running(question: Question, score: Int, hints: [Hint])
+    case running(question: Question, score: Int, hints: [Hint], history: [HistoryElement])
     case finished(score: Int)
     case error(Error)
 }
@@ -36,8 +36,9 @@ class Game {
         self.score = score
         self.questions = questions
         self.state = .idle
+        self.history = []
         if let firstQuestion = questions.first, let firstHint = firstQuestion.hints.first {
-            self.state = .running(question: firstQuestion, score: self.score, hints: [firstHint])
+            self.state = .running(question: firstQuestion, score: self.score, hints: [firstHint], history: history)
             numberRevealedHints = 1
         } else {
             self.state = .error(GameError.noQuestionsProvided)
@@ -49,6 +50,7 @@ class Game {
     private var currentQuestionId: Int = 0
     private var numberRevealedHints: Int = 0
     private(set) var state: GameState
+    private var history: [HistoryElement]
 
     
     func finish() {
@@ -56,12 +58,14 @@ class Game {
     }
     
     func selectAnswer(answer: String) -> GameState {
-        guard case .running(let currentQuestion, _, _) = state else {
+        guard case .running(let currentQuestion, _, _, _) = state else {
             return state
         }
         
+        history.append(HistoryElement(response: answer, question: currentQuestion, hintUsed: numberRevealedHints))
+        
         if currentQuestion.isAnswerCorrect(answer: answer) {
-            score += 1 // TODO impact numberRevealedHints on the score
+            score += 1// TODO impact numberRevealedHints on the score
         }
         guard questions.last != currentQuestion else {
             finish()
@@ -70,7 +74,7 @@ class Game {
         currentQuestionId += 1
         numberRevealedHints = 0
         do {
-            state = try .running(question: questions[currentQuestionId], score: score, hints: revealHints())
+            state = try .running(question: questions[currentQuestionId], score: score, hints: revealHints(), history: history)
         } catch {
             return .error(error)
         }
@@ -78,7 +82,7 @@ class Game {
     }
     
     private func revealHints() throws -> [Hint] {
-        guard case .running(_, _, _) = state else {
+        guard case .running = state else {
             return []
         }
         guard currentQuestionId < questions.count else {
@@ -89,11 +93,11 @@ class Game {
     }
     
     func revealMoreHints() -> GameState {
-        guard case .running(let currentQuestion, _, _) = state else {
+        guard case .running(let currentQuestion, _, _, _) = state else {
             return state
         }
         do {
-            state = try .running(question: currentQuestion, score: score, hints: revealHints())
+            state = try .running(question: currentQuestion, score: score, hints: revealHints(), history: history)
         } catch {
             return .error(error)
         }
