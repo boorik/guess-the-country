@@ -13,7 +13,7 @@ final class GameTests: XCTestCase {
     func testGivenNewGameWhenInitiatedThenStateIsRunning() throws {
         let sut = Game(questions: Question.mockArray(size: 5))
         
-        guard case .running(_, _, _) = sut.state else {
+        guard case .running(_, _, _, _) = sut.state else {
             return XCTFail("Game is not running")
         }
         XCTAssert(true)
@@ -22,7 +22,7 @@ final class GameTests: XCTestCase {
     func testGivenNewGameWhenInitiatedThenCurrentQuestionIsTheFirstOne() throws {
         let sut = Game(questions: Question.mockArray(size: 5))
         
-        guard case .running(let currentQuestion, _, _) = sut.state else {
+        guard case .running(let currentQuestion, _, _, _) = sut.state else {
             return XCTFail("Game is not running")
         }
         XCTAssertEqual(currentQuestion.correctAnswer, "Good Answer 1")
@@ -31,7 +31,7 @@ final class GameTests: XCTestCase {
     func testGivenNewGameWhenInitiatedThenOneHintMustBeRevealed() throws {
         let sut = Game(questions: Question.mockArray(size: 5))
         
-        guard case .running(_, _, let hints) = sut.state else {
+        guard case .running(_, _, let hints, _) = sut.state else {
             return XCTFail("Game is not running")
         }
         XCTAssertEqual(hints.count, 1)
@@ -42,13 +42,13 @@ final class GameTests: XCTestCase {
         
         let state = sut.revealMoreHints()
         
-        guard case .running(_, _, let returnedHints) = state else {
+        guard case .running(_, _, let returnedHints, _) = state else {
             return XCTFail("Game is not running")
         }
         
         XCTAssertEqual(returnedHints.count, 2)
         
-        guard case .running(_, _, let internalHints) = sut.state else {
+        guard case .running(_, _, let internalHints, _) = sut.state else {
             return XCTFail("Game is not running")
         }
         
@@ -65,7 +65,7 @@ final class GameTests: XCTestCase {
         _ = sut.revealMoreHints()
         let state = sut.revealMoreHints()
         
-        guard case .running(_, _, let returnedHints) = state else {
+        guard case .running(_, _, let returnedHints, _) = state else {
             return XCTFail("Game is not running")
         }
         
@@ -74,7 +74,7 @@ final class GameTests: XCTestCase {
         _ = sut.revealMoreHints()
         _ = sut.revealMoreHints()
         
-        guard case .running(_, _, let internalHints) = sut.state else {
+        guard case .running(_, _, let internalHints, _) = sut.state else {
             return XCTFail("Game is not running")
         }
         
@@ -86,7 +86,7 @@ final class GameTests: XCTestCase {
         
         _ = sut.selectAnswer(answer: "")
         
-        guard case let .running(currentQuestion, score, hints) = sut.state else {
+        guard case let .running(currentQuestion, score, hints, _) = sut.state else {
             return XCTFail("Game is not running")
         }
         XCTAssertEqual(hints.count, 1)
@@ -99,7 +99,7 @@ final class GameTests: XCTestCase {
         
         _ = sut.selectAnswer(answer: "Good Answer 1")
         
-        guard case let .running(currentQuestion, score, hints) = sut.state else {
+        guard case let .running(currentQuestion, score, hints, _) = sut.state else {
             return XCTFail("Game is not running")
         }
         XCTAssertEqual(hints.count, 1)
@@ -128,15 +128,40 @@ final class GameTests: XCTestCase {
     func testGivenGameIsRunningWhenSelectingAnswerThenHintIsUpdated() throws {
         let sut = Game(questions: Question.mockArray(size: 2))
         
-        guard case let .running(_, _, hints) = sut.state else {
+        guard case let .running(_, _, hints, _) = sut.state else {
             return XCTFail("Game is not running")
         }
         let oldFirstHint = hints.first
         let newState = sut.selectAnswer(answer: "Wrong Answer 1")
-        guard case let .running(_, _, newHints) = newState else {
+        guard case let .running(_, _, newHints, _) = newState else {
             return XCTFail("Game is not running")
         }
         
         XCTAssertNotEqual(oldFirstHint, newHints.first)
+    }
+    
+    func testGivenGame() throws {
+        let mockedQuestions = Question.mockArray(size: 2)
+        let sut = Game(questions: mockedQuestions)
+        
+        // TODO Expect
+        
+        guard case let .running(_, _, _, history) = sut.state else {
+            return XCTFail("Game is not running")
+        }
+        
+        XCTAssertEqual(history, [])
+        
+        let firstState = sut.selectAnswer(answer: "Wrong answer 1")
+        
+        guard case let .running(_, _, _, historyWithOneAnswer) = sut.state else {
+            return XCTFail("Game is not running")
+        }
+        
+        XCTAssertEqual(historyWithOneAnswer.count, 1)
+        let firstQuestion = try XCTUnwrap(mockedQuestions.first)
+        let expectedHistoryElement = HistoryElement(response: "Wrong answer 1", question: firstQuestion, hintUsed: 1)
+        
+        XCTAssertEqual(expectedHistoryElement, historyWithOneAnswer.first)
     }
 }

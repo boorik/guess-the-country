@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct HistoryElement {
+struct HistoryElement: Equatable {
     let response: String
     let question: Question
     let hintUsed: Int
