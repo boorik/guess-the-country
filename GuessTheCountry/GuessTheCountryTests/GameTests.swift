@@ -140,12 +140,10 @@ final class GameTests: XCTestCase {
         XCTAssertNotEqual(oldFirstHint, newHints.first)
     }
     
-    func testGivenGame() throws {
+    func testGivenGameIsRunningWhenSelectingAnswerThenHistoryIsUpdated() throws {
         let mockedQuestions = Question.mockArray(size: 2)
         let sut = Game(questions: mockedQuestions)
-        
-        // TODO Expect
-        
+                
         guard case let .running(_, _, _, history) = sut.state else {
             return XCTFail("Game is not running")
         }
