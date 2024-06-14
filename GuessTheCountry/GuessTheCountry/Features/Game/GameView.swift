@@ -11,6 +11,7 @@ import UIKit
 struct GameView: View {
     let theme = Theme.default
     @StateObject var gameViewModel: GameViewModel
+    
     init(game: Game, router: Router) {
         _gameViewModel = StateObject(wrappedValue: GameViewModel(game: game, router: router))
     }
@@ -83,7 +84,7 @@ struct GameView: View {
                 }
                 .padding()
             }
-        }
+        }.popover(item: <#T##Binding<Identifiable?>#>, content: <#T##(Identifiable) -> View#>)
     }
 }
 

@@ -9,9 +9,22 @@ import Foundation
 
 enum GameState {
     case idle
-    case running(question: Question, score: Int, hints: [Hint], history: [HistoryElement])
+    //case running(question: Question, score: Int, hints: [Hint], history: [HistoryElement])
+    case askingQuestion(question: Question,score: Int, hints: [Hint])
+    case answer(isCorrect: Bool, score: Int, history: [HistoryElement])
     case finished(score: Int)
     case error(Error)
+}
+
+extension GameState {
+    var isRunning: Bool {
+        switch self {
+        case .askingQuestion, .answer:
+            true
+        case .finished, .idle, .error:
+            false
+        }
+    }
 }
 
 struct Hint: Equatable, Hashable {
@@ -29,6 +42,7 @@ enum HintType {
 enum GameError: Error {
     case noQuestionsProvided
     case hintsOutOfBounds
+    case unexpectedCall
 }
 
 class Game {
@@ -38,7 +52,7 @@ class Game {
         self.state = .idle
         self.history = []
         if let firstQuestion = questions.first, let firstHint = firstQuestion.hints.first {
-            self.state = .running(question: firstQuestion, score: self.score, hints: [firstHint], history: history)
+            self.state = .askingQuestion(question: firstQuestion, score: self.score, hints: [firstHint])
             numberRevealedHints = 1
         } else {
             self.state = .error(GameError.noQuestionsProvided)
@@ -53,37 +67,35 @@ class Game {
     private var history: [HistoryElement]
 
     
-    func finish() {
+    func finish() -> GameState {
         state = .finished(score: score)
+        return state
     }
     
     func selectAnswer(answer: String) -> GameState {
-        guard case .running(let currentQuestion, _, _, _) = state else {
+        guard case .askingQuestion(let currentQuestion, _, _) = state else {
             return state
         }
         
         history.append(HistoryElement(response: answer, question: currentQuestion, hintUsed: numberRevealedHints))
         
-        if currentQuestion.isAnswerCorrect(answer: answer) {
+        let isCorrect = currentQuestion.isAnswerCorrect(answer: answer)
+        if isCorrect {
             score += 1// TODO impact numberRevealedHints on the score
         }
+        // check if game is over
         guard questions.last != currentQuestion else {
-            finish()
-            return state
+            return finish()
         }
-        currentQuestionId += 1
-        numberRevealedHints = 0
-        do {
-            state = try .running(question: questions[currentQuestionId], score: score, hints: revealHints(), history: history)
-        } catch {
-            return .error(error)
-        }
+       
+        state = .answer(isCorrect: isCorrect, score: score, history: history)
+        
         return state
     }
     
     private func revealHints() throws -> [Hint] {
-        guard case .running = state else {
-            return []
+        guard state.isRunning else {
+            throw GameError.unexpectedCall
         }
         guard currentQuestionId < questions.count else {
             throw GameError.hintsOutOfBounds
@@ -93,11 +105,30 @@ class Game {
     }
     
     func revealMoreHints() -> GameState {
-        guard case .running(let currentQuestion, _, _, _) = state else {
+        guard case .askingQuestion(let currentQuestion, _, _) = state else {
             return state
         }
         do {
-            state = try .running(question: currentQuestion, score: score, hints: revealHints(), history: history)
+            let newHints = try revealHints()
+            state = .askingQuestion(question: currentQuestion, score: score, hints: newHints)
+        } catch {
+            return .error(error)
+        }
+        return state
+    }
+    
+    func getNextQuestion() -> GameState {
+        guard currentQuestionId < questions.count else {
+            return finish()
+        }
+        
+        currentQuestionId += 1
+        numberRevealedHints = 0
+        let currentQuestion = questions[currentQuestionId]
+        
+        do {
+            let newHints = try revealHints()
+            state = .askingQuestion(question: currentQuestion, score: score, hints: newHints)
         } catch {
             return .error(error)
         }

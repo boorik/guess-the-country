@@ -22,17 +22,26 @@ enum DisplayedHintType {
     case text
 }
 
+import SwiftUI
+
+struct DisplayedAnswer: Identifiable {
+    let id = UUID()
+    let isCorrect: Bool
+    let message: String
+}
+
 
 class GameViewModel: ObservableObject {
     init(game: Game, router: Router) {
         self.game = game
         self.router = router
         score = "0"
-        self.check(gameState: game.state)
+        self.process(gameState: game.state)
     }
     
     @Published var currentQuestion: Question?
     @Published var displayedHints: [DisplayedHint] = []
+    @Published var answer: DisplayedAnswer?
     
     let game: Game
     let router: Router
@@ -48,20 +57,24 @@ class GameViewModel: ObservableObject {
     
     func check(answer: String) {
         let gameState = game.selectAnswer(answer: answer)
-        check(gameState: gameState)
+        process(gameState: gameState)
     }
     
     func onNextHint() {
-        check(gameState: game.revealMoreHints())
+        process(gameState: game.revealMoreHints())
     }
     
     private func isAnswerCorrect(answer: String) {
         //TODO: Créer la méthode qui va permettre à la vue d'afficher l'état de la réponse
     }
     
-    func check(gameState: GameState) {
+    func process(gameState: GameState) {
         switch gameState {
-        case .running(let question, let score, let hints, let history):
+        case let .answer(isCorrect, score, history):
+            // TODO display something in dialog???
+            answer = DisplayedAnswer(isCorrect: isCorrect, message: isCorrect ? "bonne réponse" : "mauvais")
+            break
+        case let .askingQuestion(question, score, hints):
             currentQuestion = question
             self.score = "\(score)"
             displayedHints = hints.map({ hint in
