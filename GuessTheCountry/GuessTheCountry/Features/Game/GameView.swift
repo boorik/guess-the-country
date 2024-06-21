@@ -84,7 +84,20 @@ struct GameView: View {
                 }
                 .padding()
             }
-        }.popover(item: <#T##Binding<Identifiable?>#>, content: <#T##(Identifiable) -> View#>)
+        }.popover(
+            isPresented: .constant(gameViewModel.game.state.isAnswerDisplayed), arrowEdge: .bottom
+        ) {
+            Text("\(gameViewModel.answer?.message)")
+                .padding()
+            Button {
+                gameViewModel.goToNextQuestion()
+            } label: {
+                Text("Question suivante")
+                    .multilineTextAlignment(.center)
+                    .frame(maxWidth:.infinity, minHeight: 90, maxHeight: 90)
+            }
+            .buttonStyle(AnswerButton(theme: theme))
+        }
     }
 }
 

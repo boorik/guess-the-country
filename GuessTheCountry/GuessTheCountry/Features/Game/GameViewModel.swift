@@ -71,7 +71,6 @@ class GameViewModel: ObservableObject {
     func process(gameState: GameState) {
         switch gameState {
         case let .answer(isCorrect, score, history):
-            // TODO display something in dialog???
             answer = DisplayedAnswer(isCorrect: isCorrect, message: isCorrect ? "bonne réponse" : "mauvais")
             break
         case let .askingQuestion(question, score, hints):
@@ -94,6 +93,10 @@ class GameViewModel: ObservableObject {
         case .error:
             currentQuestion = nil
         }
+    }
+    
+    func goToNextQuestion() {
+        process(gameState: game.getNextQuestion())
     }
 
 }

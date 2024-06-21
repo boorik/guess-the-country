@@ -25,6 +25,15 @@ extension GameState {
             false
         }
     }
+    
+    var isAnswerDisplayed: Bool {
+        switch self {
+        case .answer:
+            true
+        case .askingQuestion, .finished, .idle, .error:
+            false
+        }
+    }
 }
 
 struct Hint: Equatable, Hashable {
