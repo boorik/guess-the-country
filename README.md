@@ -14,3 +14,5 @@ https://restcountries.com/
 - Hint scroll to rework
 - Hint text size (big text not well handled)
 - Hint number units formatting
+- Add missing tests
+- Rename test functions
