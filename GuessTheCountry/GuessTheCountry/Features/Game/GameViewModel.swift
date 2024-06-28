@@ -69,8 +69,9 @@ class GameViewModel: ObservableObject {
     }
     
     func process(gameState: GameState) {
+        answer = nil
         switch gameState {
-        case let .answer(isCorrect, score, history):
+        case let .answer(isCorrect, _, _):
             answer = DisplayedAnswer(isCorrect: isCorrect, message: isCorrect ? "bonne réponse" : "mauvais")
             break
         case let .askingQuestion(question, score, hints):

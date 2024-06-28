@@ -7,7 +7,33 @@
 
 import Foundation
 
-enum GameState {
+enum GameState: Equatable {
+    static func == (lhs: GameState, rhs: GameState) -> Bool {
+        switch lhs {
+        case .idle:
+            if case .idle = rhs {
+                return true
+            }
+        case .askingQuestion(let lquestion, let lscore, let lhints):
+            if case .askingQuestion(let rquestion, let rscore, let rhints) = rhs {
+                return lquestion == rquestion && lscore == rscore && lhints == rhints
+            }
+        case .answer(let lisCorrect, let lscore, let lhistory):
+            if case .answer(let risCorrect, let rscore, let rhistory) = rhs {
+                return lisCorrect == risCorrect && rscore == lscore && lhistory == rhistory
+            }
+        case .finished(let lscore):
+            if case .finished(let rscore) = rhs {
+                return lscore == rscore
+            }
+        case .error(let lerror):
+            if case .error(let rerror) = rhs {
+                return lerror.localizedDescription == rerror.localizedDescription
+            }
+        }
+        return false
+    }
+    
     case idle
     //case running(question: Question, score: Int, hints: [Hint], history: [HistoryElement])
     case askingQuestion(question: Question,score: Int, hints: [Hint])
@@ -48,7 +74,7 @@ enum HintType {
     case number
 }
 
-enum GameError: Error {
+enum GameError: Error, Equatable {
     case noQuestionsProvided
     case hintsOutOfBounds
     case unexpectedCall

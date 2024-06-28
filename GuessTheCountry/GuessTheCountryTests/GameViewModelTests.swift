@@ -16,11 +16,12 @@ final class GameViewModelTests: XCTestCase {
         XCTAssertEqual(sut.displayedHints.count, 1)
     }
     
-    func testGivenWhenSelectingAnswerThenFirstHintIsUpdated() throws {
+    func testGivenWhenAskingANewQuestionThenFirstHintIsUpdated() throws {
         let sut = GameViewModel(game: Game(questions: Question.mockArray(size: 5)), router: Router())
         
         let oldFirstHint = sut.displayedHints.first
-        sut.check(answer: "")
+        sut.goToNextQuestion()
+                
         XCTAssertNotEqual(sut.displayedHints.first, oldFirstHint)
     }
 

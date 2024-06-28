@@ -127,4 +127,17 @@ final class GameTests: XCTestCase {
         XCTAssertEqual(score, 1)
     }
 
+    func testGivenARightAnswerWhenCheckAnswerThenState() throws {
+        let sut = Game(questions: Question.mockArray(size: 2))
+        
+        let state = sut.selectAnswer(answer: "Good Answer 1")
+        
+        guard case let .answer(isCorrect, score, history)  = state else {
+            return XCTFail("Game should be finished")
+        }
+        
+        XCTAssertEqual(isCorrect, true)
+        XCTAssertEqual(score, 1)
+        
+    }
 }
