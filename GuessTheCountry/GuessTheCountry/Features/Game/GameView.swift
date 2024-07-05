@@ -49,55 +49,51 @@ struct GameView: View {
         }
     }
     var body: some View {
-        ScaffoldView {
-            VStack {
-                VStack{
-                    HStack {
-                        Spacer()
-                        Text("Score: \(gameViewModel.score)")
-                            .font(.appTitle)
-                    }
-                    Text("Quel pays ?")
-                        .font(.mainTitle)
-
-                }
-                .padding(.horizontal, 20)
-
-                Spacer()
-
-                hints
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-
-                Spacer()
-
-                LazyVGrid(columns: [GridItem(.adaptive(minimum: 150))]) {
-                    ForEach(gameViewModel.possibleAnswers, id: \.self) { country in
-                        Button {
-                            gameViewModel.check(answer: country)
-                        } label: {
-                            Text(country)
-                                .multilineTextAlignment(.center)
-                                .frame(maxWidth:.infinity, minHeight: 90, maxHeight: .infinity)
+        ZStack {
+            ScaffoldView {
+                VStack {
+                    VStack{
+                        HStack {
+                            Spacer()
+                            Text("Score: \(gameViewModel.score)")
+                                .font(.appTitle)
                         }
-                        .buttonStyle(AnswerButton(theme: theme))
+                        Text("Quel pays ?")
+                            .font(.mainTitle)
+                        
                     }
-                }
-                .padding()
-            }
-        }.popover(
-            item: $gameViewModel.answer, content: { answer in
-                Text("\(answer.message)")
+                    .padding(.horizontal, 20)
+                    
+                    Spacer()
+                    
+                    hints
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    
+                    Spacer()
+                    
+                    LazyVGrid(columns: [GridItem(.adaptive(minimum: 150))]) {
+                        ForEach(gameViewModel.possibleAnswers, id: \.self) { country in
+                            Button {
+                                gameViewModel.check(answer: country)
+                            } label: {
+                                Text(country)
+                                    .multilineTextAlignment(.center)
+                                    .frame(maxWidth:.infinity, minHeight: 90, maxHeight: .infinity)
+                            }
+                            .buttonStyle(AnswerButton(theme: theme))
+                        }
+                    }
                     .padding()
-                Button {
-                    gameViewModel.goToNextQuestion()
-                } label: {
-                    Text("Question suivante")
-                        .multilineTextAlignment(.center)
-                        .frame(maxWidth:.infinity, minHeight: 90, maxHeight: 90)
                 }
-                .buttonStyle(AnswerButton(theme: theme))
             }
-        )
+            if let answer = gameViewModel.answer {
+                AnswerPopover(answer: answer) {
+                    gameViewModel.goToNextQuestion()
+                }
+                .ignoresSafeArea()
+                .transition(.slide)
+            }
+        }
     }
 }
 

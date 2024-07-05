@@ -22,6 +22,7 @@
 		B6D321CB2AF53EA100C93349 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D321CA2AF53EA100C93349 /* HomeView.swift */; };
 		B6D321CE2AF543C700C93349 /* Font+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D321CD2AF543C700C93349 /* Font+Theme.swift */; };
 		B6D321D12AF545DA00C93349 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D321D02AF545DA00C93349 /* GameView.swift */; };
+		B6D5D97E2C382F9C00E93562 /* AnswerPopover.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D5D97D2C382F9C00E93562 /* AnswerPopover.swift */; };
 		BF4A64502BB70AED009C93A8 /* EndGameScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4A644F2BB70AED009C93A8 /* EndGameScreen.swift */; };
 		BF4A64522BB70BC5009C93A8 /* ScaffoldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4A64512BB70BC5009C93A8 /* ScaffoldView.swift */; };
 		F1E031BD2AEBF61800F344F1 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E031BC2AEBF61800F344F1 /* Country.swift */; };
@@ -74,6 +75,7 @@
 		B6D321CA2AF53EA100C93349 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		B6D321CD2AF543C700C93349 /* Font+Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Theme.swift"; sourceTree = "<group>"; };
 		B6D321D02AF545DA00C93349 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
+		B6D5D97D2C382F9C00E93562 /* AnswerPopover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerPopover.swift; sourceTree = "<group>"; };
 		BF4A644F2BB70AED009C93A8 /* EndGameScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndGameScreen.swift; sourceTree = "<group>"; };
 		BF4A64512BB70BC5009C93A8 /* ScaffoldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaffoldView.swift; sourceTree = "<group>"; };
 		F1E031BA2AEBF4FC00F344F1 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 			children = (
 				B6D321D02AF545DA00C93349 /* GameView.swift */,
 				850DF4D52B48513A0053EF3B /* GameViewModel.swift */,
+				B6D5D97D2C382F9C00E93562 /* AnswerPopover.swift */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -439,6 +442,7 @@
 				BF4A64522BB70BC5009C93A8 /* ScaffoldView.swift in Sources */,
 				027CA5C22AFE7E5100B63123 /* QuestionGenerator.swift in Sources */,
 				02D049892BE5225900378E3B /* HistoryElement.swift in Sources */,
+				B6D5D97E2C382F9C00E93562 /* AnswerPopover.swift in Sources */,
 				027CA5C02AFE788900B63123 /* Game.swift in Sources */,
 				F1E031C02AEBF77900F344F1 /* CountryService.swift in Sources */,
 				B61CE5242B2C9D87007AE91B /* Router.swift in Sources */,

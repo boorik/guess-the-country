@@ -30,6 +30,11 @@ struct DisplayedAnswer: Identifiable {
     let message: String
 }
 
+extension DisplayedAnswer {
+    static var mock: DisplayedAnswer {
+        DisplayedAnswer(isCorrect: true, message: "bonne réponse")
+    }
+}
 
 class GameViewModel: ObservableObject {
     init(game: Game, router: Router) {
@@ -72,7 +77,7 @@ class GameViewModel: ObservableObject {
         answer = nil
         switch gameState {
         case let .answer(isCorrect, _, _):
-            answer = DisplayedAnswer(isCorrect: isCorrect, message: isCorrect ? "bonne réponse" : "mauvais")
+            answer = DisplayedAnswer(isCorrect: isCorrect, message: isCorrect ? "bonne réponse" : "mauvaise réponse")
             break
         case let .askingQuestion(question, score, hints):
             currentQuestion = question
