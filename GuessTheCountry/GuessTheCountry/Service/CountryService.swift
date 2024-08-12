@@ -16,16 +16,16 @@ protocol CountryService {
 }
 
 struct RemoteCountryService: CountryService {
-    
+
     let session: URLSession
-    
+
     func getCountries() async throws -> [Country] {
         let urlString = Constants.Endpoints.countryService
         guard let url = URL(string: urlString) else {
             throw ServiceError.invalidUrl
         }
         let result = try await session.data(from: url)
-        
+
         let returnValue = try JSONDecoder().decode([Country].self, from: result.0)
         return returnValue
     }

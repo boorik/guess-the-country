@@ -11,12 +11,12 @@ import UIKit
 struct GameView: View {
     let theme = Theme.default
     @StateObject var gameViewModel: GameViewModel
-    
+
     init(game: Game, router: Router) {
         _gameViewModel = StateObject(wrappedValue: GameViewModel(game: game, router: router))
     }
     var hints: some View {
-        VStack{
+        VStack {
             Text("Indices")
                 .font(.appTitle)
             ScrollViewReader { proxy in
@@ -30,12 +30,12 @@ struct GameView: View {
                     .padding(UIScreen.main.bounds.width * 0.1)
                     .scrollTargetLayout()
                 }
-                .onChange(of: gameViewModel.displayedHints){
+                .onChange(of: gameViewModel.displayedHints) {
                     withAnimation {
                         proxy.scrollTo(gameViewModel.displayedHints.last?.id)
                     }
                 }
-                .scrollTargetBehavior(.viewAligned(limitBehavior:.automatic))
+                .scrollTargetBehavior(.viewAligned(limitBehavior: .automatic))
                 .scrollIndicators(.hidden)
             }
 
@@ -52,7 +52,7 @@ struct GameView: View {
         ZStack {
             ScaffoldView {
                 VStack {
-                    VStack{
+                    VStack {
                         HStack {
                             Spacer()
                             Text("Score: \(gameViewModel.score)")
@@ -60,17 +60,17 @@ struct GameView: View {
                         }
                         Text("Quel pays ?")
                             .font(.mainTitle)
-                        
+
                     }
                     .padding(.horizontal, 20)
-                    
+
                     Spacer()
-                    
+
                     hints
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    
+
                     Spacer()
-                    
+
                     LazyVGrid(columns: [GridItem(.adaptive(minimum: 150))]) {
                         ForEach(gameViewModel.possibleAnswers, id: \.self) { country in
                             Button {
@@ -78,7 +78,7 @@ struct GameView: View {
                             } label: {
                                 Text(country)
                                     .multilineTextAlignment(.center)
-                                    .frame(maxWidth:.infinity, minHeight: 90, maxHeight: .infinity)
+                                    .frame(maxWidth: .infinity, minHeight: 90, maxHeight: .infinity)
                             }
                             .buttonStyle(AnswerButton(theme: theme))
                         }

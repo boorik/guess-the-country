@@ -9,11 +9,6 @@
     print("Family: \(family) Font names: \(names)")
  }
  */
-/*
- Family: Oswald Font names: ["Oswald-Regular", "Oswald-Regular_ExtraLight", "Oswald-Regular_Light", "Oswald-Regular_Medium", "Oswald-Regular_SemiBold", "Oswald-Regular_Bold"]
- Family: Permanent Marker Font names: ["PermanentMarker-Regular"]
- */
-//
 
 import Foundation
 import SwiftUI

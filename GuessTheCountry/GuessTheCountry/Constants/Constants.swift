@@ -6,7 +6,7 @@
 //
 
 struct Constants {
- 
+
     struct Endpoints {
         static let countryService = "https://restcountries.com/v3.1/all"
     }

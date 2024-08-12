@@ -32,6 +32,6 @@ struct ContentView<Content: View>: View {
 
 #Preview {
     ContentView {
-        Text ("Hello world")
+        Text("Hello world")
     }.environmentObject(Router())
 }

@@ -15,12 +15,11 @@ enum Destination: Hashable {
 }
 final class Router: ObservableObject {
     @Published var path = NavigationPath()
-    
 
     func navigate(to destination: Destination) {
         path.append(destination)
     }
-    
+
     func back() {
         path.removeLast()
     }

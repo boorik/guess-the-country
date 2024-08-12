@@ -12,4 +12,3 @@ struct HistoryElement: Equatable {
     let question: Question
     let hintUsed: Int
 }
-

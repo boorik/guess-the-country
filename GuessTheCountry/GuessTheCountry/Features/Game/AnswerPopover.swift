@@ -11,7 +11,7 @@ struct AnswerPopover: View {
     let answer: DisplayedAnswer
     let onButtonTapped: () -> Void
     let theme = Theme.default
-    
+
     var body: some View {
         ZStack {
             Color.black.opacity(0.25)

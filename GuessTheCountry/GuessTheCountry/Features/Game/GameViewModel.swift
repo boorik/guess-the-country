@@ -11,7 +11,7 @@ struct DisplayedHint: Hashable, Identifiable {
     var id: String {
         value + label
     }
-    
+
     let value: String
     let label: String
     let type: DisplayedHintType
@@ -43,36 +43,36 @@ class GameViewModel: ObservableObject {
         score = "0"
         self.process(gameState: game.state)
     }
-    
+
     @Published var currentQuestion: Question?
     @Published var displayedHints: [DisplayedHint] = []
     @Published var answer: DisplayedAnswer?
-    
+
     let game: Game
     let router: Router
     private (set) var score: String
-    
+
     var possibleAnswers: [String] {
         currentQuestion?.possibleAnswers ?? []
     }
-    
+
     var canDisplayNextHint: Bool {
         displayedHints.count < (currentQuestion?.hints.count ?? 0)
     }
-    
+
     func check(answer: String) {
         let gameState = game.selectAnswer(answer: answer)
         process(gameState: gameState)
     }
-    
+
     func onNextHint() {
         process(gameState: game.revealMoreHints())
     }
-    
+
     private func isAnswerCorrect(answer: String) {
-        //TODO: Créer la méthode qui va permettre à la vue d'afficher l'état de la réponse
+        // TODO: Créer la méthode qui va permettre à la vue d'afficher l'état de la réponse
     }
-    
+
     func process(gameState: GameState) {
         answer = nil
         switch gameState {
@@ -100,7 +100,7 @@ class GameViewModel: ObservableObject {
             currentQuestion = nil
         }
     }
-    
+
     func goToNextQuestion() {
         process(gameState: game.getNextQuestion())
     }

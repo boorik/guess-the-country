@@ -33,10 +33,10 @@ enum GameState: Equatable {
         }
         return false
     }
-    
+
     case idle
-    //case running(question: Question, score: Int, hints: [Hint], history: [HistoryElement])
-    case askingQuestion(question: Question,score: Int, hints: [Hint])
+    // case running(question: Question, score: Int, hints: [Hint], history: [HistoryElement])
+    case askingQuestion(question: Question, score: Int, hints: [Hint])
     case answer(isCorrect: Bool, score: Int, history: [HistoryElement])
     case finished(score: Int)
     case error(Error)
@@ -51,7 +51,7 @@ extension GameState {
             false
         }
     }
-    
+
     var isAnswerDisplayed: Bool {
         switch self {
         case .answer:
@@ -93,7 +93,7 @@ class Game {
             self.state = .error(GameError.noQuestionsProvided)
         }
     }
-    
+
     private var score: Int = 0
     private var questions: [Question]
     private var currentQuestionId: Int = 0
@@ -101,19 +101,18 @@ class Game {
     private(set) var state: GameState
     private var history: [HistoryElement]
 
-    
     func finish() -> GameState {
         state = .finished(score: score)
         return state
     }
-    
+
     func selectAnswer(answer: String) -> GameState {
         guard case .askingQuestion(let currentQuestion, _, _) = state else {
             return state
         }
-        
+
         history.append(HistoryElement(response: answer, question: currentQuestion, hintUsed: numberRevealedHints))
-        
+
         let isCorrect = currentQuestion.isAnswerCorrect(answer: answer)
         if isCorrect {
             score += 1// TODO impact numberRevealedHints on the score
@@ -122,12 +121,12 @@ class Game {
         guard questions.last != currentQuestion else {
             return finish()
         }
-       
+
         state = .answer(isCorrect: isCorrect, score: score, history: history)
-        
+
         return state
     }
-    
+
     private func revealHints() throws -> [Hint] {
         guard state.isRunning else {
             throw GameError.unexpectedCall
@@ -138,7 +137,7 @@ class Game {
         numberRevealedHints += 1
         return Array(questions[currentQuestionId].hints.prefix(numberRevealedHints))
     }
-    
+
     func revealMoreHints() -> GameState {
         guard case .askingQuestion(let currentQuestion, _, _) = state else {
             return state
@@ -151,16 +150,16 @@ class Game {
         }
         return state
     }
-    
+
     func getNextQuestion() -> GameState {
         guard currentQuestionId < questions.count else {
             return finish()
         }
-        
+
         currentQuestionId += 1
         numberRevealedHints = 0
         let currentQuestion = questions[currentQuestionId]
-        
+
         do {
             let newHints = try revealHints()
             state = .askingQuestion(question: currentQuestion, score: score, hints: newHints)

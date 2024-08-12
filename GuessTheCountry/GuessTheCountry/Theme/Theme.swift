@@ -25,5 +25,5 @@ extension Theme {
             primaryButtonColor: .black,
             primaryButtonForegroundColor: .white
         )
-    } ()
+    }()
 }

@@ -13,7 +13,7 @@ struct EndGameView: View {
     let router: Router
     var body: some View {
         ScaffoldView {
-            VStack(spacing: .zero){
+            VStack(spacing: .zero) {
                 Text("Game over")
                     .font(.appTitle)
                 Text("Score \(score)")

@@ -297,14 +297,19 @@ struct BAM: Codable {
 }
 
 // MARK: - Demonyms
-struct Demonyms: Codable {
+struct Demonyms: Decodable {
     let eng: Eng
     let fra: Eng?
 }
 
 // MARK: - Eng
-struct Eng: Codable {
-    let f, m: String
+struct Eng: Decodable {
+    let female, male: String
+
+    enum CodingKeys: String, CodingKey {
+        case female = "f"
+        case male = "m"
+    }
 }
 
 // MARK: - Flags

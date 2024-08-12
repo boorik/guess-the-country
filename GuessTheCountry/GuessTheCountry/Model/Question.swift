@@ -11,23 +11,28 @@ struct Question: Equatable, Hashable {
     let hints: [Hint]
     let correctAnswer: String
     let possibleAnswers: [String]
-    
+
     func isAnswerCorrect(answer: String) -> Bool {
         correctAnswer == answer
     }
 }
 
 extension Question {
-    
+
     static func mock(id: Int, hintsNumber: Int = 4) -> Question {
         return Question(
-            hints: Array<Int>(1...hintsNumber).map { Hint(label: "Indice \($0) de la question \(id)", value: "\($0)", type: .text) },
+            hints: [Int](1...hintsNumber).map {
+                Hint(
+                    label: "Indice \($0) de la question \(id)",
+                    value: "\($0)",
+                    type: .text
+                )
+            },
             correctAnswer: "Good Answer \(id)",
             possibleAnswers: ["Answer 1", "Answer 2", "Royaume Uni de Grande Bretagne et d'Irlande", "Good Answer \(id)"].shuffled()
         )
     }
-    
-    static func mockArray(size : Int, hintsNumber: Int = 4) -> [Question] {
-        Array<Int>(1...size).map{ mock(id: $0, hintsNumber: hintsNumber) }
+
+    static func mockArray(size: Int, hintsNumber: Int = 4) -> [Question] {[Int](1...size).map { mock(id: $0, hintsNumber: hintsNumber) }
     }
 }

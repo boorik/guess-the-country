@@ -12,37 +12,41 @@ class QuestionGenerator {
         self.countryService = countryService
         self.itemGenerator = itemGenerator
     }
-    
+
     let countryService: CountryService
     let itemGenerator: any UniqueItemArrayGenerator
-    
+
     func generateQuestions(count: Int) async throws -> [Question] {
-        
-        //TODO récupérer 5 bonnes réponses
+
+        // TODO récupérer 5 bonnes réponses
         // pour chaque question, ajouter 1 bonne réponse + 3 mauvaises
-        
+
         let allCountries = try await countryService.getCountries()
         let countries = itemGenerator.getDistinct(items: allCountries, count: count)
-        
-        return countries.map{ country in
+
+        return countries.map { country in
             let correctAnswer = country.name.common
             var possibleAnswers = itemGenerator.getDistinct(items: allCountries, count: 3).map { $0.name.common }
             possibleAnswers.append(correctAnswer)
             possibleAnswers.shuffle()
-            
+
             return Question(
                 hints: [
                     Hint(label: "flag", value: country.flags.png, type: .image),
                     Hint(label: "capital", value: country.capital?.first ?? "Unknown", type: .text),
                     Hint(label: "population", value: "\(country.population)", type: .number),
-                    Hint(label: "continents", value: "\(country.continents.map{ $0.rawValue }.joined(separator: ", "))", type: .text)
+                    Hint(
+                        label: "continents",
+                        value: "\(country.continents.map { $0.rawValue }.joined(separator: ", "))",
+                        type: .text
+                    )
                 ],
                 correctAnswer: correctAnswer,
                 possibleAnswers: possibleAnswers // $0 prend le 1er paramètre retourné pour chaque itération
             )
         }
     }
-    
+
 }
 
 protocol UniqueItemArrayGenerator {
