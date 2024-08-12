@@ -28,11 +28,13 @@ struct DisplayedAnswer: Identifiable {
     let id = UUID()
     let isCorrect: Bool
     let message: String
+    let goodAnswer: String
+    let givenAnswer: String
 }
 
 extension DisplayedAnswer {
     static var mock: DisplayedAnswer {
-        DisplayedAnswer(isCorrect: true, message: "bonne réponse")
+        DisplayedAnswer(isCorrect: true, message: "bonne réponse", goodAnswer: "42", givenAnswer: "42")
     }
 }
 
@@ -76,8 +78,16 @@ class GameViewModel: ObservableObject {
     func process(gameState: GameState) {
         answer = nil
         switch gameState {
-        case let .answer(isCorrect, _, _):
-            answer = DisplayedAnswer(isCorrect: isCorrect, message: isCorrect ? "bonne réponse" : "mauvaise réponse")
+        case let .answer(isCorrect, _, history):
+            guard let lastQuestion = history.last else {
+                return
+            }
+            answer = DisplayedAnswer(
+                isCorrect: isCorrect,
+                message: isCorrect ? "bonne réponse" : "mauvaise réponse",
+                goodAnswer: lastQuestion.question.correctAnswer,
+                givenAnswer: lastQuestion.response
+            )
             break
         case let .askingQuestion(question, score, hints):
             currentQuestion = question

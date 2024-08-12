@@ -73,6 +73,7 @@ struct GameView: View {
 
                     LazyVGrid(columns: [GridItem(.adaptive(minimum: 150))]) {
                         ForEach(gameViewModel.possibleAnswers, id: \.self) { country in
+                            
                             Button {
                                 gameViewModel.check(answer: country)
                             } label: {
@@ -80,7 +81,11 @@ struct GameView: View {
                                     .multilineTextAlignment(.center)
                                     .frame(maxWidth: .infinity, minHeight: 90, maxHeight: .infinity)
                             }
-                            .buttonStyle(AnswerButton(theme: theme))
+                            .buttonStyle(AnswerButton(
+                                theme: theme,
+                                correctAnswer: gameViewModel.answer == nil  || gameViewModel.answer?.goodAnswer == country,
+                                givenAnswer: gameViewModel.answer?.givenAnswer == country
+                            ))
                         }
                     }
                     .padding()
