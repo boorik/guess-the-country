@@ -10,6 +10,7 @@ import UIKit
 
 struct GameView: View {
     let theme = Theme.default
+
     @StateObject var gameViewModel: GameViewModel
 
     init(game: Game, router: Router) {
@@ -39,10 +40,12 @@ struct GameView: View {
                 .scrollIndicators(.hidden)
             }
 
-            Button(action: {
-                gameViewModel.onNextHint()
-            }, label: {
-                Text(gameViewModel.canDisplayNextHint ? "Indice suivant": "Vous avez le nombre maximum d'indices disponibles")
+            Button(
+                action: {
+                    gameViewModel.onNextHint()
+                },
+                label: {
+                    Text( gameViewModel.nextHintButtonLabel )
             })
             .buttonStyle(PrimaryButton(theme: theme))
             .disabled(!gameViewModel.canDisplayNextHint)
@@ -73,7 +76,6 @@ struct GameView: View {
 
                     LazyVGrid(columns: [GridItem(.adaptive(minimum: 150))]) {
                         ForEach(gameViewModel.possibleAnswers, id: \.self) { country in
-                            
                             Button {
                                 gameViewModel.check(answer: country)
                             } label: {
@@ -83,7 +85,7 @@ struct GameView: View {
                             }
                             .buttonStyle(AnswerButton(
                                 theme: theme,
-                                correctAnswer: gameViewModel.answer == nil  || gameViewModel.answer?.goodAnswer == country,
+                                isCorrectAnswer: gameViewModel.isCorrectAnswer(countryName: country),
                                 givenAnswer: gameViewModel.answer?.givenAnswer == country
                             ))
                         }

@@ -357,9 +357,9 @@ enum Region: String, Codable {
 }
 
 enum StartOfWeek: String, Codable {
-    case monday = "monday"
-    case saturday = "saturday"
-    case sunday = "sunday"
+    case monday
+    case saturday
+    case sunday
 }
 
 enum Status: String, Codable {

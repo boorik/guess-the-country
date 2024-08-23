@@ -52,7 +52,7 @@ class GameViewModel: ObservableObject {
 
     let game: Game
     let router: Router
-    private (set) var score: String
+    private(set) var score: String
 
     var possibleAnswers: [String] {
         currentQuestion?.possibleAnswers ?? []
@@ -62,6 +62,9 @@ class GameViewModel: ObservableObject {
         displayedHints.count < (currentQuestion?.hints.count ?? 0)
     }
 
+    var nextHintButtonLabel: String {
+        canDisplayNextHint ? "Indice suivant": "Vous avez le nombre maximum d'indices disponibles"
+    }
     func check(answer: String) {
         let gameState = game.selectAnswer(answer: answer)
         process(gameState: gameState)
@@ -69,6 +72,10 @@ class GameViewModel: ObservableObject {
 
     func onNextHint() {
         process(gameState: game.revealMoreHints())
+    }
+
+    func isCorrectAnswer(countryName: String) -> Bool {
+        answer == nil  || answer?.goodAnswer == countryName
     }
 
     private func isAnswerCorrect(answer: String) {
@@ -88,7 +95,6 @@ class GameViewModel: ObservableObject {
                 goodAnswer: lastQuestion.question.correctAnswer,
                 givenAnswer: lastQuestion.response
             )
-            break
         case let .askingQuestion(question, score, hints):
             currentQuestion = question
             self.score = "\(score)"
@@ -114,5 +120,4 @@ class GameViewModel: ObservableObject {
     func goToNextQuestion() {
         process(gameState: game.getNextQuestion())
     }
-
 }

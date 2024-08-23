@@ -8,14 +8,8 @@
 import SwiftUI
 
 struct AnswerButton: ButtonStyle {
-    internal init(theme: Theme, correctAnswer: Bool = true, givenAnswer: Bool =  false) {
-        self.theme = theme
-        self.correctAnswer = correctAnswer
-        self.isGivenAnswer = givenAnswer
-    }
-
     let theme: Theme
-    let correctAnswer: Bool
+    let isCorrectAnswer: Bool
     let isGivenAnswer: Bool
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
@@ -24,8 +18,16 @@ struct AnswerButton: ButtonStyle {
             .foregroundStyle(theme.answerButtonForegroundColor)
             .background(
                 RoundedRectangle(cornerRadius: 25)
-                    .fill(correctAnswer ? theme.answerButtonColor : .red)
+                    .fill(isCorrectAnswer ? theme.answerButtonColor : .red)
                     .stroke(isGivenAnswer ? .black : .clear, lineWidth: 4)
             )
+    }
+}
+
+extension AnswerButton {
+    init(theme: Theme, isCorrectAnswer: Bool = true, givenAnswer: Bool =  false) {
+        self.theme = theme
+        self.isCorrectAnswer = isCorrectAnswer
+        self.isGivenAnswer = givenAnswer
     }
 }

@@ -29,10 +29,20 @@ extension Question {
                 )
             },
             correctAnswer: "Good Answer \(id)",
-            possibleAnswers: ["Answer 1", "Answer 2", "Royaume Uni de Grande Bretagne et d'Irlande", "Good Answer \(id)"].shuffled()
+            possibleAnswers: [
+                "Answer 1",
+                "Answer 2",
+                "Royaume Uni de Grande Bretagne et d'Irlande",
+                "Good Answer \(id)"
+            ].shuffled()
         )
     }
 
-    static func mockArray(size: Int, hintsNumber: Int = 4) -> [Question] {[Int](1...size).map { mock(id: $0, hintsNumber: hintsNumber) }
+    static func mockArray(size: Int, hintsNumber: Int = 4) -> [Question] {
+        var questions = [Question]()
+        for id in 1...size {
+            questions.append(mock(id: id, hintsNumber: hintsNumber))
+        }
+        return questions
     }
 }
