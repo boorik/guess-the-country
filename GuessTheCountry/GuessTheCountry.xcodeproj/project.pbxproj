@@ -23,6 +23,9 @@
 		B6D321CE2AF543C700C93349 /* Font+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D321CD2AF543C700C93349 /* Font+Theme.swift */; };
 		B6D321D12AF545DA00C93349 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D321D02AF545DA00C93349 /* GameView.swift */; };
 		B6D5D97E2C382F9C00E93562 /* AnswerPopover.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D5D97D2C382F9C00E93562 /* AnswerPopover.swift */; };
+		BF0744722C78CD5C00199547 /* HintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0744712C78CD5C00199547 /* HintView.swift */; };
+		BF0744742C78CD9300199547 /* DisplayedAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0744732C78CD9300199547 /* DisplayedAnswer.swift */; };
+		BF0744762C78CDC100199547 /* DisplayedHint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0744752C78CDC100199547 /* DisplayedHint.swift */; };
 		BF4A64502BB70AED009C93A8 /* EndGameScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4A644F2BB70AED009C93A8 /* EndGameScreen.swift */; };
 		BF4A64522BB70BC5009C93A8 /* ScaffoldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4A64512BB70BC5009C93A8 /* ScaffoldView.swift */; };
 		F1E031BD2AEBF61800F344F1 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E031BC2AEBF61800F344F1 /* Country.swift */; };
@@ -76,6 +79,9 @@
 		B6D321CD2AF543C700C93349 /* Font+Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Theme.swift"; sourceTree = "<group>"; };
 		B6D321D02AF545DA00C93349 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		B6D5D97D2C382F9C00E93562 /* AnswerPopover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerPopover.swift; sourceTree = "<group>"; };
+		BF0744712C78CD5C00199547 /* HintView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HintView.swift; sourceTree = "<group>"; };
+		BF0744732C78CD9300199547 /* DisplayedAnswer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayedAnswer.swift; sourceTree = "<group>"; };
+		BF0744752C78CDC100199547 /* DisplayedHint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayedHint.swift; sourceTree = "<group>"; };
 		BF4A644F2BB70AED009C93A8 /* EndGameScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndGameScreen.swift; sourceTree = "<group>"; };
 		BF4A64512BB70BC5009C93A8 /* ScaffoldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaffoldView.swift; sourceTree = "<group>"; };
 		F1E031BA2AEBF4FC00F344F1 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
@@ -191,6 +197,9 @@
 		B6D321CF2AF545CB00C93349 /* Game */ = {
 			isa = PBXGroup;
 			children = (
+				BF0744752C78CDC100199547 /* DisplayedHint.swift */,
+				BF0744732C78CD9300199547 /* DisplayedAnswer.swift */,
+				BF0744712C78CD5C00199547 /* HintView.swift */,
 				B6D321D02AF545DA00C93349 /* GameView.swift */,
 				850DF4D52B48513A0053EF3B /* GameViewModel.swift */,
 				B6D5D97D2C382F9C00E93562 /* AnswerPopover.swift */,
@@ -445,6 +454,7 @@
 				BF4A64502BB70AED009C93A8 /* EndGameScreen.swift in Sources */,
 				BF4A64522BB70BC5009C93A8 /* ScaffoldView.swift in Sources */,
 				027CA5C22AFE7E5100B63123 /* QuestionGenerator.swift in Sources */,
+				BF0744722C78CD5C00199547 /* HintView.swift in Sources */,
 				02D049892BE5225900378E3B /* HistoryElement.swift in Sources */,
 				B6D5D97E2C382F9C00E93562 /* AnswerPopover.swift in Sources */,
 				027CA5C02AFE788900B63123 /* Game.swift in Sources */,
@@ -459,6 +469,8 @@
 				B6D321D12AF545DA00C93349 /* GameView.swift in Sources */,
 				5F3D05F42B2368D600F6702E /* Question.swift in Sources */,
 				B64FCC3C2B88F20D0021CC95 /* PrimaryButton.swift in Sources */,
+				BF0744742C78CD9300199547 /* DisplayedAnswer.swift in Sources */,
+				BF0744762C78CDC100199547 /* DisplayedHint.swift in Sources */,
 				B6D321CE2AF543C700C93349 /* Font+Theme.swift in Sources */,
 				B64FCC3A2B88EC3C0021CC95 /* Theme.swift in Sources */,
 			);

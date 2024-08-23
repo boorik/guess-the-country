@@ -6,37 +6,7 @@
 //
 
 import Foundation
-
-struct DisplayedHint: Hashable, Identifiable {
-    var id: String {
-        value + label
-    }
-
-    let value: String
-    let label: String
-    let type: DisplayedHintType
-}
-
-enum DisplayedHintType {
-    case image
-    case text
-}
-
 import SwiftUI
-
-struct DisplayedAnswer: Identifiable {
-    let id = UUID()
-    let isCorrect: Bool
-    let message: String
-    let goodAnswer: String
-    let givenAnswer: String
-}
-
-extension DisplayedAnswer {
-    static var mock: DisplayedAnswer {
-        DisplayedAnswer(isCorrect: true, message: "bonne réponse", goodAnswer: "42", givenAnswer: "42")
-    }
-}
 
 class GameViewModel: ObservableObject {
     init(game: Game, router: Router) {
@@ -91,7 +61,7 @@ class GameViewModel: ObservableObject {
             }
             answer = DisplayedAnswer(
                 isCorrect: isCorrect,
-                message: isCorrect ? "bonne réponse" : "mauvaise réponse",
+                message: isCorrect ? "Bonne réponse" : "Mauvaise réponse",
                 goodAnswer: lastQuestion.question.correctAnswer,
                 givenAnswer: lastQuestion.response
             )
@@ -99,13 +69,7 @@ class GameViewModel: ObservableObject {
             currentQuestion = question
             self.score = "\(score)"
             displayedHints = hints.map({ hint in
-                let displayedHintType = switch hint.type {
-                case .image:
-                    DisplayedHintType.image
-                case .text, .number:
-                    DisplayedHintType.text
-                }
-                return DisplayedHint(value: hint.value, label: hint.label, type: displayedHintType)
+                return DisplayedHint(value: hint.value, label: hint.label, type: .fromModel(hint.type))
             })
         case .idle:
             currentQuestion = nil
