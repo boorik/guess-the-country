@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AnswerPopover: View {
-    let answer: DisplayedAnswer
+    let answer: DisplayedCorrection
     let onButtonTapped: () -> Void
     let theme = Theme.default
 
@@ -35,5 +35,5 @@ struct AnswerPopover: View {
 }
 
 #Preview {
-    AnswerPopover(answer: DisplayedAnswer.mock, onButtonTapped: {})
+    AnswerPopover(answer: DisplayedCorrection.mock, onButtonTapped: {})
 }

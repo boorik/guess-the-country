@@ -17,7 +17,7 @@ struct Theme {
 }
 
 extension Theme {
-    static var `default` = {
+    static let `default` = {
         Theme(
             backgroundColor: Color(.primaryBackground),
             answerButtonColor: Color(.answerButton),

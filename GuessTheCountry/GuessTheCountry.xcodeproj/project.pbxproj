@@ -24,7 +24,7 @@
 		B6D321D12AF545DA00C93349 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D321D02AF545DA00C93349 /* GameView.swift */; };
 		B6D5D97E2C382F9C00E93562 /* AnswerPopover.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D5D97D2C382F9C00E93562 /* AnswerPopover.swift */; };
 		BF0744722C78CD5C00199547 /* HintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0744712C78CD5C00199547 /* HintView.swift */; };
-		BF0744742C78CD9300199547 /* DisplayedAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0744732C78CD9300199547 /* DisplayedAnswer.swift */; };
+		BF0744742C78CD9300199547 /* DisplayedCorrection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0744732C78CD9300199547 /* DisplayedCorrection.swift */; };
 		BF0744762C78CDC100199547 /* DisplayedHint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0744752C78CDC100199547 /* DisplayedHint.swift */; };
 		BF4A64502BB70AED009C93A8 /* EndGameScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4A644F2BB70AED009C93A8 /* EndGameScreen.swift */; };
 		BF4A64522BB70BC5009C93A8 /* ScaffoldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4A64512BB70BC5009C93A8 /* ScaffoldView.swift */; };
@@ -80,7 +80,7 @@
 		B6D321D02AF545DA00C93349 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		B6D5D97D2C382F9C00E93562 /* AnswerPopover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerPopover.swift; sourceTree = "<group>"; };
 		BF0744712C78CD5C00199547 /* HintView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HintView.swift; sourceTree = "<group>"; };
-		BF0744732C78CD9300199547 /* DisplayedAnswer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayedAnswer.swift; sourceTree = "<group>"; };
+		BF0744732C78CD9300199547 /* DisplayedCorrection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayedCorrection.swift; sourceTree = "<group>"; };
 		BF0744752C78CDC100199547 /* DisplayedHint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayedHint.swift; sourceTree = "<group>"; };
 		BF4A644F2BB70AED009C93A8 /* EndGameScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndGameScreen.swift; sourceTree = "<group>"; };
 		BF4A64512BB70BC5009C93A8 /* ScaffoldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaffoldView.swift; sourceTree = "<group>"; };
@@ -198,7 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				BF0744752C78CDC100199547 /* DisplayedHint.swift */,
-				BF0744732C78CD9300199547 /* DisplayedAnswer.swift */,
+				BF0744732C78CD9300199547 /* DisplayedCorrection.swift */,
 				BF0744712C78CD5C00199547 /* HintView.swift */,
 				B6D321D02AF545DA00C93349 /* GameView.swift */,
 				850DF4D52B48513A0053EF3B /* GameViewModel.swift */,
@@ -378,7 +378,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1500;
-				LastUpgradeCheck = 1500;
+				LastUpgradeCheck = 1600;
 				TargetAttributes = {
 					F1FBFBFB2AD98FC900332F41 = {
 						CreatedOnToolsVersion = 15.0;
@@ -469,7 +469,7 @@
 				B6D321D12AF545DA00C93349 /* GameView.swift in Sources */,
 				5F3D05F42B2368D600F6702E /* Question.swift in Sources */,
 				B64FCC3C2B88F20D0021CC95 /* PrimaryButton.swift in Sources */,
-				BF0744742C78CD9300199547 /* DisplayedAnswer.swift in Sources */,
+				BF0744742C78CD9300199547 /* DisplayedCorrection.swift in Sources */,
 				BF0744762C78CDC100199547 /* DisplayedHint.swift in Sources */,
 				B6D321CE2AF543C700C93349 /* Font+Theme.swift in Sources */,
 				B64FCC3A2B88EC3C0021CC95 /* Theme.swift in Sources */,
@@ -551,6 +551,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -612,6 +613,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -639,6 +641,7 @@
 				CODE_SIGN_ENTITLEMENTS = GuessTheCountry/GuessTheCountry.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"GuessTheCountry/Preview Content\"";
 				DEVELOPMENT_TEAM = 254M6TE7EY;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -665,7 +668,7 @@
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -678,6 +681,7 @@
 				CODE_SIGN_ENTITLEMENTS = GuessTheCountry/GuessTheCountry.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"GuessTheCountry/Preview Content\"";
 				DEVELOPMENT_TEAM = 254M6TE7EY;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -704,7 +708,7 @@
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -712,13 +716,13 @@
 		F1FBFC252AD98FCB00332F41 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 2UQH8275LS;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = fr.ippon.GuessTheCountryTests;
@@ -735,13 +739,13 @@
 		F1FBFC262AD98FCB00332F41 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 2UQH8275LS;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = fr.ippon.GuessTheCountryTests;
@@ -758,9 +762,9 @@
 		F1FBFC282AD98FCB00332F41 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 2UQH8275LS;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
@@ -780,9 +784,9 @@
 		F1FBFC292AD98FCB00332F41 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 2UQH8275LS;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;

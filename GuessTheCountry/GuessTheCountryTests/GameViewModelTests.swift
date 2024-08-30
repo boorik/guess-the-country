@@ -24,6 +24,31 @@ final class GameViewModelTests: XCTestCase {
 
         XCTAssertNotEqual(sut.displayedHints.first, oldFirstHint)
     }
+    
+    func testGivenAnswerWhenCorrectThenDisplaySuccess() throws {
+        let question = Question(
+            hints: [],
+            correctAnswer: "Toto",
+            possibleAnswers: [
+                "Toto",
+                "Tata",
+                "Tutu",
+                "Réponse D"
+            ]
+        )
+        let sut = GameViewModel(
+            game: Game(
+                questions: [question]
+            ),
+            router: Router()
+        )
+        
+        sut.onSelected(choice: "Toto")
+        let answer = try XCTUnwrap(sut.answer)
+        
+        
+        XCTAssertTrue(answer.isCorrect)
+    }
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

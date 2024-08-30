@@ -15,6 +15,7 @@ https://restcountries.com/
 - Hint number units formatting
 - Add missing tests
 - Rename test functions
+- Bug last question response
 
 - Continue test with swift-testing
 

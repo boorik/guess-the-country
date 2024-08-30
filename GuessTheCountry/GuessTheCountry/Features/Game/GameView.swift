@@ -77,7 +77,7 @@ struct GameView: View {
                     LazyVGrid(columns: [GridItem(.adaptive(minimum: 150))]) {
                         ForEach(gameViewModel.possibleAnswers, id: \.self) { country in
                             Button {
-                                gameViewModel.check(answer: country)
+                                gameViewModel.onSelected(choice: country)
                             } label: {
                                 Text(country)
                                     .multilineTextAlignment(.center)

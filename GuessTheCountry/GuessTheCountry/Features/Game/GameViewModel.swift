@@ -18,7 +18,7 @@ class GameViewModel: ObservableObject {
 
     @Published var currentQuestion: Question?
     @Published var displayedHints: [DisplayedHint] = []
-    @Published var answer: DisplayedAnswer?
+    @Published var answer: DisplayedCorrection?
 
     let game: Game
     let router: Router
@@ -35,7 +35,7 @@ class GameViewModel: ObservableObject {
     var nextHintButtonLabel: String {
         canDisplayNextHint ? "Indice suivant": "Vous avez le nombre maximum d'indices disponibles"
     }
-    func check(answer: String) {
+    func onSelected(choice: String) {
         let gameState = game.selectAnswer(answer: answer)
         process(gameState: gameState)
     }
@@ -59,7 +59,7 @@ class GameViewModel: ObservableObject {
             guard let lastQuestion = history.last else {
                 return
             }
-            answer = DisplayedAnswer(
+            answer = DisplayedCorrection(
                 isCorrect: isCorrect,
                 message: isCorrect ? "Bonne réponse" : "Mauvaise réponse",
                 goodAnswer: lastQuestion.question.correctAnswer,
