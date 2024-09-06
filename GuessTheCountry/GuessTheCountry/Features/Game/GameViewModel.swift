@@ -36,7 +36,7 @@ class GameViewModel: ObservableObject {
         canDisplayNextHint ? "Indice suivant": "Vous avez le nombre maximum d'indices disponibles"
     }
     func onSelected(choice: String) {
-        let gameState = game.selectAnswer(answer: answer)
+        let gameState = game.selectAnswer(answer: choice)
         process(gameState: gameState)
     }
 

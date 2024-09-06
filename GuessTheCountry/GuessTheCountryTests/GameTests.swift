@@ -109,19 +109,13 @@ final class GameTests: XCTestCase {
         XCTAssertEqual(currentQuestion.correctAnswer, "Good Answer 2")
     }
 
-    func testGivenTheLastQuestionWhenSelectingAnAnswerThenTheScoreIsUpdatedAndTheGameIsFinished() throws {
+    func testGivenTheLastQuestionWhenSelectingAnAnswerThenTheScoreIsUpdated() throws {
         let sut = Game(questions: Question.mockArray(size: 1))
 
         let state = sut.selectAnswer(answer: "Good Answer 1")
 
-        guard case let .finished(score: score) = sut.state else {
-            return XCTFail("Game should be finished")
-        }
-
-        XCTAssertEqual(score, 1)
-
-        guard case let .finished(score: score) = state else {
-            return XCTFail("Game should be finished")
+        guard case let .answer(isCorrect: isCorrect, score: score, history: _) = state else {
+            return XCTFail("Game should return the answer")
         }
 
         XCTAssertEqual(score, 1)
@@ -139,5 +133,16 @@ final class GameTests: XCTestCase {
         XCTAssertEqual(isCorrect, true)
         XCTAssertEqual(score, 1)
 
+    }
+
+    func testGivenLastQuestionWhenAskingANewQuestionThenTheGameIsFinished() throws {
+        let sut = Game(questions: Question.mockArray(size: 1))
+
+        _ = sut.selectAnswer(answer: "Good Answer 1")
+        _ = sut.getNextQuestion()
+
+        guard case let .finished(score: 1) = sut.state else {
+            return XCTFail("Game should be finished")
+        }
     }
 }

@@ -75,7 +75,7 @@ enum HintType {
 }
 
 enum GameError: Error, Equatable {
-    case noQuestionsProvided
+    case incompleteQuestionData
     case hintsOutOfBounds
     case unexpectedCall
 }
@@ -90,7 +90,7 @@ class Game {
             self.state = .askingQuestion(question: firstQuestion, score: self.score, hints: [firstHint])
             numberRevealedHints = 1
         } else {
-            self.state = .error(GameError.noQuestionsProvided)
+            self.state = .error(GameError.incompleteQuestionData)
         }
     }
 
@@ -116,10 +116,6 @@ class Game {
         let isCorrect = currentQuestion.isAnswerCorrect(answer: answer)
         if isCorrect {
             score += 1// TODO impact numberRevealedHints on the score
-        }
-        // check if game is over
-        guard questions.last != currentQuestion else {
-            return finish()
         }
 
         state = .answer(isCorrect: isCorrect, score: score, history: history)
@@ -152,11 +148,12 @@ class Game {
     }
 
     func getNextQuestion() -> GameState {
+        currentQuestionId += 1
+
         guard currentQuestionId < questions.count else {
             return finish()
         }
 
-        currentQuestionId += 1
         numberRevealedHints = 0
         let currentQuestion = questions[currentQuestionId]
 
