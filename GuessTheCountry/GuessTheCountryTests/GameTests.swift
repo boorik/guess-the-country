@@ -105,7 +105,7 @@ final class GameTests: XCTestCase {
             return XCTFail("Game is not running")
         }
         XCTAssertEqual(hints.count, 1)
-        XCTAssertEqual(score, 1)
+        XCTAssertEqual(score, 100)
         XCTAssertEqual(currentQuestion.correctAnswer, "Good Answer 2")
     }
 
@@ -118,7 +118,7 @@ final class GameTests: XCTestCase {
             return XCTFail("Game should return the answer")
         }
 
-        XCTAssertEqual(score, 1)
+        XCTAssertEqual(score, 100)
     }
 
     func testGivenARightAnswerWhenCheckAnswerThenState() throws {
@@ -131,7 +131,7 @@ final class GameTests: XCTestCase {
         }
 
         XCTAssertEqual(isCorrect, true)
-        XCTAssertEqual(score, 1)
+        XCTAssertEqual(score, 100)
 
     }
 
@@ -141,7 +141,7 @@ final class GameTests: XCTestCase {
         _ = sut.selectAnswer(answer: "Good Answer 1")
         _ = sut.getNextQuestion()
 
-        guard case let .finished(score: 1) = sut.state else {
+        guard case let .finished(score: 100) = sut.state else {
             return XCTFail("Game should be finished")
         }
     }

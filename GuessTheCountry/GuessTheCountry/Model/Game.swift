@@ -80,8 +80,15 @@ enum GameError: Error, Equatable {
     case unexpectedCall
 }
 
+
+
 class Game {
-    internal init(score: Int = 0, questions: [Question]) {
+    internal init(
+        score: Int = 0,
+        questions: [Question],
+        scoreCalculator: ScoreCalculator = ScoreCalculatorUsingPercentage()
+    ) {
+        self.scoreCalculator = scoreCalculator
         self.score = score
         self.questions = questions
         self.state = .idle
@@ -100,6 +107,7 @@ class Game {
     private var numberRevealedHints: Int = 0
     private(set) var state: GameState
     private var history: [HistoryElement]
+    private let scoreCalculator: ScoreCalculator
 
     func finish() -> GameState {
         state = .finished(score: score)
@@ -115,7 +123,7 @@ class Game {
 
         let isCorrect = currentQuestion.isAnswerCorrect(answer: answer)
         if isCorrect {
-            score += 1// TODO impact numberRevealedHints on the score
+            score += scoreCalculator.incrementScore(indicesUsedCount: numberRevealedHints)
         }
 
         state = .answer(isCorrect: isCorrect, score: score, history: history)

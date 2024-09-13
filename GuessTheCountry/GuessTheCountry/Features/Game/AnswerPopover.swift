@@ -6,11 +6,18 @@
 //
 
 import SwiftUI
-
+import MapKit
 struct AnswerPopover: View {
     let answer: DisplayedCorrection
     let onButtonTapped: () -> Void
     let theme = Theme.default
+    @State var region: MKCoordinateRegion
+
+    init(answer: DisplayedCorrection, onButtonTapped: @escaping () -> Void) {
+        self.answer = answer
+        self.onButtonTapped = onButtonTapped
+        self.region = MKCoordinateRegion(center: answer.location, span: .init(latitudeDelta: 0.5, longitudeDelta: 0.5))
+    }
 
     var body: some View {
         ZStack {
@@ -18,6 +25,11 @@ struct AnswerPopover: View {
             VStack {
                 Text("\(answer.message)")
                     .padding()
+                // TODO change constructor, show better span on map
+                Map(
+                    coordinateRegion: $region
+                )
+                .frame(width: 200, height: 200)
                 Button {
                     onButtonTapped()
                 } label: {

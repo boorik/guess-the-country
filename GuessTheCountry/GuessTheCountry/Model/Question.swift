@@ -6,14 +6,35 @@
 //
 
 import Foundation
+import CoreLocation
+
+extension CLLocationCoordinate2D: @retroactive Hashable, Equatable {
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(self.latitude)
+        hasher.combine(self.longitude)
+    }
+    
+    public static func == (lhs: CLLocationCoordinate2D, rhs: CLLocationCoordinate2D) -> Bool {
+        lhs.latitude == rhs.latitude && rhs.longitude == lhs.longitude
+    }
+}
+
+struct CountryData: Equatable, Hashable {
+    static func == (lhs: CountryData, rhs: CountryData) -> Bool {
+        lhs.name == rhs.name
+    }
+    
+    let name: String
+    let location: CLLocationCoordinate2D
+}
 
 struct Question: Equatable, Hashable {
     let hints: [Hint]
-    let correctAnswer: String
+    let correctAnswer: CountryData
     let possibleAnswers: [String]
 
     func isAnswerCorrect(answer: String) -> Bool {
-        correctAnswer == answer
+        correctAnswer.name == answer
     }
 }
 
@@ -28,7 +49,7 @@ extension Question {
                     type: .text
                 )
             },
-            correctAnswer: "Good Answer \(id)",
+            correctAnswer: CountryData(name: "Good Answer \(id)", location: .london),
             possibleAnswers: [
                 "Answer 1",
                 "Answer 2",

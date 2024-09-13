@@ -60,9 +60,10 @@ class GameViewModel: ObservableObject {
                 return
             }
             answer = DisplayedCorrection(
+                location: lastQuestion.question.correctAnswer.location,
                 isCorrect: isCorrect,
                 message: isCorrect ? "Bonne réponse" : "Mauvaise réponse",
-                goodAnswer: lastQuestion.question.correctAnswer,
+                goodAnswer: lastQuestion.question.correctAnswer.name,
                 givenAnswer: lastQuestion.response
             )
         case let .askingQuestion(question, score, hints):

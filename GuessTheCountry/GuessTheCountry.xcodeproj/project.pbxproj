@@ -26,6 +26,8 @@
 		BF0744722C78CD5C00199547 /* HintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0744712C78CD5C00199547 /* HintView.swift */; };
 		BF0744742C78CD9300199547 /* DisplayedCorrection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0744732C78CD9300199547 /* DisplayedCorrection.swift */; };
 		BF0744762C78CDC100199547 /* DisplayedHint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0744752C78CDC100199547 /* DisplayedHint.swift */; };
+		BF44ECE82C947AA9008D0131 /* ScoreCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF44ECE72C947AA9008D0131 /* ScoreCalculator.swift */; };
+		BF44ECEA2C947AC2008D0131 /* ScoreCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF44ECE92C947ABE008D0131 /* ScoreCalculatorTests.swift */; };
 		BF4A64502BB70AED009C93A8 /* EndGameScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4A644F2BB70AED009C93A8 /* EndGameScreen.swift */; };
 		BF4A64522BB70BC5009C93A8 /* ScaffoldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4A64512BB70BC5009C93A8 /* ScaffoldView.swift */; };
 		F1E031BD2AEBF61800F344F1 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E031BC2AEBF61800F344F1 /* Country.swift */; };
@@ -82,6 +84,8 @@
 		BF0744712C78CD5C00199547 /* HintView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HintView.swift; sourceTree = "<group>"; };
 		BF0744732C78CD9300199547 /* DisplayedCorrection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayedCorrection.swift; sourceTree = "<group>"; };
 		BF0744752C78CDC100199547 /* DisplayedHint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayedHint.swift; sourceTree = "<group>"; };
+		BF44ECE72C947AA9008D0131 /* ScoreCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreCalculator.swift; sourceTree = "<group>"; };
+		BF44ECE92C947ABE008D0131 /* ScoreCalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreCalculatorTests.swift; sourceTree = "<group>"; };
 		BF4A644F2BB70AED009C93A8 /* EndGameScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndGameScreen.swift; sourceTree = "<group>"; };
 		BF4A64512BB70BC5009C93A8 /* ScaffoldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaffoldView.swift; sourceTree = "<group>"; };
 		F1E031BA2AEBF4FC00F344F1 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
@@ -220,6 +224,7 @@
 			children = (
 				F1E031BC2AEBF61800F344F1 /* Country.swift */,
 				027CA5BF2AFE788900B63123 /* Game.swift */,
+				BF44ECE72C947AA9008D0131 /* ScoreCalculator.swift */,
 				027CA5C12AFE7E5100B63123 /* QuestionGenerator.swift */,
 				5F3D05F32B2368D600F6702E /* Question.swift */,
 				02D049882BE5225900378E3B /* HistoryElement.swift */,
@@ -294,6 +299,7 @@
 		F1FBFC102AD98FCB00332F41 /* GuessTheCountryTests */ = {
 			isa = PBXGroup;
 			children = (
+				BF44ECE92C947ABE008D0131 /* ScoreCalculatorTests.swift */,
 				FDCE9E142B7671B20031B318 /* GameTests.swift */,
 				027CA5C72AFE823000B63123 /* Jsons */,
 				F1FBFC112AD98FCB00332F41 /* GuessTheCountryTests.swift */,
@@ -456,6 +462,7 @@
 				027CA5C22AFE7E5100B63123 /* QuestionGenerator.swift in Sources */,
 				BF0744722C78CD5C00199547 /* HintView.swift in Sources */,
 				02D049892BE5225900378E3B /* HistoryElement.swift in Sources */,
+				BF44ECE82C947AA9008D0131 /* ScoreCalculator.swift in Sources */,
 				B6D5D97E2C382F9C00E93562 /* AnswerPopover.swift in Sources */,
 				027CA5C02AFE788900B63123 /* Game.swift in Sources */,
 				F1E031C02AEBF77900F344F1 /* CountryService.swift in Sources */,
@@ -480,6 +487,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF44ECEA2C947AC2008D0131 /* ScoreCalculatorTests.swift in Sources */,
 				FDCE9E172B7672570031B318 /* GameViewModelTests.swift in Sources */,
 				027CA5C62AFE7FE400B63123 /* QuestionGeneratorTests.swift in Sources */,
 				F1E031C22AEBF89A00F344F1 /* CountryServiceTests.swift in Sources */,

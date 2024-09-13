@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreLocation
 
 class QuestionGenerator {
     internal init(countryService: CountryService, itemGenerator: any UniqueItemArrayGenerator) {
@@ -25,9 +26,16 @@ class QuestionGenerator {
         let countries = itemGenerator.getDistinct(items: allCountries, count: count)
 
         return countries.map { country in
-            let correctAnswer = country.name.common
+
+            let correctAnswer = CountryData(
+                name: country.name.common,
+                location: CLLocationCoordinate2D(
+                    latitude: country.latlng[0],
+                    longitude: country.latlng[1]
+                )
+            )
             var possibleAnswers = itemGenerator.getDistinct(items: allCountries, count: 3).map { $0.name.common }
-            possibleAnswers.append(correctAnswer)
+            possibleAnswers.append(correctAnswer.name)
             possibleAnswers.shuffle()
 
             return Question(
