@@ -6,9 +6,28 @@
 //
 
 import SwiftUI
+import GameKit
+
+@Observable
+@MainActor
+class HomeViewModel {
+    func authenticateUser() {
+        GKLocalPlayer.local.authenticateHandler = { vc, error in
+            if let error {
+                // TODO: handle error correctly
+                print(error)
+                return
+            }
+
+            print("LOGGED AS: \(GKLocalPlayer.local.alias)")
+
+        }
+    }
+}
 
 struct HomeView: View {
     let theme = Theme.default
+    @State var viewModel = HomeViewModel()
     @EnvironmentObject var router: Router
     func start() async throws {
         state = .isProcessing
@@ -55,6 +74,11 @@ struct HomeView: View {
             case .error(let error):
                 Text(error.localizedDescription)
                     .foregroundStyle(Color.red)
+            }
+        }
+        .onAppear {
+            if !GKLocalPlayer.local.isAuthenticated {
+                viewModel.authenticateUser()
             }
         }
     }

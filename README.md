@@ -22,3 +22,14 @@ https://restcountries.com/
 - Conception: 
   - Think how to make an abstraction of the game model
   - Think how to make rules for multiplayer game
+  
+  
+# client-server
+
+- client: bouton multi-solo
+- client: new game; join game
+- server: Auth???
+
+GameKit + server vapor?
+
+

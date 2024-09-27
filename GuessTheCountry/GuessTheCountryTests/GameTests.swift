@@ -25,7 +25,7 @@ final class GameTests: XCTestCase {
         guard case .askingQuestion(let currentQuestion, _, _) = sut.state else {
             return XCTFail("Game is not running")
         }
-        XCTAssertEqual(currentQuestion.correctAnswer, "Good Answer 1")
+        XCTAssertEqual(currentQuestion.correctAnswer.name, "Good Answer 1")
     }
 
     func testGivenNewGameWhenInitiatedThenOneHintMustBeRevealed() throws {
@@ -92,7 +92,7 @@ final class GameTests: XCTestCase {
         }
         XCTAssertEqual(hints.count, 1)
         XCTAssertEqual(score, 0)
-        XCTAssertEqual(currentQuestion.correctAnswer, "Good Answer 2")
+        XCTAssertEqual(currentQuestion.correctAnswer.name, "Good Answer 2")
     }
 
     func testGivenNewGameWhenSelectingAGoodAnswerThenTheScoreIsUpdated() throws {
@@ -106,7 +106,7 @@ final class GameTests: XCTestCase {
         }
         XCTAssertEqual(hints.count, 1)
         XCTAssertEqual(score, 100)
-        XCTAssertEqual(currentQuestion.correctAnswer, "Good Answer 2")
+        XCTAssertEqual(currentQuestion.correctAnswer.name, "Good Answer 2")
     }
 
     func testGivenTheLastQuestionWhenSelectingAnAnswerThenTheScoreIsUpdated() throws {
@@ -114,7 +114,7 @@ final class GameTests: XCTestCase {
 
         let state = sut.selectAnswer(answer: "Good Answer 1")
 
-        guard case let .answer(isCorrect: isCorrect, score: score, history: _) = state else {
+        guard case let .answer(isCorrect: _, score: score, history: _) = state else {
             return XCTFail("Game should return the answer")
         }
 
@@ -126,7 +126,7 @@ final class GameTests: XCTestCase {
 
         let state = sut.selectAnswer(answer: "Good Answer 1")
 
-        guard case let .answer(isCorrect, score, history)  = state else {
+        guard case let .answer(isCorrect, score, _)  = state else {
             return XCTFail("Game should be finished")
         }
 
@@ -141,7 +141,7 @@ final class GameTests: XCTestCase {
         _ = sut.selectAnswer(answer: "Good Answer 1")
         _ = sut.getNextQuestion()
 
-        guard case let .finished(score: 100) = sut.state else {
+        guard case .finished(score: 100) = sut.state else {
             return XCTFail("Game should be finished")
         }
     }

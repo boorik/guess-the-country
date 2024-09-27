@@ -31,7 +31,7 @@ struct GameViewModelTests {
     func displaySuccess() throws {
         let question = Question(
             hints: [Hint(label: "indice", value: "la tête à ?", type: HintType.text)],
-            correctAnswer: "Toto",
+            correctAnswer: .init(name: "Toto", location: .london),
             possibleAnswers: [
                 "Toto",
                 "Tata",
