@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0267FD022CB0273C00F871FA /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0267FD012CB0273C00F871FA /* HomeViewModel.swift */; };
 		027CA5C02AFE788900B63123 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027CA5BF2AFE788900B63123 /* Game.swift */; };
 		027CA5C22AFE7E5100B63123 /* QuestionGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027CA5C12AFE7E5100B63123 /* QuestionGenerator.swift */; };
 		027CA5C62AFE7FE400B63123 /* QuestionGeneratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027CA5C52AFE7FE400B63123 /* QuestionGeneratorTests.swift */; };
@@ -64,6 +65,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0267FD012CB0273C00F871FA /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		027CA5BF2AFE788900B63123 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		027CA5C12AFE7E5100B63123 /* QuestionGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionGenerator.swift; sourceTree = "<group>"; };
 		027CA5C52AFE7FE400B63123 /* QuestionGeneratorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionGeneratorTests.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 		B6D321C92AF53E4C00C93349 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				0267FD012CB0273C00F871FA /* HomeViewModel.swift */,
 				B6D321CA2AF53EA100C93349 /* HomeView.swift */,
 			);
 			path = Home;
@@ -457,6 +460,7 @@
 				F1E031C52AEBFE8200F344F1 /* Constants.swift in Sources */,
 				BF4A64502BB70AED009C93A8 /* EndGameScreen.swift in Sources */,
 				BF4A64522BB70BC5009C93A8 /* ScaffoldView.swift in Sources */,
+				0267FD022CB0273C00F871FA /* HomeViewModel.swift in Sources */,
 				027CA5C22AFE7E5100B63123 /* QuestionGenerator.swift in Sources */,
 				BF0744722C78CD5C00199547 /* HintView.swift in Sources */,
 				02D049892BE5225900378E3B /* HistoryElement.swift in Sources */,

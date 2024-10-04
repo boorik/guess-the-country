@@ -6,24 +6,6 @@
 //
 
 import SwiftUI
-import GameKit
-
-@Observable
-@MainActor
-class HomeViewModel {
-    func authenticateUser() {
-        GKLocalPlayer.local.authenticateHandler = { vc, error in
-            if let error {
-                // TODO: handle error correctly
-                print(error)
-                return
-            }
-
-            print("LOGGED AS: \(GKLocalPlayer.local.alias)")
-
-        }
-    }
-}
 
 struct HomeView: View {
     let theme = Theme.default
@@ -77,9 +59,7 @@ struct HomeView: View {
             }
         }
         .onAppear {
-            if !GKLocalPlayer.local.isAuthenticated {
-                viewModel.authenticateUser()
-            }
+            viewModel.checkForAuthentication()
         }
     }
 }
