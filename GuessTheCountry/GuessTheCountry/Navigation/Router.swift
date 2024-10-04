@@ -11,6 +11,7 @@ import SwiftUI
 enum Destination: Hashable {
     case home
     case game([Question])
+    case matchmaker
     case enGame(Int)
 }
 final class Router: ObservableObject {

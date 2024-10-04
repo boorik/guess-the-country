@@ -24,6 +24,8 @@ struct ContentView<Content: View>: View {
                         GameView(game: Game(questions: questions), router: router)
                     case .enGame(let score):
                         EndGameView(score: score, router: router)
+                    case .matchmaker:
+                        MultiplayerView()
                     }
                 }
         }

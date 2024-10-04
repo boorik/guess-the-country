@@ -9,6 +9,7 @@ import Foundation
 import GameKit
 
 
+
 @Observable
 @MainActor
 class HomeViewModel {
@@ -29,5 +30,11 @@ class HomeViewModel {
         if !GKLocalPlayer.local.isAuthenticated {
             authenticateUser()
         }
+    }
+    
+    func createMultiplayerSession(minPlayer: Int, maxPlayer: Int) throws {
+       
+        
+        
     }
 }

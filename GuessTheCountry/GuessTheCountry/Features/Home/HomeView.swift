@@ -11,7 +11,7 @@ struct HomeView: View {
     let theme = Theme.default
     @State var viewModel = HomeViewModel()
     @EnvironmentObject var router: Router
-    func start() async throws {
+    func startSoloGame() async throws {
         state = .isProcessing
         let questionGenerator = QuestionGenerator(countryService: RemoteCountryService(session: .shared),
                                                   itemGenerator: RandomUniqueItemArrayGenerator())
@@ -20,6 +20,8 @@ struct HomeView: View {
         router.navigate(to: .game(questions))
     }
 
+
+    
     enum HomeState {
         case idle
         case isProcessing
@@ -35,20 +37,35 @@ struct HomeView: View {
                 VStack(spacing: 50) {
                     Text("Guess the country!")
                         .font(.mainTitle)
-                    Button {
-                        Task {
-                            do {
-                                try await start()
-
-                            } catch {
-                                // TODO handle error
+                    VStack {
+                        Button {
+                            Task {
+                                do {
+                                    try await startSoloGame()
+                                } catch {
+                                    // TODO handle error
+                                }
                             }
+                        } label: {
+                            Text("Solo")
+                                .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
+                                .frame(maxWidth: .infinity)
                         }
-                    } label: {
-                        Text("Start")
-                            .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
+                        .buttonStyle(PrimaryButton(theme: theme))
+                        
+                        Button {
+                            Task {
+                                router.navigate(to: .matchmaker)
+                            }
+                        } label: {
+                            Text("Multiplayer")
+                                .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
+                                .frame(maxWidth: .infinity)
+                        }
+                        .buttonStyle(PrimaryButton(theme: theme))
                     }
-                    .buttonStyle(PrimaryButton(theme: theme))
+                    .fixedSize(horizontal: false, vertical: true)
+                    .padding(30)
                 }
 
             case .isProcessing:
