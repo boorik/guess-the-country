@@ -12,8 +12,6 @@
 		BF44ECEA2C947AC2008D0131 /* ScoreCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF44ECE92C947ABE008D0131 /* ScoreCalculatorTests.swift */; };
 		F1E031C22AEBF89A00F344F1 /* CountryServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E031C12AEBF89A00F344F1 /* CountryServiceTests.swift */; };
 		F1FBFC122AD98FCB00332F41 /* GuessTheCountryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FBFC112AD98FCB00332F41 /* GuessTheCountryTests.swift */; };
-		F1FBFC1C2AD98FCB00332F41 /* GuessTheCountryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FBFC1B2AD98FCB00332F41 /* GuessTheCountryUITests.swift */; };
-		F1FBFC1E2AD98FCB00332F41 /* GuessTheCountryUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FBFC1D2AD98FCB00332F41 /* GuessTheCountryUITestsLaunchTests.swift */; };
 		FDCE9E152B7671B20031B318 /* GameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCE9E142B7671B20031B318 /* GameTests.swift */; };
 		FDCE9E172B7672570031B318 /* GameViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCE9E162B7672570031B318 /* GameViewModelTests.swift */; };
 /* End PBXBuildFile section */
@@ -26,27 +24,18 @@
 			remoteGlobalIDString = F1FBFBFB2AD98FC900332F41;
 			remoteInfo = GuessTheCountry;
 		};
-		F1FBFC182AD98FCB00332F41 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F1FBFBF42AD98FC900332F41 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = F1FBFBFB2AD98FC900332F41;
-			remoteInfo = GuessTheCountry;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		027CA5C52AFE7FE400B63123 /* QuestionGeneratorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionGeneratorTests.swift; sourceTree = "<group>"; };
 		027CA5C82AFE825C00B63123 /* countries.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = countries.json; sourceTree = "<group>"; };
 		BF44ECE92C947ABE008D0131 /* ScoreCalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreCalculatorTests.swift; sourceTree = "<group>"; };
+		BF97C5F12CB688E20030D25B /* GuessTheCountry.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = GuessTheCountry.xctestplan; sourceTree = "<group>"; };
 		F1E031BA2AEBF4FC00F344F1 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		F1E031C12AEBF89A00F344F1 /* CountryServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryServiceTests.swift; sourceTree = "<group>"; };
 		F1FBFBFC2AD98FC900332F41 /* GuessTheCountry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GuessTheCountry.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1FBFC0D2AD98FCB00332F41 /* GuessTheCountryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GuessTheCountryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1FBFC112AD98FCB00332F41 /* GuessTheCountryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessTheCountryTests.swift; sourceTree = "<group>"; };
-		F1FBFC172AD98FCB00332F41 /* GuessTheCountryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GuessTheCountryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F1FBFC1B2AD98FCB00332F41 /* GuessTheCountryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessTheCountryUITests.swift; sourceTree = "<group>"; };
-		F1FBFC1D2AD98FCB00332F41 /* GuessTheCountryUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessTheCountryUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		FDCE9E142B7671B20031B318 /* GameTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameTests.swift; sourceTree = "<group>"; };
 		FDCE9E162B7672570031B318 /* GameViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -80,13 +69,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F1FBFC142AD98FCB00332F41 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -101,10 +83,10 @@
 		F1FBFBF32AD98FC900332F41 = {
 			isa = PBXGroup;
 			children = (
+				BF97C5F12CB688E20030D25B /* GuessTheCountry.xctestplan */,
 				F1E031BA2AEBF4FC00F344F1 /* README.md */,
 				BF97C58B2CB3D7C70030D25B /* GuessTheCountry */,
 				F1FBFC102AD98FCB00332F41 /* GuessTheCountryTests */,
-				F1FBFC1A2AD98FCB00332F41 /* GuessTheCountryUITests */,
 				F1FBFBFD2AD98FC900332F41 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -114,7 +96,6 @@
 			children = (
 				F1FBFBFC2AD98FC900332F41 /* GuessTheCountry.app */,
 				F1FBFC0D2AD98FCB00332F41 /* GuessTheCountryTests.xctest */,
-				F1FBFC172AD98FCB00332F41 /* GuessTheCountryUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -131,15 +112,6 @@
 				FDCE9E162B7672570031B318 /* GameViewModelTests.swift */,
 			);
 			path = GuessTheCountryTests;
-			sourceTree = "<group>";
-		};
-		F1FBFC1A2AD98FCB00332F41 /* GuessTheCountryUITests */ = {
-			isa = PBXGroup;
-			children = (
-				F1FBFC1B2AD98FCB00332F41 /* GuessTheCountryUITests.swift */,
-				F1FBFC1D2AD98FCB00332F41 /* GuessTheCountryUITestsLaunchTests.swift */,
-			);
-			path = GuessTheCountryUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -183,24 +155,6 @@
 			productReference = F1FBFC0D2AD98FCB00332F41 /* GuessTheCountryTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		F1FBFC162AD98FCB00332F41 /* GuessTheCountryUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = F1FBFC272AD98FCB00332F41 /* Build configuration list for PBXNativeTarget "GuessTheCountryUITests" */;
-			buildPhases = (
-				F1FBFC132AD98FCB00332F41 /* Sources */,
-				F1FBFC142AD98FCB00332F41 /* Frameworks */,
-				F1FBFC152AD98FCB00332F41 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				F1FBFC192AD98FCB00332F41 /* PBXTargetDependency */,
-			);
-			name = GuessTheCountryUITests;
-			productName = GuessTheCountryUITests;
-			productReference = F1FBFC172AD98FCB00332F41 /* GuessTheCountryUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -215,10 +169,6 @@
 						CreatedOnToolsVersion = 15.0;
 					};
 					F1FBFC0C2AD98FCB00332F41 = {
-						CreatedOnToolsVersion = 15.0;
-						TestTargetID = F1FBFBFB2AD98FC900332F41;
-					};
-					F1FBFC162AD98FCB00332F41 = {
 						CreatedOnToolsVersion = 15.0;
 						TestTargetID = F1FBFBFB2AD98FC900332F41;
 					};
@@ -241,7 +191,6 @@
 			targets = (
 				F1FBFBFB2AD98FC900332F41 /* GuessTheCountry */,
 				F1FBFC0C2AD98FCB00332F41 /* GuessTheCountryTests */,
-				F1FBFC162AD98FCB00332F41 /* GuessTheCountryUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -259,13 +208,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				027CA5C92AFE825C00B63123 /* countries.json in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F1FBFC152AD98FCB00332F41 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,15 +234,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F1FBFC132AD98FCB00332F41 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F1FBFC1C2AD98FCB00332F41 /* GuessTheCountryUITests.swift in Sources */,
-				F1FBFC1E2AD98FCB00332F41 /* GuessTheCountryUITestsLaunchTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -308,11 +241,6 @@
 			isa = PBXTargetDependency;
 			target = F1FBFBFB2AD98FC900332F41 /* GuessTheCountry */;
 			targetProxy = F1FBFC0E2AD98FCB00332F41 /* PBXContainerItemProxy */;
-		};
-		F1FBFC192AD98FCB00332F41 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = F1FBFBFB2AD98FC900332F41 /* GuessTheCountry */;
-			targetProxy = F1FBFC182AD98FCB00332F41 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -467,7 +395,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = fr.ippon.countryguesser;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SDKROOT = auto;
+				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 6.0;
@@ -509,7 +437,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = fr.ippon.countryguesser;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SDKROOT = auto;
+				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 6.0;
@@ -563,50 +491,6 @@
 			};
 			name = Release;
 		};
-		F1FBFC282AD98FCB00332F41 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEAD_CODE_STRIPPING = YES;
-				DEVELOPMENT_TEAM = 2UQH8275LS;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = fr.ippon.GuessTheCountryUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = GuessTheCountry;
-			};
-			name = Debug;
-		};
-		F1FBFC292AD98FCB00332F41 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEAD_CODE_STRIPPING = YES;
-				DEVELOPMENT_TEAM = 2UQH8275LS;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = fr.ippon.GuessTheCountryUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = GuessTheCountry;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -633,15 +517,6 @@
 			buildConfigurations = (
 				F1FBFC252AD98FCB00332F41 /* Debug */,
 				F1FBFC262AD98FCB00332F41 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		F1FBFC272AD98FCB00332F41 /* Build configuration list for PBXNativeTarget "GuessTheCountryUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				F1FBFC282AD98FCB00332F41 /* Debug */,
-				F1FBFC292AD98FCB00332F41 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

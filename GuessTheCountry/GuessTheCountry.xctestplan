@@ -1,0 +1,29 @@
+{
+  "configurations" : [
+    {
+      "id" : "74295349-8BA9-4D1C-AF57-D42882569B5E",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:GuessTheCountry.xcodeproj",
+      "identifier" : "F1FBFBFB2AD98FC900332F41",
+      "name" : "GuessTheCountry"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:GuessTheCountry.xcodeproj",
+        "identifier" : "F1FBFC0C2AD98FCB00332F41",
+        "name" : "GuessTheCountryTests"
+      }
+    }
+  ],
+  "version" : 1
+}
