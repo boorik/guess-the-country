@@ -14,7 +14,12 @@ struct MultiplayerView: View {
     var body: some View {
         Text("MultiplayerView")
             .fullScreenCover(isPresented: $showMatchMaker) {
-                MatchmakerView(minPlayer: 2, maxPlayer: 2)
+                MatchmakerView(
+                    isPresented: $showMatchMaker,
+                    minPlayer: 2,
+                    maxPlayer: 2
+                )
+                    .ignoresSafeArea()
             }
     }
 }

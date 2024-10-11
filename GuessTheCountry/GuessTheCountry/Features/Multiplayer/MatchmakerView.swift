@@ -14,6 +14,7 @@ enum MultiPlayer: Error {
 
 // TODO : check this link https://developer.apple.com/documentation/gamekit/finding_multiple_players_for_a_game
 struct MatchmakerView: UIViewControllerRepresentable {
+    @Binding var isPresented: Bool
     typealias UIViewControllerType = GKMatchmakerViewController
 
     var minPlayer: Int
@@ -32,6 +33,7 @@ struct MatchmakerView: UIViewControllerRepresentable {
         
         matchmakerViewController.matchmakingMode = .inviteOnly
         matchmakerViewController.delegate = context.coordinator
+        matchmakerViewController.matchmakerDelegate = context.coordinator
         return matchmakerViewController
     }
     
@@ -52,7 +54,7 @@ struct MatchmakerView: UIViewControllerRepresentable {
         }
         
         func matchmakerViewControllerWasCancelled(_ viewController: GKMatchmakerViewController) {
-            
+            parent.isPresented = false
         }
         
         func matchmakerViewController(_ viewController: GKMatchmakerViewController, didFailWithError error: any Error) {
