@@ -12,7 +12,11 @@ import GameKit
 
 @Observable
 @MainActor
-class HomeViewModel {
+class HomeViewModel: NSObject, GKLocalPlayerListener {
+    func gameCenterViewControllerDidFinish(_ gameCenterViewController: GKGameCenterViewController) {
+
+    }
+    
     func authenticateUser() {
         GKLocalPlayer.local.authenticateHandler = { vc, error in
             if let error {
@@ -22,7 +26,7 @@ class HomeViewModel {
             }
 
             print("LOGGED AS: \(GKLocalPlayer.local.alias)")
-
+            GKLocalPlayer.local.register(self)
         }
     }
     
