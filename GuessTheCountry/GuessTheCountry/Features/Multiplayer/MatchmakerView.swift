@@ -49,6 +49,8 @@ struct MatchmakerView: UIViewControllerRepresentable {
     
     class Coordinator : NSObject, @preconcurrency GKMatchmakerViewControllerDelegate, UINavigationControllerDelegate {
         
+        let parent: MatchmakerView
+        
         internal init(parent: MatchmakerView) {
             self.parent = parent
         }
@@ -58,12 +60,21 @@ struct MatchmakerView: UIViewControllerRepresentable {
         }
         
         func matchmakerViewController(_ viewController: GKMatchmakerViewController, didFailWithError error: any Error) {
-            
+            print("error : \(error)")
         }
         
+        func matchmakerViewController(_ viewController: GKMatchmakerViewController, didFind match: GKMatch) {
+            print("match found")
+        }
         
+        func matchmakerViewController(_ viewController: GKMatchmakerViewController, didFindHostedPlayers players: [GKPlayer]) {
+            print("hosted players found :", players.map{ $0.alias })
+        }
+     
+        func matchmakerViewController(_ viewController: GKMatchmakerViewController, hostedPlayerDidAccept player: GKPlayer) {
+            print(player.alias, "accepted the match")
+        }
         
-        let parent: MatchmakerView
     }
     
 }
