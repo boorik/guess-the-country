@@ -63,6 +63,7 @@ struct HomeView: View {
                                 .frame(maxWidth: .infinity)
                         }
                         .buttonStyle(PrimaryButton(theme: theme))
+                        .disabled(!viewModel.isMultiplayerButtonActive)
                     }
                     .fixedSize(horizontal: false, vertical: true)
                     .padding(30)
