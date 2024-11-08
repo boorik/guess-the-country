@@ -9,5 +9,7 @@
 		<string>PermanentMarker-Regular.ttf</string>
 		<string>Oswald-VariableFont_wght.ttf</string>
 	</array>
+    <key>NSGKFriendListUsageDescription</key>
+    <string>get friends to invite them to play</string>
 </dict>
 </plist>

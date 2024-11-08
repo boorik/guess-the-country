@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct HomeView: View {
+    @StateObject var game = RealTimeGame()
+    @State var showFriends = false
     let theme = Theme.default
     @State var viewModel = HomeViewModel()
     @EnvironmentObject var router: Router
@@ -64,6 +66,19 @@ struct HomeView: View {
                         }
                         .buttonStyle(PrimaryButton(theme: theme))
                         .disabled(!viewModel.isMultiplayerButtonActive)
+
+                        Button {
+                            Task {
+                                await game.accessFriends()
+                                showFriends.toggle()
+                            }
+                        } label: {
+                            Text("Show friends")
+                                .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
+                                .frame(maxWidth: .infinity)
+                        }
+                        .buttonStyle(PrimaryButton(theme: theme))
+                        .disabled(!viewModel.isMultiplayerButtonActive)
                     }
                     .fixedSize(horizontal: false, vertical: true)
                     .padding(30)
@@ -75,6 +90,22 @@ struct HomeView: View {
                 Text(error.localizedDescription)
                     .foregroundStyle(Color.red)
             }
+        }
+        .popover(isPresented: $showFriends) {
+            LazyVStack {
+                ForEach(game.friends) { friend in
+                    HStack {
+                        Text(friend.id.uuidString)
+                        Text(friend.player.alias)
+                    }
+                    .padding()
+                    .background(
+                        Capsule()
+                            .fill(Color.gray)
+                    )
+                }
+            }
+
         }
         .onAppear {
             viewModel.checkForAuthentication()
