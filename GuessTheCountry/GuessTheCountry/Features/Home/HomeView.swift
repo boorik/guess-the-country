@@ -31,6 +31,7 @@ struct HomeView: View {
     }
 
     @State var state: HomeState = .idle
+    @State var showingAlertForMultiplayer: Bool = false
 
     var body: some View {
         ScaffoldView {
@@ -57,7 +58,11 @@ struct HomeView: View {
                         
                         Button {
                             Task {
-                                router.navigate(to: .matchmaker)
+                                if(viewModel.checkIfAllowedToMuliplayer()) {
+                                    router.navigate(to: .matchmaker)
+                                } else {
+                                    showingAlertForMultiplayer = true
+                                }
                             }
                         } label: {
                             Text("Multiplayer")
@@ -65,6 +70,14 @@ struct HomeView: View {
                                 .frame(maxWidth: .infinity)
                         }
                         .buttonStyle(PrimaryButton(theme: theme))
+                        .alert("Attention", isPresented: $showingAlertForMultiplayer) {
+                            Button("OK") {
+                                showingAlertForMultiplayer = false
+                                viewModel.authenticateUserWithGameCenter()
+                            }
+                        } message: {
+                            Text("Veuillez vous connecter à GameCenter")
+                        }
 
                         Button {
                             Task {
