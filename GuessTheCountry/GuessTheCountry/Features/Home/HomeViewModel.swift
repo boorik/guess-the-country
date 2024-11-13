@@ -11,7 +11,7 @@ import GameKit
 @Observable
 @MainActor
 class HomeViewModel: NSObject, GKLocalPlayerListener {
-    var isMultiplayerButtonActive = false
+    
     func gameCenterViewControllerDidFinish(_ gameCenterViewController: GKGameCenterViewController) {
 
     }
@@ -25,17 +25,20 @@ class HomeViewModel: NSObject, GKLocalPlayerListener {
             }
             guard let self else { return }
 
-            self.isMultiplayerButtonActive = true
             print("LOGGED AS: \(GKLocalPlayer.local.alias)")
             // Register for real-time invitations from other players.
             GKLocalPlayer.local.register(self)
         }
     }
     
-    func checkForAuthentication() {
+    func checkForAuthenticationWhenHomeAppears() {
         if !GKLocalPlayer.local.isAuthenticated {
             authenticateUser()
         }
+    }
+    
+    func checkForAuthentication() {
+        
     }
     
     func createMultiplayerSession(minPlayer: Int, maxPlayer: Int) throws {
