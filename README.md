@@ -26,10 +26,10 @@ https://restcountries.com/
   
 # client-server
 
-- client: bouton multi-solo
+- client: bouton multi-solo (in progress)
 - client: new game; join game
 - server: Auth???
 
-GameKit + server vapor?
+GameKit (in progress) + server vapor?
 
 

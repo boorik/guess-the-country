@@ -73,7 +73,6 @@ struct HomeView: View {
                         .alert("Attention", isPresented: $showingAlertForMultiplayer) {
                             Button("OK") {
                                 showingAlertForMultiplayer = false
-                                viewModel.authenticateUserWithGameCenter()
                             }
                         } message: {
                             Text("Veuillez vous connecter à GameCenter")

@@ -11,22 +11,17 @@ import GameKit
 @MainActor
 class MultiplayerService: NSObject, GKLocalPlayerListener {
     
-    func autenticateUser(manuallyAuthentication: Bool) {
+    func autenticateUser() {
+        print("Authentication State: \(GKLocalPlayer.local.isAuthenticated)")
         GKLocalPlayer.local.authenticateHandler = { [weak self] vc, error in
-            
-            if(manuallyAuthentication) {
-                print("multiplayerService.autoAutenticationUser - MANUAL AUTHENTICATION")
-                vc!.modalPresentationStyle = .fullScreen
-                guard vc != nil else { return }
-            }
-            
-            guard let self else { return }
             
             if let error {
                 // TODO: handle error correctly
                 print(error)
                 return
             }
+            
+            guard let self else { return }
             
             print("multiplayerService.autoAutenticationUser - LOGGED AS: \(GKLocalPlayer.local.alias)")
             // Register for real-time invitations from other players.

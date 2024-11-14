@@ -24,10 +24,6 @@ class HomeViewModel: NSObject, GKLocalPlayerListener {
         }
     }
     
-    func authenticateUserWithGameCenter() {
-        multiplayerService.autenticateUser(manuallyAuthentication: true)
-    }
-    
     func checkIfAllowedToMuliplayer() -> Bool {
         return multiplayerService.isAuthenticated()
     }
