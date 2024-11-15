@@ -20,7 +20,7 @@ class HomeViewModel: NSObject, GKLocalPlayerListener {
     
     func checkForAuthenticationWhenHomeAppears() {
         if !multiplayerService.isAuthenticated() {
-            multiplayerService.autenticateUser(manuallyAuthentication: false)
+            multiplayerService.autenticateUser()
         }
     }
     

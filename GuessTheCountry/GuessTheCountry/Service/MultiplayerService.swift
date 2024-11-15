@@ -9,8 +9,12 @@ import Foundation
 import GameKit
 
 @MainActor
-class MultiplayerService: NSObject, GKLocalPlayerListener {
-    
+class MultiplayerService: NSObject, @preconcurrency GKGameCenterControllerDelegate {
+    func gameCenterViewControllerDidFinish(_ gameCenterViewController: GKGameCenterViewController) {
+        // Dismiss the view controller.
+        gameCenterViewController.dismiss(animated: true)
+    }
+
     func autenticateUser() {
         print("Authentication State: \(GKLocalPlayer.local.isAuthenticated)")
         GKLocalPlayer.local.authenticateHandler = { [weak self] vc, error in
@@ -34,4 +38,13 @@ class MultiplayerService: NSObject, GKLocalPlayerListener {
     }
 }
 
+extension MultiplayerService: @preconcurrency GKLocalPlayerListener {
+    public func player(_ player: GKPlayer, didAccept invite: GKInvite) {
+        print("multiplayerService.player - didAcceptInvite")
+    }
+    
+    public func player(_ player: GKPlayer, didRequestMatchWithPlayers players: [GKPlayer]) {
+        print("multiplayerService.player - didRequestMatchWithPlayers")
+    }
+}
 
