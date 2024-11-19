@@ -10,29 +10,16 @@ import GameKit
 
 @Observable
 @MainActor
-class HomeViewModel: NSObject, GKLocalPlayerListener {
-    
-    private let multiplayerService = MultiplayerService()
-    
-    func gameCenterViewControllerDidFinish(_ gameCenterViewController: GKGameCenterViewController) {
-
+class HomeViewModel {
+    init(realTimeGame: RealTimeGame) {
+        self.realTimeGame = realTimeGame
     }
+    
+    let realTimeGame: RealTimeGame
     
     func checkForAuthenticationWhenHomeAppears() {
-        if !multiplayerService.isAuthenticated() {
-            multiplayerService.autenticateUser()
+        if !realTimeGame.isAuthenticated() {
+            realTimeGame.authenticatePlayer()
         }
-    }
-    
-    func checkIfAllowedToMuliplayer() -> Bool {
-        return multiplayerService.isAuthenticated()
-    }
-    
-    func checkForAuthentication() {
-        
-    }
-    
-    func createMultiplayerSession(minPlayer: Int, maxPlayer: Int) throws {
-
     }
 }

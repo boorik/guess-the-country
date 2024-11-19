@@ -8,11 +8,19 @@
 import SwiftUI
 
 struct HomeView: View {
+    internal init(
+        game: RealTimeGame = RealTimeGame()
+    ) {
+        self._game = StateObject(wrappedValue: game)
+        self.viewModel = HomeViewModel(realTimeGame: game)
+    }
+    let viewModel: HomeViewModel
     @StateObject var game = RealTimeGame()
     @State var showFriends = false
     let theme = Theme.default
-    @State var viewModel = HomeViewModel()
+
     @EnvironmentObject var router: Router
+
     func startSoloGame() async throws {
         state = .isProcessing
         let questionGenerator = QuestionGenerator(countryService: RemoteCountryService(session: .shared),
@@ -58,7 +66,7 @@ struct HomeView: View {
                         
                         Button {
                             Task {
-                                if(viewModel.checkIfAllowedToMuliplayer()) {
+                                if(viewModel.realTimeGame.isAuthenticated()) {
                                     router.navigate(to: .matchmaker)
                                 } else {
                                     showingAlertForMultiplayer = true

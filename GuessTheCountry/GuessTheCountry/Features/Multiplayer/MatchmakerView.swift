@@ -33,7 +33,7 @@ struct MatchmakerView: UIViewControllerRepresentable {
 
         
 
-        matchmakerViewController.matchmakingMode = .inviteOnly
+        //matchmakerViewController.matchmakingMode = .inviteOnly
         matchmakerViewController.delegate = context.coordinator
         matchmakerViewController.matchmakerDelegate = context.coordinator
         matchmakerViewController.canStartWithMinimumPlayers = true
