@@ -30,6 +30,7 @@
 		BF0744722C78CD5C00199547 /* HintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0744712C78CD5C00199547 /* HintView.swift */; };
 		BF0744742C78CD9300199547 /* DisplayedCorrection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0744732C78CD9300199547 /* DisplayedCorrection.swift */; };
 		BF0744762C78CDC100199547 /* DisplayedHint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0744752C78CDC100199547 /* DisplayedHint.swift */; };
+		BF0D47C82CEC943A00A72715 /* RealTimeGame+GKLocalPlayerListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0D47C72CEC943A00A72715 /* RealTimeGame+GKLocalPlayerListener.swift */; };
 		BF44ECE82C947AA9008D0131 /* ScoreCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF44ECE72C947AA9008D0131 /* ScoreCalculator.swift */; };
 		BF44ECEA2C947AC2008D0131 /* ScoreCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF44ECE92C947ABE008D0131 /* ScoreCalculatorTests.swift */; };
 		BF4A64502BB70AED009C93A8 /* EndGameScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4A644F2BB70AED009C93A8 /* EndGameScreen.swift */; };
@@ -94,6 +95,7 @@
 		BF0744712C78CD5C00199547 /* HintView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HintView.swift; sourceTree = "<group>"; };
 		BF0744732C78CD9300199547 /* DisplayedCorrection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayedCorrection.swift; sourceTree = "<group>"; };
 		BF0744752C78CDC100199547 /* DisplayedHint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayedHint.swift; sourceTree = "<group>"; };
+		BF0D47C72CEC943A00A72715 /* RealTimeGame+GKLocalPlayerListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RealTimeGame+GKLocalPlayerListener.swift"; sourceTree = "<group>"; };
 		BF44ECE72C947AA9008D0131 /* ScoreCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreCalculator.swift; sourceTree = "<group>"; };
 		BF44ECE92C947ABE008D0131 /* ScoreCalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreCalculatorTests.swift; sourceTree = "<group>"; };
 		BF4A644F2BB70AED009C93A8 /* EndGameScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndGameScreen.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 		0267FD032CB02D1C00F871FA /* Multiplayer */ = {
 			isa = PBXGroup;
 			children = (
+				BF0D47C72CEC943A00A72715 /* RealTimeGame+GKLocalPlayerListener.swift */,
 				BF8AD00C2CC2A3DA00AD7440 /* RealTimeGame.swift */,
 				BF8AD00A2CC2A33B00AD7440 /* Friends.swift */,
 				0267FD062CB034F900F871FA /* MultiplayerView.swift */,
@@ -488,6 +491,7 @@
 				0267FD072CB034FE00F871FA /* MultiplayerView.swift in Sources */,
 				027CA5C22AFE7E5100B63123 /* QuestionGenerator.swift in Sources */,
 				BF0744722C78CD5C00199547 /* HintView.swift in Sources */,
+				BF0D47C82CEC943A00A72715 /* RealTimeGame+GKLocalPlayerListener.swift in Sources */,
 				02D049892BE5225900378E3B /* HistoryElement.swift in Sources */,
 				BF44ECE82C947AA9008D0131 /* ScoreCalculator.swift in Sources */,
 				B6D5D97E2C382F9C00E93562 /* AnswerPopover.swift in Sources */,
