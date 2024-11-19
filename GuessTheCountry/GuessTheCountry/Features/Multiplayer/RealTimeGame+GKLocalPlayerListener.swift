@@ -7,10 +7,10 @@
 
 
 import Foundation
-import GameKit
+@preconcurrency import GameKit
 import SwiftUI
 
-extension RealTimeGame: GKLocalPlayerListener {
+extension RealTimeGame: @preconcurrency GKLocalPlayerListener {
     /// Handles when the local player sends requests to start a match with other players.
     func player(_ player: GKPlayer, didRequestMatchWithRecipients recipientPlayers: [GKPlayer]) {
         print("\n\nSending invites to other players.")

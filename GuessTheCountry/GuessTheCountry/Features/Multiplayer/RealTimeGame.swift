@@ -7,7 +7,7 @@
 import UIKit
 
 @MainActor
-final class RealTimeGame: ObservableObject {
+final class RealTimeGame: NSObject, ObservableObject {
     @Published var friends: [Friend] = []
     /// The root view controller of the window.
     var rootViewController: UIViewController? {
