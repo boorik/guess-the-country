@@ -35,6 +35,7 @@ extension RealTimeGame {
 
             // Creates an array of identifiable friend objects for SwiftUI.
             let loadFriendsClosure: ([GKPlayer]) -> Void = { [self] players in
+                self.friends = []
                 for player in players {
                     let friend = Friend(player: player)
                     friends.append(friend)
