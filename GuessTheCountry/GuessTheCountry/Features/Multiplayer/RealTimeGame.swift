@@ -36,13 +36,7 @@ final class RealTimeGame: NSObject, ObservableObject {
 
             // Register for real-time invitations from other players.
             GKLocalPlayer.local.register(self)
-
-            // Add an access point to the interface.
-            GKAccessPoint.shared.location = .topLeading
-            GKAccessPoint.shared.showHighlights = true
-            GKAccessPoint.shared.isActive = true
-
-        }
+            }
     }
 
     func isAuthenticated() -> Bool {

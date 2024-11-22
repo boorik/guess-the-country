@@ -13,12 +13,14 @@ class GameViewModel: ObservableObject {
         self.game = game
         self.router = router
         score = "0"
+        self.showLeaveConfirmation = false
         self.process(gameState: game.state)
     }
 
     @Published var currentQuestion: Question?
     @Published var displayedHints: [DisplayedHint] = []
     @Published var answer: DisplayedCorrection?
+    @Published var showLeaveConfirmation: Bool
 
     let game: Game
     let router: Router
@@ -84,5 +86,13 @@ class GameViewModel: ObservableObject {
 
     func goToNextQuestion() {
         process(gameState: game.getNextQuestion())
+    }
+    
+    func onBackButtonPressed() {
+        showLeaveConfirmation = true
+    }
+    
+    func onLeaveConfirmationPressed() {
+        router.back()
     }
 }

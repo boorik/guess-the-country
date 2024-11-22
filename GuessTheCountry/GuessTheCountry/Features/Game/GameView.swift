@@ -10,9 +10,9 @@ import UIKit
 
 struct GameView: View {
     let theme = Theme.default
-
+    
     @StateObject var gameViewModel: GameViewModel
-
+    
     init(game: Game, router: Router) {
         _gameViewModel = StateObject(wrappedValue: GameViewModel(game: game, router: router))
     }
@@ -39,14 +39,14 @@ struct GameView: View {
                 .scrollTargetBehavior(.viewAligned(limitBehavior: .automatic))
                 .scrollIndicators(.hidden)
             }
-
+            
             Button(
                 action: {
                     gameViewModel.onNextHint()
                 },
                 label: {
                     Text( gameViewModel.nextHintButtonLabel )
-            })
+                })
             .buttonStyle(PrimaryButton(theme: theme))
             .disabled(!gameViewModel.canDisplayNextHint)
         }
@@ -57,23 +57,31 @@ struct GameView: View {
                 VStack {
                     VStack {
                         HStack {
+                            Button {
+                                gameViewModel.onBackButtonPressed()
+                            } label: {
+                                Image(systemName: "arrowshape.backward.circle.fill")
+                                    .resizable()
+                                    .frame(width: 40, height: 40)
+                                    .tint(Color.black)
+                            }
                             Spacer()
                             Text("Score: \(gameViewModel.score)")
                                 .font(.appTitle)
                         }
                         Text("Quel pays ?")
                             .font(.mainTitle)
-
+                        
                     }
                     .padding(.horizontal, 20)
-
+                    
                     Spacer()
-
+                    
                     hints
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
-
+                    
                     Spacer()
-
+                    
                     LazyVGrid(columns: [GridItem(.adaptive(minimum: 150))]) {
                         ForEach(gameViewModel.possibleAnswers, id: \.self) { country in
                             Button {
@@ -100,6 +108,18 @@ struct GameView: View {
                 .ignoresSafeArea()
                 .transition(.slide)
             }
+        }.alert(isPresented: $gameViewModel.showLeaveConfirmation) {
+            Alert(
+                title: Text("Voulez-vous quitter la partie en cours ?"),
+                primaryButton: .default(
+                    Text("Oui"),
+                    action: gameViewModel.onLeaveConfirmationPressed
+                ),
+                secondaryButton: .cancel(
+                    Text("Annuler"),
+                    action: {}
+                )
+            )
         }
     }
 }
@@ -109,7 +129,7 @@ struct QuestionView: View {
     var body: some View {
         VStack {
             Text("QUESTION")
-
+            
         }
     }
 }
