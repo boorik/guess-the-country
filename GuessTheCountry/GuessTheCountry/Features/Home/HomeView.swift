@@ -8,9 +8,19 @@
 import SwiftUI
 
 struct HomeView: View {
+    internal init(
+        game: RealTimeGame = RealTimeGame()
+    ) {
+        self._game = StateObject(wrappedValue: game)
+        self.viewModel = HomeViewModel(realTimeGame: game)
+    }
+    let viewModel: HomeViewModel
+    @StateObject var game = RealTimeGame()
+    @State var showFriends = false
     let theme = Theme.default
-    @State var viewModel = HomeViewModel()
+
     @EnvironmentObject var router: Router
+
     func startSoloGame() async throws {
         state = .isProcessing
         let questionGenerator = QuestionGenerator(countryService: RemoteCountryService(session: .shared),
@@ -29,6 +39,7 @@ struct HomeView: View {
     }
 
     @State var state: HomeState = .idle
+    @State var showingAlertForMultiplayer: Bool = false
 
     var body: some View {
         ScaffoldView {
@@ -55,7 +66,11 @@ struct HomeView: View {
                         
                         Button {
                             Task {
-                                router.navigate(to: .matchmaker)
+                                if(viewModel.realTimeGame.isAuthenticated()) {
+                                    router.navigate(to: .matchmaker)
+                                } else {
+                                    showingAlertForMultiplayer = true
+                                }
                             }
                         } label: {
                             Text("Multiplayer")
@@ -63,7 +78,26 @@ struct HomeView: View {
                                 .frame(maxWidth: .infinity)
                         }
                         .buttonStyle(PrimaryButton(theme: theme))
-                        .disabled(!viewModel.isMultiplayerButtonActive)
+                        .alert("Attention", isPresented: $showingAlertForMultiplayer) {
+                            Button("OK") {
+                                showingAlertForMultiplayer = false
+                            }
+                        } message: {
+                            Text("Veuillez vous connecter à GameCenter")
+                        }
+
+                        Button {
+                            Task {
+                                await game.accessFriends()
+                                showFriends.toggle()
+                            }
+                        } label: {
+                            Text("Show friends")
+                                .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
+                                .frame(maxWidth: .infinity)
+                        }
+                        .buttonStyle(PrimaryButton(theme: theme))
+                       
                     }
                     .fixedSize(horizontal: false, vertical: true)
                     .padding(30)
@@ -76,8 +110,24 @@ struct HomeView: View {
                     .foregroundStyle(Color.red)
             }
         }
+        .popover(isPresented: $showFriends) {
+            LazyVStack {
+                ForEach(game.friends) { friend in
+                    HStack {
+                        Text(friend.id.uuidString)
+                        Text(friend.player.alias)
+                    }
+                    .padding()
+                    .background(
+                        Capsule()
+                            .fill(Color.gray)
+                    )
+                }
+            }
+
+        }
         .onAppear {
-            viewModel.checkForAuthentication()
+            viewModel.checkForAuthenticationWhenHomeAppears()
         }
     }
 }

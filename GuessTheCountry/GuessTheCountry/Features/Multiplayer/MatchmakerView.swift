@@ -30,18 +30,19 @@ struct MatchmakerView: UIViewControllerRepresentable {
             // TODO: handle this shit!
             return GKMatchmakerViewController()
         }
+
         
-        matchmakerViewController.matchmakingMode = .inviteOnly
+
+        //matchmakerViewController.matchmakingMode = .inviteOnly
         matchmakerViewController.delegate = context.coordinator
         matchmakerViewController.matchmakerDelegate = context.coordinator
+        matchmakerViewController.canStartWithMinimumPlayers = true
         return matchmakerViewController
     }
     
     func updateUIViewController(_ uiViewController: GKMatchmakerViewController, context: Context) {
-    
-        
+
     }
-    
     
     func makeCoordinator() -> Coordinator {
         return Coordinator(parent: self)

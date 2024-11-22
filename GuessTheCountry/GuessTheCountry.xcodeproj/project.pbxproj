@@ -10,6 +10,7 @@
 		0267FD022CB0273C00F871FA /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0267FD012CB0273C00F871FA /* HomeViewModel.swift */; };
 		0267FD052CB02D6300F871FA /* MatchmakerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0267FD042CB02D5A00F871FA /* MatchmakerView.swift */; };
 		0267FD072CB034FE00F871FA /* MultiplayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0267FD062CB034F900F871FA /* MultiplayerView.swift */; };
+		0267FD092CDE5F6B00F871FA /* MultiplayerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0267FD082CDE5F6400F871FA /* MultiplayerService.swift */; };
 		027CA5C02AFE788900B63123 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027CA5BF2AFE788900B63123 /* Game.swift */; };
 		027CA5C22AFE7E5100B63123 /* QuestionGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027CA5C12AFE7E5100B63123 /* QuestionGenerator.swift */; };
 		027CA5C62AFE7FE400B63123 /* QuestionGeneratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027CA5C52AFE7FE400B63123 /* QuestionGeneratorTests.swift */; };
@@ -29,10 +30,14 @@
 		BF0744722C78CD5C00199547 /* HintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0744712C78CD5C00199547 /* HintView.swift */; };
 		BF0744742C78CD9300199547 /* DisplayedCorrection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0744732C78CD9300199547 /* DisplayedCorrection.swift */; };
 		BF0744762C78CDC100199547 /* DisplayedHint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0744752C78CDC100199547 /* DisplayedHint.swift */; };
+		BF0D47C82CEC943A00A72715 /* RealTimeGame+GKLocalPlayerListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0D47C72CEC943A00A72715 /* RealTimeGame+GKLocalPlayerListener.swift */; };
+		BF0D47CA2CEC957C00A72715 /* RealTimeGame+GKMatchMakerViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0D47C92CEC957C00A72715 /* RealTimeGame+GKMatchMakerViewDelegate.swift */; };
 		BF44ECE82C947AA9008D0131 /* ScoreCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF44ECE72C947AA9008D0131 /* ScoreCalculator.swift */; };
 		BF44ECEA2C947AC2008D0131 /* ScoreCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF44ECE92C947ABE008D0131 /* ScoreCalculatorTests.swift */; };
 		BF4A64502BB70AED009C93A8 /* EndGameScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4A644F2BB70AED009C93A8 /* EndGameScreen.swift */; };
 		BF4A64522BB70BC5009C93A8 /* ScaffoldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4A64512BB70BC5009C93A8 /* ScaffoldView.swift */; };
+		BF8AD00B2CC2A34900AD7440 /* Friends.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8AD00A2CC2A33B00AD7440 /* Friends.swift */; };
+		BF8AD00D2CC2A3DE00AD7440 /* RealTimeGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8AD00C2CC2A3DA00AD7440 /* RealTimeGame.swift */; };
 		F1E031BD2AEBF61800F344F1 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E031BC2AEBF61800F344F1 /* Country.swift */; };
 		F1E031C02AEBF77900F344F1 /* CountryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E031BF2AEBF77900F344F1 /* CountryService.swift */; };
 		F1E031C22AEBF89A00F344F1 /* CountryServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E031C12AEBF89A00F344F1 /* CountryServiceTests.swift */; };
@@ -70,6 +75,7 @@
 		0267FD012CB0273C00F871FA /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		0267FD042CB02D5A00F871FA /* MatchmakerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchmakerView.swift; sourceTree = "<group>"; };
 		0267FD062CB034F900F871FA /* MultiplayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplayerView.swift; sourceTree = "<group>"; };
+		0267FD082CDE5F6400F871FA /* MultiplayerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplayerService.swift; sourceTree = "<group>"; };
 		027CA5BF2AFE788900B63123 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		027CA5C12AFE7E5100B63123 /* QuestionGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionGenerator.swift; sourceTree = "<group>"; };
 		027CA5C52AFE7FE400B63123 /* QuestionGeneratorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionGeneratorTests.swift; sourceTree = "<group>"; };
@@ -90,10 +96,14 @@
 		BF0744712C78CD5C00199547 /* HintView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HintView.swift; sourceTree = "<group>"; };
 		BF0744732C78CD9300199547 /* DisplayedCorrection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayedCorrection.swift; sourceTree = "<group>"; };
 		BF0744752C78CDC100199547 /* DisplayedHint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayedHint.swift; sourceTree = "<group>"; };
+		BF0D47C72CEC943A00A72715 /* RealTimeGame+GKLocalPlayerListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RealTimeGame+GKLocalPlayerListener.swift"; sourceTree = "<group>"; };
+		BF0D47C92CEC957C00A72715 /* RealTimeGame+GKMatchMakerViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RealTimeGame+GKMatchMakerViewDelegate.swift"; sourceTree = "<group>"; };
 		BF44ECE72C947AA9008D0131 /* ScoreCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreCalculator.swift; sourceTree = "<group>"; };
 		BF44ECE92C947ABE008D0131 /* ScoreCalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreCalculatorTests.swift; sourceTree = "<group>"; };
 		BF4A644F2BB70AED009C93A8 /* EndGameScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndGameScreen.swift; sourceTree = "<group>"; };
 		BF4A64512BB70BC5009C93A8 /* ScaffoldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaffoldView.swift; sourceTree = "<group>"; };
+		BF8AD00A2CC2A33B00AD7440 /* Friends.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friends.swift; sourceTree = "<group>"; };
+		BF8AD00C2CC2A3DA00AD7440 /* RealTimeGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealTimeGame.swift; sourceTree = "<group>"; };
 		F1E031BA2AEBF4FC00F344F1 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		F1E031BC2AEBF61800F344F1 /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		F1E031BF2AEBF77900F344F1 /* CountryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryService.swift; sourceTree = "<group>"; };
@@ -143,6 +153,10 @@
 		0267FD032CB02D1C00F871FA /* Multiplayer */ = {
 			isa = PBXGroup;
 			children = (
+				BF0D47C92CEC957C00A72715 /* RealTimeGame+GKMatchMakerViewDelegate.swift */,
+				BF0D47C72CEC943A00A72715 /* RealTimeGame+GKLocalPlayerListener.swift */,
+				BF8AD00C2CC2A3DA00AD7440 /* RealTimeGame.swift */,
+				BF8AD00A2CC2A33B00AD7440 /* Friends.swift */,
 				0267FD062CB034F900F871FA /* MultiplayerView.swift */,
 				0267FD042CB02D5A00F871FA /* MatchmakerView.swift */,
 			);
@@ -252,6 +266,7 @@
 		F1E031BE2AEBF75300F344F1 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				0267FD082CDE5F6400F871FA /* MultiplayerService.swift */,
 				F1E031BF2AEBF77900F344F1 /* CountryService.swift */,
 			);
 			path = Service;
@@ -475,17 +490,22 @@
 				BF4A64502BB70AED009C93A8 /* EndGameScreen.swift in Sources */,
 				BF4A64522BB70BC5009C93A8 /* ScaffoldView.swift in Sources */,
 				0267FD022CB0273C00F871FA /* HomeViewModel.swift in Sources */,
+				0267FD092CDE5F6B00F871FA /* MultiplayerService.swift in Sources */,
+				BF0D47CA2CEC957C00A72715 /* RealTimeGame+GKMatchMakerViewDelegate.swift in Sources */,
 				0267FD072CB034FE00F871FA /* MultiplayerView.swift in Sources */,
 				027CA5C22AFE7E5100B63123 /* QuestionGenerator.swift in Sources */,
 				BF0744722C78CD5C00199547 /* HintView.swift in Sources */,
+				BF0D47C82CEC943A00A72715 /* RealTimeGame+GKLocalPlayerListener.swift in Sources */,
 				02D049892BE5225900378E3B /* HistoryElement.swift in Sources */,
 				BF44ECE82C947AA9008D0131 /* ScoreCalculator.swift in Sources */,
 				B6D5D97E2C382F9C00E93562 /* AnswerPopover.swift in Sources */,
 				0267FD052CB02D6300F871FA /* MatchmakerView.swift in Sources */,
+				BF8AD00D2CC2A3DE00AD7440 /* RealTimeGame.swift in Sources */,
 				027CA5C02AFE788900B63123 /* Game.swift in Sources */,
 				F1E031C02AEBF77900F344F1 /* CountryService.swift in Sources */,
 				B61CE5242B2C9D87007AE91B /* Router.swift in Sources */,
 				B6D321CB2AF53EA100C93349 /* HomeView.swift in Sources */,
+				BF8AD00B2CC2A34900AD7440 /* Friends.swift in Sources */,
 				850DF4D62B48513A0053EF3B /* GameViewModel.swift in Sources */,
 				F1FBFC022AD98FC900332F41 /* ContentView.swift in Sources */,
 				F1E031BD2AEBF61800F344F1 /* Country.swift in Sources */,
