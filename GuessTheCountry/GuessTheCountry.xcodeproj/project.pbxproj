@@ -11,7 +11,7 @@
 		0267FD052CB02D6300F871FA /* MatchmakerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0267FD042CB02D5A00F871FA /* MatchmakerView.swift */; };
 		0267FD072CB034FE00F871FA /* MultiplayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0267FD062CB034F900F871FA /* MultiplayerView.swift */; };
 		0267FD092CDE5F6B00F871FA /* MultiplayerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0267FD082CDE5F6400F871FA /* MultiplayerService.swift */; };
-		027CA5C02AFE788900B63123 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027CA5BF2AFE788900B63123 /* Game.swift */; };
+		027CA5C02AFE788900B63123 /* SoloGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027CA5BF2AFE788900B63123 /* SoloGame.swift */; };
 		027CA5C22AFE7E5100B63123 /* QuestionGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027CA5C12AFE7E5100B63123 /* QuestionGenerator.swift */; };
 		027CA5C62AFE7FE400B63123 /* QuestionGeneratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027CA5C52AFE7FE400B63123 /* QuestionGeneratorTests.swift */; };
 		027CA5C92AFE825C00B63123 /* countries.json in Resources */ = {isa = PBXBuildFile; fileRef = 027CA5C82AFE825C00B63123 /* countries.json */; };
@@ -76,7 +76,7 @@
 		0267FD042CB02D5A00F871FA /* MatchmakerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchmakerView.swift; sourceTree = "<group>"; };
 		0267FD062CB034F900F871FA /* MultiplayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplayerView.swift; sourceTree = "<group>"; };
 		0267FD082CDE5F6400F871FA /* MultiplayerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplayerService.swift; sourceTree = "<group>"; };
-		027CA5BF2AFE788900B63123 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		027CA5BF2AFE788900B63123 /* SoloGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoloGame.swift; sourceTree = "<group>"; };
 		027CA5C12AFE7E5100B63123 /* QuestionGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionGenerator.swift; sourceTree = "<group>"; };
 		027CA5C52AFE7FE400B63123 /* QuestionGeneratorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionGeneratorTests.swift; sourceTree = "<group>"; };
 		027CA5C82AFE825C00B63123 /* countries.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = countries.json; sourceTree = "<group>"; };
@@ -254,7 +254,7 @@
 			isa = PBXGroup;
 			children = (
 				F1E031BC2AEBF61800F344F1 /* Country.swift */,
-				027CA5BF2AFE788900B63123 /* Game.swift */,
+				027CA5BF2AFE788900B63123 /* SoloGame.swift */,
 				BF44ECE72C947AA9008D0131 /* ScoreCalculator.swift */,
 				027CA5C12AFE7E5100B63123 /* QuestionGenerator.swift */,
 				5F3D05F32B2368D600F6702E /* Question.swift */,
@@ -501,7 +501,7 @@
 				B6D5D97E2C382F9C00E93562 /* AnswerPopover.swift in Sources */,
 				0267FD052CB02D6300F871FA /* MatchmakerView.swift in Sources */,
 				BF8AD00D2CC2A3DE00AD7440 /* RealTimeGame.swift in Sources */,
-				027CA5C02AFE788900B63123 /* Game.swift in Sources */,
+				027CA5C02AFE788900B63123 /* SoloGame.swift in Sources */,
 				F1E031C02AEBF77900F344F1 /* CountryService.swift in Sources */,
 				B61CE5242B2C9D87007AE91B /* Router.swift in Sources */,
 				B6D321CB2AF53EA100C93349 /* HomeView.swift in Sources */,

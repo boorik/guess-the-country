@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 class GameViewModel: ObservableObject {
-    init(game: Game, router: Router) {
+    init(game: SoloGame, router: Router) {
         self.game = game
         self.router = router
         score = "0"
@@ -22,7 +22,7 @@ class GameViewModel: ObservableObject {
     @Published var answer: DisplayedCorrection?
     @Published var showLeaveConfirmation: Bool
 
-    let game: Game
+    let game: SoloGame
     let router: Router
     private(set) var score: String
 

@@ -11,7 +11,7 @@ import XCTest
 final class GameTests: XCTestCase {
 
     func testGivenNewGameWhenInitiatedThenStateIsRunning() throws {
-        let sut = Game(questions: Question.mockArray(size: 5))
+        let sut = SoloGame(questions: Question.mockArray(size: 5))
 
         guard case .askingQuestion = sut.state else {
             return XCTFail("Game is not running")
@@ -20,7 +20,7 @@ final class GameTests: XCTestCase {
     }
 
     func testGivenNewGameWhenInitiatedThenCurrentQuestionIsTheFirstOne() throws {
-        let sut = Game(questions: Question.mockArray(size: 5))
+        let sut = SoloGame(questions: Question.mockArray(size: 5))
 
         guard case .askingQuestion(let currentQuestion, _, _) = sut.state else {
             return XCTFail("Game is not running")
@@ -29,7 +29,7 @@ final class GameTests: XCTestCase {
     }
 
     func testGivenNewGameWhenInitiatedThenOneHintMustBeRevealed() throws {
-        let sut = Game(questions: Question.mockArray(size: 5))
+        let sut = SoloGame(questions: Question.mockArray(size: 5))
 
         guard case .askingQuestion(_, _, let hints) = sut.state else {
             return XCTFail("Game is not running")
@@ -38,7 +38,7 @@ final class GameTests: XCTestCase {
     }
 
     func testGivenRunningGameWhenRequestingMoreHintThenOneMoreHintMustBeRevealed() throws {
-        let sut = Game(questions: Question.mockArray(size: 5))
+        let sut = SoloGame(questions: Question.mockArray(size: 5))
 
         let state = sut.revealMoreHints()
 
@@ -60,7 +60,7 @@ final class GameTests: XCTestCase {
         let questions = Question.mockArray(size: 5, hintsNumber: hintNumber)
         XCTAssertEqual(questions.first?.hints.count, hintNumber)
 
-        let sut = Game(questions: questions)
+        let sut = SoloGame(questions: questions)
 
         _ = sut.revealMoreHints()
         let state = sut.revealMoreHints()
@@ -82,7 +82,7 @@ final class GameTests: XCTestCase {
     }
 
     func testGivenNewGameWhenSelectingAWrongAnswerThenTheScoreIsNotUpdated() throws {
-        let sut = Game(questions: Question.mockArray(size: 5))
+        let sut = SoloGame(questions: Question.mockArray(size: 5))
 
         _ = sut.selectAnswer(answer: "")
         _ = sut.getNextQuestion()
@@ -96,7 +96,7 @@ final class GameTests: XCTestCase {
     }
 
     func testGivenNewGameWhenSelectingAGoodAnswerThenTheScoreIsUpdated() throws {
-        let sut = Game(questions: Question.mockArray(size: 5))
+        let sut = SoloGame(questions: Question.mockArray(size: 5))
 
         _ = sut.selectAnswer(answer: "Good Answer 1")
         _ = sut.getNextQuestion()
@@ -110,7 +110,7 @@ final class GameTests: XCTestCase {
     }
 
     func testGivenTheLastQuestionWhenSelectingAnAnswerThenTheScoreIsUpdated() throws {
-        let sut = Game(questions: Question.mockArray(size: 1))
+        let sut = SoloGame(questions: Question.mockArray(size: 1))
 
         let state = sut.selectAnswer(answer: "Good Answer 1")
 
@@ -122,7 +122,7 @@ final class GameTests: XCTestCase {
     }
 
     func testGivenARightAnswerWhenCheckAnswerThenState() throws {
-        let sut = Game(questions: Question.mockArray(size: 2))
+        let sut = SoloGame(questions: Question.mockArray(size: 2))
 
         let state = sut.selectAnswer(answer: "Good Answer 1")
 
@@ -136,7 +136,7 @@ final class GameTests: XCTestCase {
     }
 
     func testGivenLastQuestionWhenAskingANewQuestionThenTheGameIsFinished() throws {
-        let sut = Game(questions: Question.mockArray(size: 1))
+        let sut = SoloGame(questions: Question.mockArray(size: 1))
 
         _ = sut.selectAnswer(answer: "Good Answer 1")
         _ = sut.getNextQuestion()

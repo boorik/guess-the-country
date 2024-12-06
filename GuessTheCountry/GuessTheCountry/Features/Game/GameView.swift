@@ -13,7 +13,7 @@ struct GameView: View {
     
     @StateObject var gameViewModel: GameViewModel
     
-    init(game: Game, router: Router) {
+    init(game: SoloGame, router: Router) {
         _gameViewModel = StateObject(wrappedValue: GameViewModel(game: game, router: router))
     }
     var hints: some View {
@@ -135,5 +135,5 @@ struct QuestionView: View {
 }
 
 #Preview {
-    GameView(game: Game(questions: Question.mockArray(size: 4)), router: .init())
+    GameView(game: SoloGame(questions: Question.mockArray(size: 4)), router: .init())
 }

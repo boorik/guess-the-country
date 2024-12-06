@@ -12,14 +12,14 @@ import Testing
 struct GameViewModelTests {
     @Test("Given new game when initiated then one hint is displayed")
     func testGivenNewGameWhenInitiatedThenOneHintIsDisplayed() throws {
-        let sut = GameViewModel(game: Game(questions: Question.mockArray(size: 5)), router: Router())
+        let sut = GameViewModel(game: SoloGame(questions: Question.mockArray(size: 5)), router: Router())
 
         #expect(sut.displayedHints.count == 1)
     }
 
     @Test("When asking a new question then first hint is updated")
     func firstHintUpdated() throws {
-        let sut = GameViewModel(game: Game(questions: Question.mockArray(size: 5)), router: Router())
+        let sut = GameViewModel(game: SoloGame(questions: Question.mockArray(size: 5)), router: Router())
 
         let oldFirstHint = sut.displayedHints.first
         sut.goToNextQuestion()
@@ -40,7 +40,7 @@ struct GameViewModelTests {
             ]
         )
         let sut = GameViewModel(
-            game: Game(
+            game: SoloGame(
                 questions: [question]
             ),
             router: Router()

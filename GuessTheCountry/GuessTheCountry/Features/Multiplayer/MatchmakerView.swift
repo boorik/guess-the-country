@@ -66,6 +66,10 @@ struct MatchmakerView: UIViewControllerRepresentable {
         
         func matchmakerViewController(_ viewController: GKMatchmakerViewController, didFind match: GKMatch) {
             print("match found")
+
+            // start game
+            
+
         }
         
         func matchmakerViewController(_ viewController: GKMatchmakerViewController, didFindHostedPlayers players: [GKPlayer]) {

@@ -80,9 +80,7 @@ enum GameError: Error, Equatable {
     case unexpectedCall
 }
 
-
-
-class Game {
+class SoloGame {
     internal init(
         score: Int = 0,
         questions: [Question],
