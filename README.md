@@ -34,3 +34,18 @@ https://restcountries.com/
 GameKit (in progress) + server vapor?
 
 
+# Multiplayer rules 
+
+- Same question for every player
+- Max Player : 4 and can scale later
+- Flag only for now as hint
+- First having the good answer wins the question
+- zero point for wrong response
+- Order score by order of players having the correct answer
+
+
+# Host choice
+
+- First player launch : chooseBestHostingPlayer()
+- if no response (or empty ?) : first player is the host
+- player sends to other player who is the host.

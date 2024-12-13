@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02667A7B2D0C7F4B003D18AA /* MultiGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02667A7A2D0C7F4B003D18AA /* MultiGame.swift */; };
+		02667A7D2D0C8575003D18AA /* MultiGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02667A7C2D0C8561003D18AA /* MultiGameState.swift */; };
 		0267FD022CB0273C00F871FA /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0267FD012CB0273C00F871FA /* HomeViewModel.swift */; };
 		0267FD052CB02D6300F871FA /* MatchmakerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0267FD042CB02D5A00F871FA /* MatchmakerView.swift */; };
 		0267FD072CB034FE00F871FA /* MultiplayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0267FD062CB034F900F871FA /* MultiplayerView.swift */; };
@@ -72,6 +74,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		02667A7A2D0C7F4B003D18AA /* MultiGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiGame.swift; sourceTree = "<group>"; };
+		02667A7C2D0C8561003D18AA /* MultiGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiGameState.swift; sourceTree = "<group>"; };
 		0267FD012CB0273C00F871FA /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		0267FD042CB02D5A00F871FA /* MatchmakerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchmakerView.swift; sourceTree = "<group>"; };
 		0267FD062CB034F900F871FA /* MultiplayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplayerView.swift; sourceTree = "<group>"; };
@@ -253,8 +257,10 @@
 		F1E031BB2AEBF5DB00F344F1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				02667A7C2D0C8561003D18AA /* MultiGameState.swift */,
 				F1E031BC2AEBF61800F344F1 /* Country.swift */,
 				027CA5BF2AFE788900B63123 /* SoloGame.swift */,
+				02667A7A2D0C7F4B003D18AA /* MultiGame.swift */,
 				BF44ECE72C947AA9008D0131 /* ScoreCalculator.swift */,
 				027CA5C12AFE7E5100B63123 /* QuestionGenerator.swift */,
 				5F3D05F32B2368D600F6702E /* Question.swift */,
@@ -503,10 +509,12 @@
 				BF8AD00D2CC2A3DE00AD7440 /* RealTimeGame.swift in Sources */,
 				027CA5C02AFE788900B63123 /* SoloGame.swift in Sources */,
 				F1E031C02AEBF77900F344F1 /* CountryService.swift in Sources */,
+				02667A7D2D0C8575003D18AA /* MultiGameState.swift in Sources */,
 				B61CE5242B2C9D87007AE91B /* Router.swift in Sources */,
 				B6D321CB2AF53EA100C93349 /* HomeView.swift in Sources */,
 				BF8AD00B2CC2A34900AD7440 /* Friends.swift in Sources */,
 				850DF4D62B48513A0053EF3B /* GameViewModel.swift in Sources */,
+				02667A7B2D0C7F4B003D18AA /* MultiGame.swift in Sources */,
 				F1FBFC022AD98FC900332F41 /* ContentView.swift in Sources */,
 				F1E031BD2AEBF61800F344F1 /* Country.swift in Sources */,
 				FD5A5B9C2B9B61360099AC4F /* AnswerButton.swift in Sources */,
